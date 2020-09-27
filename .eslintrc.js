@@ -1,23 +1,34 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es6: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'prettier', 'prettier/react'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'prettier',
+    'prettier/react',
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
-    __DEV__: 'readonly',
+    __DEV__: true,
   },
   parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
+    ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'jsx-a11y', 'import', 'prettier', 'react-hooks'],
+  plugins: [
+    'react',
+    'jsx-a11y',
+    'import',
+    'prettier',
+    'react-hooks'
+  ],
   rules: {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
@@ -29,13 +40,13 @@ module.exports = {
     'react-native/no-raw-text': 'off',
     'no-param-reassign': 'off',
     'no-underscore-dangle': 'off',
-    camelcase: 'off',
+    'camelcase': 'off',
     'no-console': ['error', { allow: ['tron'] }],
     'no-alert': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'jsx-a11y/label-has-associated-control': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
-    'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    'jsx-a11y/no-noninteractive-element-interactions': 'off'
   },
 };
