@@ -1,0 +1,59 @@
+import { createGlobalStyle } from 'styled-components';
+
+export default createGlobalStyle`
+:root {
+
+  --color-primary: #FF6B6C;
+  --color-secondary: #5B5F97;
+
+  --color-black: #263238;
+  --color-white: #fff;
+
+  --color-ligth-gray: #F9F9F9;
+  --color-medium-gray: #DFE4EA;
+  --color-gray: #999999;
+
+  --color-green: #6FCF97;
+  --color-yellow: #F2B279;
+
+  font-size: 60%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100vh;
+}
+
+body {
+  background: var(--color-ligth-gray);
+}
+
+body,
+input,
+button,
+textarea {
+  font: 500 1.6rem Roboto;
+  color: var(--color-black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Montserrat;
+  font-weight: bold;
+}
+
+.container {
+  width: 90vw;
+  max-width: 700px;
+}
+
+@media (min-width: 700px) {
+  :root {
+    font-size: 62.5%;
+  }
+}
+`;
