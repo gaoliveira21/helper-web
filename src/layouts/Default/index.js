@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   Container,
@@ -82,5 +83,9 @@ function DefaultLayout({ children }) {
     </Container>
   );
 }
+
+DefaultLayout.propTypes = {
+  children: PropTypes.element.isRequired,
+};
 
 export default DefaultLayout;
