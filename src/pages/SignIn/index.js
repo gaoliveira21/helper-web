@@ -1,26 +1,42 @@
 import React from 'react';
 
-import { Container, Image, Content, FormContent, Footer } from './styles';
+import {
+  Container,
+  ImageContent,
+  Title,
+  Image,
+  Content,
+  FormContent,
+  Footer,
+} from './styles';
 
 import loginImage from '../../assets/images/login.svg';
 
 function SignIn() {
   return (
     <Container>
-      <Image>
-        <strong>Helper</strong>
-        <img src={loginImage} alt="Login" />
-      </Image>
+      <ImageContent>
+        <Title>
+          <h1>Helper</h1>
+        </Title>
+        <Image>
+          <img src={loginImage} alt="Cadastre-se" />
+        </Image>
+      </ImageContent>
       <Content>
         <FormContent>
-          <strong>Helper</strong>
-          <h1>Acessar o sistema</h1>
+          <h1>Helper</h1>
+          <h2>Acessar o sistema</h2>
           <form>
             <label htmlFor="email">E-mail</label>
-            <input type="text" placeholder="Digite seu E-mail" id="email" />
+            <input type="text" placeholder="Digite seu e-mail" id="email" />
 
             <label htmlFor="password">Senha</label>
-            <input type="text" placeholder="Digite sua senha" id="password" />
+            <input
+              type="password"
+              placeholder="Digite sua senha"
+              id="password"
+            />
 
             <button type="submit">Entrar</button>
           </form>

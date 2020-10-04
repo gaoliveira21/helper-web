@@ -19,7 +19,7 @@ export const ImageContent = styled.div`
 
 export const Title = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: flex-end;
   padding: 0 80px;
   height: 10vh;
@@ -40,18 +40,11 @@ export const Image = styled.div`
   }
 `;
 
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
-
 export const FormContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 90vh;
   padding: 0 40px;
 
   h1 {
@@ -61,41 +54,63 @@ export const FormContent = styled.div`
   }
 
   h2 {
-    margin-bottom: 4rem;
     font-size: 3.5rem;
+  }
+
+  p {
+    margin-bottom: 4rem;
+    color: var(--color-gray);
   }
 
   form {
     width: 100%;
+
+    label {
+      display: block;
+      margin: 8px 0px;
+      font-weight: bold;
+    }
+    input {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      border-radius: 4px;
+      border: none;
+      margin-bottom: 24px;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      background: var(--color-primary);
+      padding: 16px 40px;
+      border: none;
+      border-radius: 4px;
+      color: var(--color-white);
+      font-weight: bold;
+      outline: none;
+
+      &:hover {
+        background: var(--color-primary-dark);
+      }
+    }
   }
 
-  label {
-    display: block;
-    margin: 8px 0px;
-    font-weight: bold;
-  }
-  input {
-    display: block;
-    width: 100%;
-    padding: 16px 24px;
-    border-radius: 4px;
-    border: none;
-    margin-bottom: 24px;
-    outline: none;
-  }
+  div {
+    display: flex;
+    flex-direction: row;
+    margin: 6rem auto;
 
-  button {
-    width: 100%;
-    background: var(--color-primary);
-    padding: 16px 40px;
-    border: none;
-    border-radius: 4px;
-    color: var(--color-white);
-    font-weight: bold;
-    outline: none;
+    span {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: var(--color-gray);
+      margin: 0 2rem;
+    }
 
-    &:hover {
-      background: var(--color-primary-dark);
+    span:first-child {
+      background-color: var(--color-primary);
     }
   }
 
@@ -108,29 +123,13 @@ export const FormContent = styled.div`
       text-align: center;
     }
 
+    p {
+      text-align: center;
+    }
+
     form {
       width: 500px;
       margin: 0 auto;
     }
-  }
-`;
-
-export const Footer = styled.footer`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0px 40px;
-  width: 100%;
-  height: 10vh;
-  background-color: var(--color-white);
-
-  a {
-    font-weight: bold;
-    color: var(--color-primary);
-    text-decoration: none;
-  }
-
-  @media (min-width: 768px) {
-    padding: 0 80px;
   }
 `;
