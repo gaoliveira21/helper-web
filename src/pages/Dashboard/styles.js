@@ -32,6 +32,59 @@ export const SideBar = styled.nav`
   @media (min-width: 768px) {
     display: block;
   }
+
+  header {
+    width: 100%;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100px;
+      border-radius: 50%;
+      background: #ccc;
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: #fff;
+      font-size: 2rem;
+      font-family: Montserrat, Arial, sans-serif;
+    }
+  }
+
+  ul {
+    width: 100%;
+    margin-top: 20px;
+
+    li {
+      width: 100%;
+      padding: 10px 5px;
+      transition: opacity 0.4s;
+
+      a {
+        margin-left: 15px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        color: var(--color-white);
+        font-size: 1.6rem;
+        text-decoration: none;
+        font-weight: bold;
+
+        svg {
+          margin-right: 10px;
+          width: 3.5rem;
+        }
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
 `;
 
 export const BottomTabs = styled.nav`
@@ -98,4 +151,11 @@ export const ProfileIcon = styled(UserDetail)`
 export const LogOutIcon = styled(LogOut)`
   width: 4.5rem;
   color: var(--color-white);
+`;
+
+export const Divider = styled.div`
+  width: 80%;
+  height: 2px;
+  background: var(--color-white);
+  margin: 40px auto;
 `;
