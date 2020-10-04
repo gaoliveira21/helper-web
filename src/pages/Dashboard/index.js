@@ -1,12 +1,15 @@
 import React from 'react';
 
-import { Container, BottomTabs, TopBar, Main } from './styles';
+import { Container, SideBar, BottomTabs, TopBar, Main } from './styles';
 
 function Dashboard() {
   return (
     <Container>
-      <TopBar />
-      <Main />
+      <SideBar />
+      <Main>
+        <TopBar />
+        <div />
+      </Main>
       <BottomTabs />
     </Container>
   );
