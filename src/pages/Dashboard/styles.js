@@ -1,23 +1,35 @@
 import styled from 'styled-components';
+import { FolderOpen, Home, DonateHeart } from '@styled-icons/boxicons-solid';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 0.25fr 0.75fr;
-  grid-template-areas: 'Sidebar Main';
+  height: 100%;
+  grid-template-rows: 65px auto 60px;
+  grid-template-areas:
+    'topheader'
+    'maincontent'
+    'bottomtabs';
 `;
 
-export const SideBar = styled.nav`
-  grid-area: Sidebar;
+export const BottomTabs = styled.nav`
+  grid-area: bottomtabs;
   background: var(--color-primary);
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 
 export const Main = styled.main`
-  display: grid;
-  grid-template-rows: 60px 1fr;
+  grid-area: maincontent;
+  height: 100%;
 `;
 
 export const TopBar = styled.header`
+  grid-area: topheader;
   background: #ccc;
 `;
+
+const PanelIcon = styled(Home)``;
+
+const CasesIcon = styled(FolderOpen)``;
+
+const DonateIcons = styled(DonateHeart)``;

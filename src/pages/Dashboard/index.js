@@ -1,14 +1,13 @@
 import React from 'react';
 
-import { Container, SideBar, TopBar, Main } from './styles';
+import { Container, BottomTabs, TopBar, Main } from './styles';
 
 function Dashboard() {
   return (
     <Container>
-      <SideBar />
-      <Main>
-        <TopBar />
-      </Main>
+      <TopBar />
+      <Main />
+      <BottomTabs />
     </Container>
   );
 }
