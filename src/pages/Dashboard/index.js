@@ -1,6 +1,17 @@
 import React from 'react';
 
-import { Container, SideBar, BottomTabs, TopBar, Main } from './styles';
+import {
+  Container,
+  SideBar,
+  BottomTabs,
+  TopBar,
+  Main,
+  PanelIcon,
+  CasesIcon,
+  DonateIcon,
+  ProfileIcon,
+  LogOutIcon,
+} from './styles';
 
 function Dashboard() {
   return (
@@ -15,7 +26,13 @@ function Dashboard() {
         </TopBar>
         <div />
       </Main>
-      <BottomTabs />
+      <BottomTabs>
+        <PanelIcon />
+        <CasesIcon />
+        <DonateIcon />
+        <ProfileIcon />
+        <LogOutIcon />
+      </BottomTabs>
     </Container>
   );
 }
