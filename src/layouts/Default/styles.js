@@ -8,6 +8,7 @@ import {
 } from '@styled-icons/boxicons-solid';
 
 export const Container = styled.div`
+  overflow: hidden;
   display: grid;
   height: 100vh;
   grid-template-rows: auto 60px;
