@@ -7,7 +7,12 @@ function Dashboard() {
     <Container>
       <SideBar />
       <Main>
-        <TopBar />
+        <TopBar>
+          <p>Painel</p>
+          <p>
+            <strong>Helper</strong>
+          </p>
+        </TopBar>
         <div />
       </Main>
       <BottomTabs />

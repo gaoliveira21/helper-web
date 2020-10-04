@@ -46,7 +46,22 @@ export const Main = styled.main`
 export const TopBar = styled.header`
   width: 100%;
   height: 65px;
-  background: #ccc;
+  background: var(--color-white);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  p {
+    font-weight: bold;
+    font-size: 2rem;
+
+    strong {
+      color: var(--color-primary);
+    }
+  }
 `;
 
 const PanelIcon = styled(Home)``;
