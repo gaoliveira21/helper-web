@@ -12,14 +12,27 @@ function SignIn() {
         <h2>Cadastrar-se</h2>
         <p>Preencha os campos abaixo para efetuar o cadastro</p>
         <form>
-          <label htmlFor="name">Nome da entidade</label>
-          <input type="text" placeholder="Digite seu E-mail" id="name" />
+          <label htmlFor="city">Cidade</label>
+          <input type="text" placeholder="Digite sua Cidade" id="city" />
 
-          <label htmlFor="email">E-mail</label>
-          <input type="text" placeholder="Digite seu E-mail" id="email" />
+          <label htmlFor="state">Estado UF</label>
+          <input type="text" placeholder="Digite seu Estado UF" id="state" />
 
-          <label htmlFor="password">Senha</label>
-          <input type="password" placeholder="Digite sua senha" id="password" />
+          <label htmlFor="street">Rua / Logradouro</label>
+          <input type="text" placeholder="Exemplo Rua..." id="street" />
+
+          <label htmlFor="neighborhood">Bairro</label>
+          <input
+            type="text"
+            placeholder="Exemplo Bairro..."
+            id="neighborhood"
+          />
+
+          <label htmlFor="number">Número</label>
+          <input type="text" placeholder="Exemplo Número..." id="number" />
+
+          <label htmlFor="whatsapp">Whatsapp</label>
+          <input type="text" placeholder="(00) 00000-0000" id="number" />
 
           <button type="submit">Próximo</button>
         </form>

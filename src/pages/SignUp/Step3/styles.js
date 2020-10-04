@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  min-height: 120vh;
+  height: 120vh;
 `;
 
 export const ImageContent = styled.div`
@@ -80,6 +80,18 @@ export const FormContent = styled.div`
       outline: none;
     }
 
+    textarea {
+      display: block;
+      width: 100%;
+      min-height: 120px;
+      padding: 16px 24px;
+      border-radius: 4px;
+      border: none;
+      margin-bottom: 24px;
+      outline: none;
+      resize: vertical;
+    }
+
     button {
       width: 100%;
       background: var(--color-primary);
@@ -105,15 +117,8 @@ export const FormContent = styled.div`
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background-color: var(--color-gray);
+      background-color: var(--color-primary);
       margin: 0 2rem;
-    }
-
-    span:nth-child(1) {
-      background-color: var(--color-primary);
-    }
-    span:nth-child(2) {
-      background-color: var(--color-primary);
     }
   }
 

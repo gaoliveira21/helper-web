@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  min-height: 120vh;
+  height: 100vh;
 `;
 
 export const ImageContent = styled.div`
@@ -34,7 +34,7 @@ export const Image = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 110vh;
+  height: 90vh;
   img {
     width: 700px;
   }
@@ -109,10 +109,7 @@ export const FormContent = styled.div`
       margin: 0 2rem;
     }
 
-    span:nth-child(1) {
-      background-color: var(--color-primary);
-    }
-    span:nth-child(2) {
+    span:first-child {
       background-color: var(--color-primary);
     }
   }
