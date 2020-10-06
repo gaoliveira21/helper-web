@@ -16,6 +16,8 @@ export default createGlobalStyle`
   --color-green: #6FCF97;
   --color-yellow: #F2B279;
 
+  --color-primary-dark: #f26869;
+
   font-size: 60%;
 }
 
@@ -44,6 +46,10 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
   font-family: Montserrat;
   font-weight: bold;
+}
+
+button {
+  cursor: pointer;
 }
 
 .container {
