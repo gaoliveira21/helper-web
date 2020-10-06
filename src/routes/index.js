@@ -9,6 +9,7 @@ import Step2 from '../pages/SignUp/Step2';
 import Step3 from '../pages/SignUp/Step3';
 import Sucess from '../pages/SignUp/Sucess';
 import Dashboard from '../pages/Dashboard';
+import Profile from '../pages/Profile';
 
 export default function Routes() {
   return (
@@ -20,6 +21,7 @@ export default function Routes() {
         <Route exact path="/sign-up/step3" component={Step3} />
         <Route exact path="/sign-up/sucess" component={Sucess} />
         <Route exact path="/dashboard" component={Dashboard} isPrivate />
+        <Route exact path="/profile" component={Profile} isPrivate />
       </Switch>
     </BrowserRouter>
   );
