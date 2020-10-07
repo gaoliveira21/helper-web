@@ -49,7 +49,7 @@ export const Container = styled.header`
       margin: 0.5rem 0rem;
 
       p {
-        color: var(--color-white);
+        color: var(--color-light-gray);
       }
     }
   }
