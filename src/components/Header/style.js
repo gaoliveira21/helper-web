@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 
-export const Header = styled.header`
+import { LeftArrowAlt } from '@styled-icons/boxicons-regular';
+
+export const BackIcon = styled(LeftArrowAlt)`
+  color: var(--color-white);
+  margin-right: 1rem;
+  width: 2.4rem;
+  height: auto;
+`;
+
+export const Container = styled.header`
   display: flex;
   flex-direction: column;
   height: 40vh;
@@ -13,6 +22,15 @@ export const Header = styled.header`
     align-items: center;
     justify-content: space-between;
     color: var(--color-white);
+
+    a {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      color: var(--color-white);
+      text-decoration: none;
+    }
   }
 
   > div {
