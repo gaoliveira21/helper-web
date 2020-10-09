@@ -1,8 +1,18 @@
 import styled from 'styled-components';
 
+import { CheckDouble } from '@styled-icons/boxicons-regular';
+
+export const CheckIcon = styled(CheckDouble)`
+  color: var(--color-white);
+  margin-left: 0.6rem;
+  width: 3rem;
+  height: auto;
+  font-weight: 500;
+`;
+
 export const Container = styled.div`
   padding: 0 2rem;
-  margin-top: -8rem;
+  margin: -8rem 0 2rem 0;
 `;
 
 export const Form = styled.form`
@@ -29,6 +39,42 @@ export const InputContent = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
+  }
+`;
+
+export const ButtonContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    width: 100%;
+    padding: 16px 40px;
+
+    background: var(--color-primary);
+    border: none;
+    border-radius: 4px;
+    color: var(--color-white);
+    font-weight: bold;
+    outline: none;
+
+    &:hover {
+      background: var(--color-primary-dark);
+    }
+
+    @media (min-width: 768px) {
+      width: 240px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    justify-content: flex-end;
   }
 `;
 

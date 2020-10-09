@@ -3,7 +3,13 @@ import React from 'react';
 import Input from '../../../components/Input';
 import Textarea from '../../../components/Textarea';
 
-import { Form, Container, InputContent, Dropzone } from './styles';
+import {
+  Form,
+  Container,
+  InputContent,
+  Dropzone,
+  ButtonContent,
+} from './styles';
 
 import Header from '../../../components/Header';
 
@@ -33,7 +39,7 @@ function NewCase() {
             />
           </InputContent>
           <InputContent>
-            <Textarea width="100%" label="Título do caso" name="title" />
+            <Textarea label="Título do caso" name="title" />
           </InputContent>
           <InputContent>
             <Dropzone>
@@ -41,6 +47,9 @@ function NewCase() {
               <div>Dropzone</div>
             </Dropzone>
           </InputContent>
+          <ButtonContent>
+            <button type="submit">Cadastrar</button>
+          </ButtonContent>
         </Form>
       </Container>
     </>

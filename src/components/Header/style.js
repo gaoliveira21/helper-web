@@ -14,7 +14,7 @@ export const Container = styled.header`
   flex-direction: column;
   height: 40vh;
   width: 100%;
-  padding: 2rem 3rem;
+  padding: 2rem 2rem;
   background: var(--color-primary);
 
   nav {
@@ -34,7 +34,7 @@ export const Container = styled.header`
   }
 
   > div {
-    margin: 6rem auto;
+    margin: 8rem auto;
     width: 100%;
     max-width: 1100px;
     align-items: center;

@@ -2,9 +2,9 @@ import React from 'react';
 
 import { InputBlock } from './styles';
 
-function Input({ width, label, name }) {
+function Input({ label, name }) {
   return (
-    <InputBlock width={width}>
+    <InputBlock>
       <label htmlFor={name}>{label}</label>
       <textarea name={name} id={name} />
     </InputBlock>

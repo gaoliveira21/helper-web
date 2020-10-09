@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const InputBlock = styled.div`
-  width: ${(props) => props.width};
+  width: 100%;
 
   label {
     width: 100%;
