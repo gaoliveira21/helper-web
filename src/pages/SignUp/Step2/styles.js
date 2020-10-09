@@ -78,6 +78,7 @@ export const FormContent = styled.div`
       border: none;
       margin-bottom: 24px;
       outline: none;
+      background: var(--color-medium-gray);
     }
 
     button {
