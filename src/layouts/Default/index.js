@@ -15,7 +15,7 @@ import {
   Divider,
 } from './styles';
 
-function DefaultLayout({ children }) {
+function DefaultLayout({ children, title }) {
   return (
     <Container>
       <SideBar>
@@ -66,7 +66,7 @@ function DefaultLayout({ children }) {
       </SideBar>
       <Main>
         <TopBar>
-          <p>Painel</p>
+          <p>{title}</p>
           <p>
             <strong>Helper</strong>
           </p>
@@ -86,6 +86,7 @@ function DefaultLayout({ children }) {
 
 DefaultLayout.propTypes = {
   children: PropTypes.element.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default DefaultLayout;
