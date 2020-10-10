@@ -17,8 +17,8 @@ function NewCase() {
   return (
     <>
       <Header
-        title="Cadastrar novo caso"
-        description="Crie um novo caso para receber doações!"
+        title="NOME DO CASO [EXEMPLO]"
+        description="Aqui você pode editar o seu caso, fazendo todas alterações necessárias."
         label="Casos"
       />
 
@@ -48,7 +48,7 @@ function NewCase() {
             </Dropzone>
           </InputContent>
           <ButtonContent>
-            <button type="submit">Cadastrar</button>
+            <button type="submit">Editar caso</button>
           </ButtonContent>
         </Form>
       </Container>

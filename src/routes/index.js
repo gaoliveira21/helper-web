@@ -10,6 +10,8 @@ import Step3 from '../pages/SignUp/Step3';
 import Sucess from '../pages/SignUp/Sucess';
 import Dashboard from '../pages/Dashboard';
 import NewCase from '../pages/Cases/NewCase';
+import UpdateCase from '../pages/Cases/UpdateCase';
+import Profile from '../pages/Profile';
 
 export default function Routes() {
   return (
@@ -22,6 +24,13 @@ export default function Routes() {
         <Route exact path="/sign-up/sucess" component={Sucess} />
         <Route exact path="/dashboard" component={Dashboard} isPrivate />
         <Route exact path="/cases/new-case" component={NewCase} isPrivate />
+        <Route exact path="/profile" component={Profile} isPrivate />
+        <Route
+          exact
+          path="/cases/update-case"
+          component={UpdateCase}
+          isPrivate
+        />
       </Switch>
     </BrowserRouter>
   );
