@@ -11,6 +11,7 @@ import Sucess from '../pages/SignUp/Sucess';
 import Dashboard from '../pages/Dashboard';
 import NewCase from '../pages/Cases/NewCase';
 import UpdateCase from '../pages/Cases/UpdateCase';
+import DetailCase from '../pages/Cases/DetailCase';
 import Profile from '../pages/Profile';
 
 export default function Routes() {
@@ -23,8 +24,14 @@ export default function Routes() {
         <Route exact path="/sign-up/step3" component={Step3} />
         <Route exact path="/sign-up/sucess" component={Sucess} />
         <Route exact path="/dashboard" component={Dashboard} isPrivate />
-        <Route exact path="/cases/new-case" component={NewCase} isPrivate />
         <Route exact path="/profile" component={Profile} isPrivate />
+        <Route exact path="/cases/new-case" component={NewCase} isPrivate />
+        <Route
+          exact
+          path="/cases/detail-case"
+          component={DetailCase}
+          isPrivate
+        />
         <Route
           exact
           path="/cases/update-case"
