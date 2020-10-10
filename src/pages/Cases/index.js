@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import DefaultLayout from '../../layouts/Default';
+import CaseItem from '../../components/CaseItem';
 
 import {
   Container,
@@ -44,9 +45,12 @@ function Cases() {
           <a href="!#">Novo caso</a>
         </FilterBox>
         <CaseList>
-          <div />
-          <div />
-          <div />
+          <CaseItem />
+          <CaseItem />
+          <CaseItem />
+          <CaseItem />
+          <CaseItem />
+          <CaseItem />
         </CaseList>
       </Container>
     </DefaultLayout>

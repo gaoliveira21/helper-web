@@ -66,10 +66,10 @@ export const FilterBox = styled.div`
     color: var(--color-white);
     text-decoration: none;
     font-weight: bold;
-    transition: all 0.4s;
+    transition: background 0.4s;
 
     &:hover {
-      opacity: 0.8;
+      background: var(--color-primary-dark);
     }
 
     @media (min-width: 768px) {
