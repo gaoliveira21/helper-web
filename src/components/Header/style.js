@@ -48,6 +48,17 @@ export const Container = styled.header`
     > div {
       margin: 0.5rem 0rem;
 
+      span {
+        padding: 0.4rem 6rem;
+        background-color: var(--color-green);
+        border-radius: 0.8rem;
+        font-size: 1.2rem;
+        margin-right: 2rem;
+
+        @media (min-width: 768px) {
+        }
+      }
+
       p {
         color: var(--color-white);
       }

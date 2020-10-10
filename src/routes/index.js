@@ -12,6 +12,7 @@ import Dashboard from '../pages/Dashboard';
 import NewCase from '../pages/Cases/NewCase';
 import Cases from '../pages/Cases';
 import UpdateCase from '../pages/Cases/UpdateCase';
+import DetailCase from '../pages/Cases/DetailCase';
 import Profile from '../pages/Profile';
 
 export default function Routes() {
@@ -27,6 +28,13 @@ export default function Routes() {
         <Route exact path="/cases" component={Cases} isPrivate />
         <Route exact path="/cases/new-case" component={NewCase} isPrivate />
         <Route exact path="/profile" component={Profile} isPrivate />
+        <Route exact path="/cases/new-case" component={NewCase} isPrivate />
+        <Route
+          exact
+          path="/cases/detail-case"
+          component={DetailCase}
+          isPrivate
+        />
         <Route
           exact
           path="/cases/update-case"

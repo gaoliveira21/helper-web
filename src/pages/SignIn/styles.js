@@ -69,23 +69,8 @@ export const FormContent = styled.div`
     width: 100%;
   }
 
-  label {
-    display: block;
-    margin: 8px 0px;
-    font-weight: bold;
-  }
-  input {
-    display: block;
-    width: 100%;
-    padding: 16px 24px;
-    border-radius: 4px;
-    border: none;
-    margin-bottom: 24px;
-    outline: none;
-    background: var(--color-medium-gray);
-  }
-
   button {
+    margin: 1rem 0;
     width: 100%;
     background: var(--color-primary);
     padding: 16px 40px;
@@ -110,9 +95,21 @@ export const FormContent = styled.div`
     }
 
     form {
-      width: 500px;
+      width: 600px;
       margin: 0 auto;
     }
+  }
+`;
+
+export const InputBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  margin: 1rem 0;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 `;
 
@@ -124,6 +121,7 @@ export const Footer = styled.footer`
   width: 100%;
   height: 10vh;
   background-color: var(--color-white);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 
   a {
     font-weight: bold;

@@ -48,13 +48,15 @@ export const FormContent = styled.div`
   padding: 0 40px;
 
   h1 {
-    margin-bottom: 4rem;
-    font-size: 4rem;
-    color: var(--color-primary);
+    font-size: 3.5rem;
   }
 
-  h2 {
-    font-size: 3.5rem;
+  h3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2rem 2rem;
+    color: var(--color-primary);
   }
 
   p {
@@ -65,23 +67,8 @@ export const FormContent = styled.div`
   form {
     width: 100%;
 
-    label {
-      display: block;
-      margin: 8px 0px;
-      font-weight: bold;
-    }
-    input {
-      display: block;
-      width: 100%;
-      padding: 16px 24px;
-      border-radius: 4px;
-      border: none;
-      margin-bottom: 24px;
-      outline: none;
-      background: var(--color-medium-gray);
-    }
-
     button {
+      margin: 1rem 0;
       width: 100%;
       background: var(--color-primary);
       padding: 16px 40px;
@@ -97,40 +84,22 @@ export const FormContent = styled.div`
     }
   }
 
-  div {
-    display: flex;
-    flex-direction: row;
-    margin: 6rem auto;
-
-    span {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background-color: var(--color-gray);
-      margin: 0 2rem;
-    }
-
-    span:first-child {
-      background-color: var(--color-primary);
-    }
-  }
-
   @media (min-width: 768px) {
-    h1 {
-      display: none;
-    }
-
-    h2 {
-      text-align: center;
-    }
-
-    p {
-      text-align: center;
-    }
-
     form {
       width: 500px;
       margin: 0 auto;
     }
+  }
+`;
+
+export const InputBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  margin: 1rem 0;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 `;
