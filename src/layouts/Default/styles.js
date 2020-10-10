@@ -90,7 +90,8 @@ export const SideBar = styled.nav`
 
 export const BottomTabs = styled.nav`
   grid-area: bottomtabs;
-  background: var(--color-primary);
+  background: var(--color-white);
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
   height: 65px;
   display: flex;
@@ -101,6 +102,15 @@ export const BottomTabs = styled.nav`
 
   @media (min-width: 768px) {
     display: none;
+  }
+
+  svg {
+    cursor: pointer;
+    color: var(--color-gray);
+  }
+
+  svg.active {
+    color: var(--color-primary);
   }
 `;
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 
 import {
   Container,
@@ -16,6 +17,8 @@ import {
 } from './styles';
 
 function DefaultLayout({ children, title }) {
+  const location = useLocation();
+
   return (
     <Container>
       <SideBar>
@@ -74,9 +77,11 @@ function DefaultLayout({ children, title }) {
         {children}
       </Main>
       <BottomTabs>
-        <PanelIcon />
-        <CasesIcon />
-        <DonateIcon />
+        <PanelIcon className={location.pathname === '/dashboard' && 'active'} />
+        <CasesIcon className={location.pathname === '/cases' && 'active'} />
+        <DonateIcon
+          className={location.pathname === '/donations' && 'active'}
+        />
         <ProfileIcon />
         <LogOutIcon />
       </BottomTabs>
