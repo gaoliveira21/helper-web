@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 
 import DefaultLayout from '../../layouts/Default';
 
-import { Container, SearchBox, SearchIcon, FilterBox } from './styles';
+import {
+  Container,
+  SearchBox,
+  SearchIcon,
+  FilterBox,
+  CaseList,
+} from './styles';
 
 function Cases() {
   const [filter, setFilter] = useState('all');
@@ -37,6 +43,11 @@ function Cases() {
           </ul>
           <a href="!#">Novo caso</a>
         </FilterBox>
+        <CaseList>
+          <div />
+          <div />
+          <div />
+        </CaseList>
       </Container>
     </DefaultLayout>
   );
