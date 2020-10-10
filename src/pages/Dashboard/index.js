@@ -14,7 +14,7 @@ import DefaultLayout from '../../layouts/Default';
 
 function Dashboard() {
   return (
-    <DefaultLayout>
+    <DefaultLayout title="Painel">
       <Container>
         <div>
           <PanelCard color="#5B5F97">

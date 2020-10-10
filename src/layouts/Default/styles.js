@@ -106,6 +106,8 @@ export const BottomTabs = styled.nav`
 
 export const Main = styled.main`
   grid-area: maincontent;
+  min-height: 100%;
+  overflow-y: auto;
 `;
 
 export const TopBar = styled.header`
