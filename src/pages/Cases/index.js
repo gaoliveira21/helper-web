@@ -2,10 +2,19 @@ import React from 'react';
 
 import DefaultLayout from '../../layouts/Default';
 
-import { Container } from './styles';
+import { Container, SearchBox, SearchIcon } from './styles';
 
 function Cases() {
-  return <DefaultLayout />;
+  return (
+    <DefaultLayout>
+      <Container>
+        <SearchBox>
+          <input type="text" placeholder="Pesquisar..." />
+          <SearchIcon />
+        </SearchBox>
+      </Container>
+    </DefaultLayout>
+  );
 }
 
 export default Cases;
