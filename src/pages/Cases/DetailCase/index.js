@@ -9,28 +9,32 @@ import {
   Title,
   Progress,
   TableDonators,
+  EditIcon,
 } from './styles';
 
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 
 function NewCase() {
-  const teste = '10/10/2020';
-
   return (
     <>
       <Header
         title="Detalhes do [CASO EXEMPLO]"
-        description={
-          <>
-            <span>Aberto</span> Criado em {teste}
-          </>
-        }
+        description={<span>Aberto</span>}
         label="Casos"
       />
 
       <Container>
         <Content>
+          <ButtonContent>
+            <a href="#!">
+              <button type="button">
+                Editar
+                <EditIcon />
+              </button>
+            </a>
+          </ButtonContent>
+
           <TextContent>
             <Text
               width="100%"
@@ -41,6 +45,10 @@ function NewCase() {
 
           <TextContent>
             <Text width="100%" title="Valor estimado" text="R$ 346,00" />
+          </TextContent>
+
+          <TextContent>
+            <Text width="100%" title="Data de Criação" text="10/10/2020" />
           </TextContent>
 
           <TextContent>
@@ -85,10 +93,6 @@ function NewCase() {
               </tr>
             </tbody>
           </TableDonators>
-
-          <ButtonContent>
-            <button type="submit">Editar caso</button>
-          </ButtonContent>
         </Content>
       </Container>
     </>

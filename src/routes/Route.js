@@ -6,7 +6,7 @@ export default function RouteWrapper({
   isPrivate = false,
   ...rest
 }) {
-  const signed = true;
+  const signed = false;
 
   if (!signed && isPrivate) {
     return <Redirect to="/sign-in" />;

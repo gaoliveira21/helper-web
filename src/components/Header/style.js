@@ -54,6 +54,9 @@ export const Container = styled.header`
         border-radius: 0.8rem;
         font-size: 1.2rem;
         margin-right: 2rem;
+
+        @media (min-width: 768px) {
+        }
       }
 
       p {

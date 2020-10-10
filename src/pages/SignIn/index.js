@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Input from '../../components/Input';
+
 import {
   Container,
   ImageContent,
@@ -7,6 +9,7 @@ import {
   Image,
   Content,
   FormContent,
+  InputBlock,
   Footer,
 } from './styles';
 
@@ -28,16 +31,24 @@ function SignIn() {
           <h1>Helper</h1>
           <h2>Acessar o sistema</h2>
           <form>
-            <label htmlFor="email">E-mail</label>
-            <input type="text" placeholder="Digite seu e-mail" id="email" />
-
-            <label htmlFor="password">Senha</label>
-            <input
-              type="password"
-              placeholder="Digite sua senha"
-              id="password"
-            />
-
+            <InputBlock>
+              <Input
+                width="100%"
+                type="text"
+                name="email"
+                label="E-mail"
+                placeholder="Digite seu e-mail"
+              />
+            </InputBlock>
+            <InputBlock>
+              <Input
+                width="100%"
+                type="password"
+                name="password"
+                label="Senha"
+                placeholder="Digite sua senha"
+              />
+            </InputBlock>
             <button type="submit">Entrar</button>
           </form>
         </FormContent>

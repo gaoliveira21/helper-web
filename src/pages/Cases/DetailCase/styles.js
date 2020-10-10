@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
-import { CheckDouble } from '@styled-icons/boxicons-regular';
+import { Edit } from '@styled-icons/boxicons-regular';
 
-export const CheckIcon = styled(CheckDouble)`
-  color: var(--color-white);
-  margin-left: 0.6rem;
-  width: 3rem;
-  height: auto;
-  font-weight: 500;
+export const EditIcon = styled(Edit)`
+  width: 24px;
+  margin-left: 1rem;
 `;
 
 export const Container = styled.div`
@@ -55,7 +52,7 @@ export const Title = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 
   span {
     color: var(--color-gray);
@@ -93,7 +90,7 @@ export const TableDonators = styled.table`
   caption {
     font-weight: bold;
     text-align: start;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   thead {
@@ -120,8 +117,11 @@ export const TableDonators = styled.table`
 export const ButtonContent = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 2rem 0;
+  justify-content: flex-end;
+
+  a {
+    text-decoration: none;
+  }
 
   button {
     display: flex;
@@ -129,8 +129,7 @@ export const ButtonContent = styled.div`
     align-items: center;
     flex-direction: row;
 
-    width: 100%;
-    padding: 16px 40px;
+    padding: 8px 20px;
 
     background: var(--color-primary);
     border: none;
@@ -142,33 +141,5 @@ export const ButtonContent = styled.div`
     &:hover {
       background: var(--color-primary-dark);
     }
-
-    @media (min-width: 768px) {
-      width: 240px;
-    }
-  }
-
-  @media (min-width: 768px) {
-    justify-content: flex-end;
-  }
-`;
-
-export const Dropzone = styled.div`
-  width: 100%;
-
-  label {
-    font-weight: bold;
-  }
-
-  > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    width: 100%;
-    height: 360px;
-    border-radius: 0.8rem;
-    border: 4px dashed var(--color-medium-gray);
-    font-size: 2rem;
   }
 `;
