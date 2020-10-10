@@ -25,3 +25,55 @@ export const SearchIcon = styled(Search)`
   width: 24px;
   cursor: pointer;
 `;
+
+export const FilterBox = styled.div`
+  margin: 2rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  ul {
+    display: flex;
+    list-style-type: none;
+
+    li {
+      padding: 1rem 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: opacity 0.4s;
+
+      &.active {
+        background: var(--color-primary);
+        border-radius: 0.4rem;
+        color: var(--color-white);
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      @media (min-width: 768px) {
+        padding: 1rem;
+      }
+    }
+  }
+
+  a {
+    background: var(--color-primary);
+    padding: 1rem 0.5rem;
+    border-radius: 0.4rem;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.4s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @media (min-width: 768px) {
+      padding: 1rem;
+    }
+  }
+`;
