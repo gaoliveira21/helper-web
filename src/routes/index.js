@@ -14,6 +14,7 @@ import Cases from '../pages/Cases';
 import UpdateCase from '../pages/Cases/UpdateCase';
 import DetailCase from '../pages/Cases/DetailCase';
 import Profile from '../pages/Profile';
+import Donation from '../pages/Donation';
 
 export default function Routes() {
   return (
@@ -40,6 +41,7 @@ export default function Routes() {
           isPrivate
         />
         <Route exact path="/profile" component={Profile} isPrivate />
+        <Route exact path="/donation" component={Donation} isPrivate />
       </Switch>
     </BrowserRouter>
   );

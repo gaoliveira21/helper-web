@@ -44,8 +44,8 @@ function DefaultLayout({ children, title }) {
               Casos
             </Link>
           </li>
-          <li className={location.donations === '/dashboard' && 'active'}>
-            <Link to="/donations">
+          <li className={location.pathname === '/donation' && 'active'}>
+            <Link to="/donation">
               <DonateIcon />
               Doações
             </Link>
@@ -87,7 +87,7 @@ function DefaultLayout({ children, title }) {
         </Link>
         <Link to="/donation">
           <DonateIcon
-            className={location.pathname === '/donations' && 'active'}
+            className={location.pathname === '/donation' && 'active'}
           />
         </Link>
         <Link to="/profile">
