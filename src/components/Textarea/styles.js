@@ -9,14 +9,18 @@ export const InputBlock = styled.div`
   }
 
   textarea {
-    margin-top: 1rem;
+    margin-top: 4px;
     width: 100%;
     min-height: 240px;
     padding: 16px 24px;
     border-radius: 0.8rem;
-    border: none;
+    border: 1px solid transparent;
     outline: none;
     resize: none;
     background: var(--color-medium-gray);
+
+    &:focus {
+      border: 1px solid var(--color-primary);
+    }
   }
 `;

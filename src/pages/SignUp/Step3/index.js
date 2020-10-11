@@ -1,52 +1,70 @@
 import React from 'react';
 
-import { Container, ImageContent, Title, Image, FormContent } from './styles';
+import Input from '../../../components/Input';
+import Textarea from '../../../components/Textarea';
+
+import {
+  Container,
+  ImageContent,
+  Content,
+  FormContent,
+  InputBlock,
+  ButtonContent,
+  BackIcon,
+} from './styles';
 
 import registerImage from '../../../assets/images/register.svg';
 
-function SignIn() {
+function Step3() {
   return (
     <Container>
       <FormContent>
-        <h1>Helper</h1>
-        <h2>Cadastrar-se</h2>
-        <p>Preencha os campos abaixo para efetuar o cadastro</p>
-        <form>
-          <label htmlFor="profile">Perfil</label>
-          <input type="file" id="profile" />
-
-          <label htmlFor="cnpj">CNPJ (Opcional)</label>
-          <input type="text" placeholder="Digite seu CNPJ" id="cnpj" />
-
-          <label htmlFor="initials">Sigla (Opcional)</label>
-          <input
-            type="text"
-            placeholder="Digite a sigla da sua entidade"
-            id="initials"
-          />
-
-          <label htmlFor="description"> Breve descrição</label>
-          <textarea name="description" id="description" />
-
-          <button type="submit">Confirmar cadastro</button>
-        </form>
-
-        <div>
-          <span />
-          <span />
-          <span />
-        </div>
+        <h3>Helper</h3>
+        <Content>
+          <a href="#!">
+            <BackIcon />
+            Voltar
+          </a>
+          <div>
+            <h1>Cadastrar-se</h1>
+            <p>Preencha os campos abaixo para efetuar o cadastro</p>
+          </div>
+          <form>
+            <InputBlock>
+              <Input
+                width="70%"
+                type="text"
+                name="cnpj"
+                label="CNPJ"
+                placeholder="Digite seu CNPJ"
+              />
+              <Input
+                width="30%"
+                type="text"
+                name="initials"
+                label="Sigla"
+                placeholder="Digite a sigla da entidade"
+              />
+            </InputBlock>
+            <InputBlock>
+              <Textarea
+                name="description"
+                label="Breve descrição da entidade"
+              />
+            </InputBlock>
+            <ButtonContent>
+              <button type="submit">Próximo</button>
+            </ButtonContent>
+          </form>
+        </Content>
       </FormContent>
+
       <ImageContent>
-        <Title>
-          <h1>Helper</h1>
-        </Title>
-        <Image>
-          <img src={registerImage} alt="Cadastre-se" />
-        </Image>
+        <h3>Helper</h3>
+        <img src={registerImage} alt="Cadastre-se" />
       </ImageContent>
     </Container>
   );
 }
 
-export default SignIn;
+export default Step3;

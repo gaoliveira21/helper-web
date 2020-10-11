@@ -1,41 +1,48 @@
 import styled from 'styled-components';
 
+// import { CheckCircle } from '@styled-icons/boxicons-solid';
+import { CheckCircle } from '@styled-icons/boxicons-regular';
+
+export const CheckIcon = styled(CheckCircle)`
+  color: var(--color-green);
+  width: 70%;
+  height: auto;
+
+  @media (min-width: 768px) {
+    width: 25%;
+  }
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
   height: 100vh;
 `;
 
+// Image Content
 export const ImageContent = styled.div`
   display: none;
+
+  h3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 3rem 3rem 0 0;
+    color: var(--color-primary);
+    font-size: 3rem;
+  }
+
+  img {
+    width: 80%;
+  }
 
   @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-  }
-`;
-
-export const Title = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 0 80px;
-  height: 10vh;
-
-  h1 {
-    font-size: 4rem;
-    color: var(--color-primary);
-  }
-`;
-
-export const Image = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  img {
-    width: 700px;
+    background: var(--color-white);
   }
 `;
 
@@ -46,6 +53,10 @@ export const Content = styled.div`
   justify-content: center;
   width: 100%;
   padding: 0 40px;
+
+  img {
+    width: 20%;
+  }
 
   h1 {
     margin: 2rem 0;

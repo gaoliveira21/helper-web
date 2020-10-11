@@ -23,7 +23,7 @@ export default function Routes() {
         <Route exact path="/sign-up/step1" component={Step1} />
         <Route exact path="/sign-up/step2" component={Step2} />
         <Route exact path="/sign-up/step3" component={Step3} />
-        <Route exact path="/sign-up/sucess" component={Sucess} />
+        <Route exact path="/sign-up/success" component={Sucess} />
         <Route exact path="/dashboard" component={Dashboard} isPrivate />
         <Route exact path="/cases" component={Cases} isPrivate />
         <Route exact path="/cases/new-case" component={NewCase} isPrivate />

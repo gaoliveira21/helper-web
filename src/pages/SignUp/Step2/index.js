@@ -1,58 +1,101 @@
 import React from 'react';
 
-import { Container, ImageContent, Title, Image, FormContent } from './styles';
+import Input from '../../../components/Input';
+
+import {
+  Container,
+  ImageContent,
+  Content,
+  FormContent,
+  InputBlock,
+  ButtonContent,
+  BackIcon,
+} from './styles';
 
 import registerImage from '../../../assets/images/register.svg';
 
-function SignIn() {
+function Step2() {
   return (
     <Container>
       <FormContent>
-        <h1>Helper</h1>
-        <h2>Cadastrar-se</h2>
-        <p>Preencha os campos abaixo para efetuar o cadastro</p>
-        <form>
-          <label htmlFor="city">Cidade</label>
-          <input type="text" placeholder="Digite sua Cidade" id="city" />
-
-          <label htmlFor="state">Estado UF</label>
-          <input type="text" placeholder="Digite seu Estado UF" id="state" />
-
-          <label htmlFor="street">Rua / Logradouro</label>
-          <input type="text" placeholder="Exemplo Rua..." id="street" />
-
-          <label htmlFor="neighborhood">Bairro</label>
-          <input
-            type="text"
-            placeholder="Exemplo Bairro..."
-            id="neighborhood"
-          />
-
-          <label htmlFor="number">Número</label>
-          <input type="text" placeholder="Exemplo Número..." id="number" />
-
-          <label htmlFor="whatsapp">Whatsapp</label>
-          <input type="text" placeholder="(00) 00000-0000" id="number" />
-
-          <button type="submit">Próximo</button>
-        </form>
-
-        <div>
-          <span />
-          <span />
-          <span />
-        </div>
+        <h3>Helper</h3>
+        <Content>
+          <a href="#!">
+            <BackIcon />
+            Voltar
+          </a>
+          <div>
+            <h1>Cadastrar-se</h1>
+            <p>Preencha os campos abaixo para efetuar o cadastro</p>
+          </div>
+          <form>
+            <strong>Endereço</strong>
+            <span />
+            <InputBlock>
+              <Input
+                width="60%"
+                type="text"
+                name="city"
+                label="Cidade"
+                placeholder="Digite a sua cidade"
+              />
+              <Input
+                width="40%"
+                type="text"
+                name="state"
+                label="UF"
+                placeholder="Digite seu estado UF"
+              />
+            </InputBlock>
+            <InputBlock>
+              <Input
+                width="100%"
+                type="text"
+                name="neighborhood"
+                label="Bairro"
+                placeholder="Exemplo: Bairro da sua entidade"
+              />
+            </InputBlock>
+            <InputBlock>
+              <Input
+                width="80%"
+                type="text"
+                name="street"
+                label="Rua"
+                placeholder="Exemplo: Rua da sua entidade"
+              />
+              <Input
+                width="20%"
+                type="text"
+                name="number"
+                label="Nº"
+                placeholder="Nº"
+              />
+            </InputBlock>
+            <strong>Contato</strong>
+            <span />
+            <InputBlock>
+              <Input
+                width="100%"
+                type="text"
+                name="whatsapp"
+                label="Whatsapp"
+                placeholder="Digite seu whatsapp"
+              />
+            </InputBlock>
+            <ButtonContent>
+              <button type="submit">Próximo</button>
+            </ButtonContent>
+          </form>
+        </Content>
       </FormContent>
+
       <ImageContent>
-        <Title>
-          <h1>Helper</h1>
-        </Title>
-        <Image>
-          <img src={registerImage} alt="Cadastre-se" />
-        </Image>
+        <h3>Helper</h3>
+        <img src={registerImage} alt="Cadastre-se" />
       </ImageContent>
     </Container>
   );
 }
 
-export default SignIn;
+export default Step2;

@@ -15,7 +15,6 @@ export const Container = styled.div`
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-row-gap: 20px;
-    overflow: scroll;
 
     @media (min-width: 768px) {
       grid-template-rows: 1fr;
