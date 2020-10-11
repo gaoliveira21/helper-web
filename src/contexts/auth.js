@@ -10,7 +10,6 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem('@helper:user'))
   );
-  const [token, setToken] = useState(localStorage.getItem('@helper:token'));
 
   useEffect(() => {
     const storagedToken = localStorage.getItem('@helper:token');
@@ -19,10 +18,21 @@ export function AuthProvider({ children }) {
   }, []);
 
   async function signIn({ email, password }) {
-    console.log(email, password);
-  }
+    try {
+      const response = await api.post('/entities/auth', { email, password });
 
-  async function signUp({ name, email, password }) {}
+      const { token: access_token, entity } = response.data;
+
+      api.defaults.headers.Authorization = `Bearer ${access_token}`;
+
+      localStorage.setItem('@helper:token', access_token);
+      localStorage.setItem('@helper:user', JSON.stringify(entity));
+
+      setUser(entity);
+    } catch (error) {
+      alert('Falha na autenticação');
+    }
+  }
 
   function signOut() {
     localStorage.clear();
@@ -35,7 +45,6 @@ export function AuthProvider({ children }) {
         signed: !!user,
         user,
         signIn,
-        signUp,
         signOut,
       }}
     >
