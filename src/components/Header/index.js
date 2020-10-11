@@ -1,15 +1,22 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { Container, BackIcon } from './style';
 
 function Header({ title, description, label }) {
+  const history = useHistory();
+
+  function navigateBack() {
+    history.goBack();
+  }
+
   return (
     <Container>
       <nav>
-        <a href="#!">
+        <button type="button" onClick={navigateBack}>
           <BackIcon />
           Voltar
-        </a>
+        </button>
         <strong>{label}</strong>
         <h3>Helper</h3>
       </nav>
