@@ -10,8 +10,6 @@ import {
   Form,
   Container,
   Profile,
-  ImageProfile,
-  NameProfile,
   Fieldset,
   InputContent,
   ButtonContent,

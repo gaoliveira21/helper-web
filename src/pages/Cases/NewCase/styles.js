@@ -1,18 +1,8 @@
 import styled from 'styled-components';
 
-import { CheckDouble } from '@styled-icons/boxicons-regular';
-
-export const CheckIcon = styled(CheckDouble)`
-  color: var(--color-white);
-  margin-left: 0.6rem;
-  width: 3rem;
-  height: auto;
-  font-weight: 500;
-`;
-
 export const Container = styled.div`
   padding: 0 2rem;
-  margin: -8rem 0 2rem 0;
+  margin: -48px 0 48px 0;
 `;
 
 export const Form = styled.form`
@@ -35,7 +25,7 @@ export const InputContent = styled.div`
   align-items: center;
 
   width: 100%;
-  margin: 2rem 0;
+  margin: 24px 0;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -46,7 +36,7 @@ export const ButtonContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 24px 0;
 
   button {
     display: flex;
@@ -89,7 +79,7 @@ export const Dropzone = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 4px;
     width: 100%;
     height: 360px;
     border-radius: 0.8rem;

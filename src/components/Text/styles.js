@@ -10,7 +10,6 @@ export const TextBlock = styled.div`
   }
 
   p {
-    margin-top: 0.5rem;
     line-height: 32px;
   }
 

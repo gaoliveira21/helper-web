@@ -30,6 +30,7 @@ function Step3() {
             <p>Preencha os campos abaixo para efetuar o cadastro</p>
           </div>
           <form>
+            <strong>Informações sobre a entidade</strong>
             <InputBlock>
               <Input
                 width="70%"
@@ -53,7 +54,7 @@ function Step3() {
               />
             </InputBlock>
             <ButtonContent>
-              <button type="submit">Próximo</button>
+              <button type="submit">Concluir</button>
             </ButtonContent>
           </form>
         </Content>

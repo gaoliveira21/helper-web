@@ -29,8 +29,8 @@ function NewCase() {
           <ButtonContent>
             <a href="#!">
               <button type="button">
-                Editar
                 <EditIcon />
+                Editar
               </button>
             </a>
           </ButtonContent>

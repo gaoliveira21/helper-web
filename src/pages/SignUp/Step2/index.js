@@ -30,7 +30,6 @@ function Step2() {
           </div>
           <form>
             <strong>Endereço</strong>
-            <span />
             <InputBlock>
               <Input
                 width="60%"
@@ -73,7 +72,6 @@ function Step2() {
               />
             </InputBlock>
             <strong>Contato</strong>
-            <span />
             <InputBlock>
               <Input
                 width="100%"

@@ -6,7 +6,7 @@ import {
 } from '@styled-icons/boxicons-solid';
 
 export const Container = styled.div`
-  padding: 25px;
+  padding: 4rem 4rem;
   display: flex;
   flex-direction: column;
 
@@ -30,7 +30,7 @@ export const Container = styled.div`
       display: flex;
       align-self: center;
       margin-top: 20px;
-      width: 320px;
+      width: 40%;
     }
   }
 `;

@@ -8,6 +8,7 @@ import {
   Container,
   SearchBox,
   SearchIcon,
+  AddIcon,
   FilterBox,
   CaseList,
 } from './styles';
@@ -43,9 +44,15 @@ function Cases() {
               Concluídos
             </li>
           </ul>
-          <Link to="/cases/new-case">Novo caso</Link>
+          <Link to="/cases/new-case">
+            <AddIcon />
+            Novo caso
+          </Link>
         </FilterBox>
         <CaseList>
+          <CaseItem />
+          <CaseItem />
+          <CaseItem />
           <CaseItem />
           <CaseItem />
           <CaseItem />
