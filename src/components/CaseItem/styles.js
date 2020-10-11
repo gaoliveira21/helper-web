@@ -5,12 +5,12 @@ export const Container = styled.div`
   background: var(--color-white);
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.15);
   border-radius: 0.4rem;
-  margin-bottom: 3rem;
+  margin-bottom: 48px;
 `;
 
 export const Progress = styled.div`
   width: 100%;
-  height: 25px;
+  height: 24px;
   background: var(--color-medium-gray);
   border-top-left-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
@@ -37,7 +37,7 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
+  padding: 2rem;
 
   span {
     color: var(--color-gray);
@@ -46,7 +46,7 @@ export const Header = styled.header`
 `;
 
 export const Body = styled.div`
-  padding: 1rem 1.5rem;
+  padding: 1rem 2rem;
 
   h3 {
     font-size: 2.5rem;
@@ -61,8 +61,9 @@ export const Body = styled.div`
   }
 
   p {
-    margin-top: 1rem;
+    margin-top: 18px;
     text-align: justify;
+    line-height: 24px;
     min-height: 6rem;
   }
 `;
@@ -74,7 +75,7 @@ export const ActionBox = styled.footer`
   justify-content: space-between;
 
   a {
-    padding: 1rem;
+    padding: 1rem 2rem;
     background: var(--color-primary);
     color: var(--color-white);
     text-decoration: none;
@@ -88,7 +89,7 @@ export const ActionBox = styled.footer`
 `;
 
 export const EditIcon = styled(Edit)`
-  width: 24px;
+  width: 28px;
   color: var(--color-gray);
   cursor: pointer;
   transition: color 0.4s;

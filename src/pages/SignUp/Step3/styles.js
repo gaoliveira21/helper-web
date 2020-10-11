@@ -86,12 +86,12 @@ export const Content = styled.div`
     p {
       color: var(--color-gray);
     }
+  }
 
-    form {
-      strong {
-        font-size: 2rem;
-        color: var(--color-primary);
-      }
+  form {
+    strong {
+      font-size: 2rem;
+      color: var(--color-primary);
     }
   }
 `;

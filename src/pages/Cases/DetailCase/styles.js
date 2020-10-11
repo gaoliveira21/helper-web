@@ -1,15 +1,16 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 import { Edit } from '@styled-icons/boxicons-regular';
 
 export const EditIcon = styled(Edit)`
   width: 24px;
-  margin-left: 1rem;
+  margin-right: 4px;
 `;
 
 export const Container = styled.div`
   padding: 0 2rem;
-  margin: -8rem 0 2rem 0;
+  margin: -48px 0 48px 0;
 `;
 
 export const Content = styled.div`
@@ -32,7 +33,7 @@ export const TextContent = styled.div`
   align-items: center;
 
   width: 100%;
-  margin: 2rem 0;
+  margin: 24px 0;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -44,7 +45,7 @@ export const ValueCollected = styled.div`
   align-items: center;
 
   width: 100%;
-  margin: 2rem 0;
+  margin: 24px 0;
 `;
 
 export const Title = styled.div`
@@ -52,7 +53,11 @@ export const Title = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 8px;
+
+  strong {
+    font-size: 1.8rem;
+  }
 
   span {
     color: var(--color-gray);
@@ -85,12 +90,13 @@ export const TableDonators = styled.table`
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  margin: 2rem 0;
+  margin: 24px 0;
 
   caption {
     font-weight: bold;
+    font-size: 1.8rem;
     text-align: start;
-    margin-bottom: 1rem;
+    margin-bottom: 8px;
   }
 
   thead {
@@ -98,7 +104,7 @@ export const TableDonators = styled.table`
     th {
       text-align: start;
       font-weight: bold;
-      padding: 1rem 1rem 1rem 1rem;
+      padding: 1rem 1rem;
       color: var(--color-white);
     }
   }
@@ -106,10 +112,22 @@ export const TableDonators = styled.table`
   tbody {
     tr:nth-child(even) {
       background-color: var(--color-medium-gray);
+
+      &:hover {
+        background: ${darken(0.05, '#DFE4EA')};
+      }
+    }
+
+    tr:nth-child(odd) {
+      background: var(--color-white);
+
+      &:hover {
+        background: ${darken(0.05, '#fff')};
+      }
     }
 
     td {
-      padding: 2rem 1rem 2rem 1rem;
+      padding: 2rem 1rem;
     }
   }
 `;

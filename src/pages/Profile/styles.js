@@ -1,45 +1,8 @@
 import styled from 'styled-components';
 
-import { CheckDouble } from '@styled-icons/boxicons-regular';
-
-export const CheckIcon = styled(CheckDouble)`
-  color: var(--color-white);
-  margin-left: 0.6rem;
-  width: 3rem;
-  height: auto;
-  font-weight: 500;
-`;
-
 export const Container = styled.div`
   padding: 0 2rem;
-  margin: -8rem 0 2rem 0;
-`;
-
-export const Profile = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 4rem 0;
-  width: 100%;
-
-  img {
-    width: 240px;
-    height: auto;
-  }
-
-  > div {
-    margin: 2rem 0;
-    text-align: center;
-  }
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    gap: 2rem;
-
-    > div {
-      text-align: justify;
-    }
-  }
+  margin: -48px 0 48px 0;
 `;
 
 export const Form = styled.form`
@@ -55,13 +18,39 @@ export const Form = styled.form`
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
 `;
 
+export const Profile = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 24px 0;
+  width: 100%;
+
+  img {
+    width: 240px;
+    height: auto;
+  }
+
+  > div {
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 2rem;
+
+    > div {
+      text-align: justify;
+    }
+  }
+`;
+
 export const Fieldset = styled.fieldset`
-  margin: 2rem 0;
+  margin: 24px 0;
   padding: 0.5rem 0;
   border: none;
 
   legend {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
   }
 
@@ -72,7 +61,7 @@ export const Fieldset = styled.fieldset`
     background: var(--color-primary);
     border-radius: 0.8rem;
     display: block;
-    margin-bottom: 3rem;
+    margin-bottom: 12px;
   }
 `;
 
@@ -83,7 +72,7 @@ export const InputContent = styled.div`
   align-items: center;
 
   width: 100%;
-  margin: 2rem 0;
+  margin: 24px 0;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -94,7 +83,7 @@ export const ButtonContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 24px 0;
 
   button {
     display: flex;
@@ -123,25 +112,5 @@ export const ButtonContent = styled.div`
 
   @media (min-width: 768px) {
     justify-content: flex-end;
-  }
-`;
-
-export const Dropzone = styled.div`
-  width: 100%;
-
-  label {
-    font-weight: bold;
-  }
-
-  > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    width: 100%;
-    height: 360px;
-    border-radius: 0.8rem;
-    border: 4px dashed var(--color-medium-gray);
-    font-size: 2rem;
   }
 `;

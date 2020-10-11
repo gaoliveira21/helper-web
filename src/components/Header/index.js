@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 
-import { Container, BackIcon } from './style';
+import { Container, TitleHeader, BackIcon } from './style';
 
 function Header({ title, description, label }) {
   const history = useHistory();
@@ -21,13 +21,14 @@ function Header({ title, description, label }) {
         <strong>{label}</strong>
         <h3>Helper</h3>
       </nav>
-
-      <div>
-        <h1>{title}</h1>
+      <TitleHeader>
         <div>
-          <p>{description}</p>
+          <h1>{title}</h1>
+          <div>
+            <p>{description}</p>
+          </div>
         </div>
-      </div>
+      </TitleHeader>
     </Container>
   );
 }

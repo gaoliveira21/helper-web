@@ -18,9 +18,10 @@ function Donation() {
     <DefaultLayout title="Doações">
       <Container>
         <Header>
-          <p>Total arrecadado:</p>
-          <DonateIcon />
-          <strong>R$ 10.547,00</strong>
+          <p>Total arrecadado</p>
+          <strong>
+            <DonateIcon /> R$ 10.547,00
+          </strong>
         </Header>
         <Main>
           <div>

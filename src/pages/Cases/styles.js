@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import { Search } from '@styled-icons/boxicons-regular';
+import { Search, Plus } from '@styled-icons/boxicons-regular';
 
 export const Container = styled.div`
-  padding: 2rem;
+  padding: 4rem 4rem;
 `;
 
 export const SearchBox = styled.div`
   width: 100%;
   border-radius: 0.4rem;
   padding: 0.8rem;
-  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
 
   display: flex;
   align-items: center;
@@ -17,7 +17,14 @@ export const SearchBox = styled.div`
   input {
     width: 100%;
     border: none;
+    outline: none;
+    padding: 12px 8px;
   }
+`;
+
+export const AddIcon = styled(Plus)`
+  width: 24px;
+  margin-right: 4px;
 `;
 
 export const SearchIcon = styled(Search)`
@@ -60,9 +67,12 @@ export const FilterBox = styled.div`
   }
 
   a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: var(--color-primary);
-    padding: 1rem 0.5rem;
     border-radius: 0.4rem;
+    padding: 1rem 1rem;
     color: var(--color-white);
     text-decoration: none;
     font-weight: bold;
@@ -73,7 +83,7 @@ export const FilterBox = styled.div`
     }
 
     @media (min-width: 768px) {
-      padding: 1rem;
+      padding: 1rem 2rem;
     }
   }
 `;
