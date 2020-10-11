@@ -98,7 +98,7 @@ export const TableDonators = styled.table`
     th {
       text-align: start;
       font-weight: bold;
-      padding: 1rem 0 1rem 1rem;
+      padding: 1rem 1rem 1rem 1rem;
       color: var(--color-white);
     }
   }
@@ -109,7 +109,7 @@ export const TableDonators = styled.table`
     }
 
     td {
-      padding: 2rem 0 2rem 1rem;
+      padding: 2rem 1rem 2rem 1rem;
     }
   }
 `;

@@ -1,6 +1,16 @@
 import React from 'react';
 
-import { Container, ImageContent, Title, Image, FormContent } from './styles';
+import Input from '../../../components/Input';
+
+import {
+  Container,
+  ImageContent,
+  Content,
+  FormContent,
+  InputBlock,
+  Button,
+  BackIcon,
+} from './styles';
 
 import registerImage from '../../../assets/images/register.svg';
 
@@ -8,42 +18,52 @@ function SignIn() {
   return (
     <Container>
       <FormContent>
-        <h1>Helper</h1>
-        <h2>Cadastrar-se</h2>
-        <p>Preencha os campos abaixo para efetuar o cadastro</p>
-        <form>
-          <label htmlFor="profile">Perfil</label>
-          <input type="file" id="profile" />
-
-          <label htmlFor="cnpj">CNPJ (Opcional)</label>
-          <input type="text" placeholder="Digite seu CNPJ" id="cnpj" />
-
-          <label htmlFor="initials">Sigla (Opcional)</label>
-          <input
-            type="text"
-            placeholder="Digite a sigla da sua entidade"
-            id="initials"
-          />
-
-          <label htmlFor="description"> Breve descrição</label>
-          <textarea name="description" id="description" />
-
-          <button type="submit">Confirmar cadastro</button>
-        </form>
-
-        <div>
-          <span />
-          <span />
-          <span />
-        </div>
+        <h3>Helper</h3>
+        <Content>
+          <a href="#!">
+            <BackIcon />
+            Voltar
+          </a>
+          <div>
+            <h1>Cadastrar-se</h1>
+            <p>Preencha os campos abaixo para efetuar o cadastro</p>
+          </div>
+          <form>
+            <InputBlock>
+              <Input
+                width="100%"
+                type="text"
+                name="name"
+                label="Nome da entidade"
+                placeholder="Digite o nome da entidade"
+              />
+            </InputBlock>
+            <InputBlock>
+              <Input
+                width="100%"
+                type="text"
+                name="email"
+                label="E-mail"
+                placeholder="Digite seu e-mail"
+              />
+            </InputBlock>
+            <InputBlock>
+              <Input
+                width="100%"
+                type="password"
+                name="password"
+                label="Senha"
+                placeholder="Digite sua senha"
+              />
+            </InputBlock>
+            <Button type="submit">Próximo</Button>
+          </form>
+        </Content>
       </FormContent>
+
       <ImageContent>
-        <Title>
-          <h1>Helper</h1>
-        </Title>
-        <Image>
-          <img src={registerImage} alt="Cadastre-se" />
-        </Image>
+        <h3>Helper</h3>
+        <img src={registerImage} alt="Cadastre-se" />
       </ImageContent>
     </Container>
   );

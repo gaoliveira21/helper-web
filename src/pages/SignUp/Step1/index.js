@@ -5,10 +5,11 @@ import Input from '../../../components/Input';
 import {
   Container,
   ImageContent,
-  Title,
-  Image,
+  Content,
   FormContent,
   InputBlock,
+  Button,
+  BackIcon,
 } from './styles';
 
 import registerImage from '../../../assets/images/register.svg';
@@ -18,34 +19,51 @@ function SignIn() {
     <Container>
       <FormContent>
         <h3>Helper</h3>
-        <h1>Cadastrar-se</h1>
-        <p>Preencha os campos abaixo para efetuar o cadastro</p>
-        <form>
-          <InputBlock>
-            <Input
-              width="100%"
-              type="text"
-              name="email"
-              label="E-mail"
-              placeholder="Digite seu e-mail"
-            />
-          </InputBlock>
-          <button type="submit">Próximo</button>
-        </form>
-
-        <div>
-          <span />
-          <span />
-          <span />
-        </div>
+        <Content>
+          <a href="#!">
+            <BackIcon />
+            Voltar
+          </a>
+          <div>
+            <h1>Cadastrar-se</h1>
+            <p>Preencha os campos abaixo para efetuar o cadastro</p>
+          </div>
+          <form>
+            <InputBlock>
+              <Input
+                width="100%"
+                type="text"
+                name="name"
+                label="Nome da entidade"
+                placeholder="Digite o nome da entidade"
+              />
+            </InputBlock>
+            <InputBlock>
+              <Input
+                width="100%"
+                type="text"
+                name="email"
+                label="E-mail"
+                placeholder="Digite seu e-mail"
+              />
+            </InputBlock>
+            <InputBlock>
+              <Input
+                width="100%"
+                type="password"
+                name="password"
+                label="Senha"
+                placeholder="Digite sua senha"
+              />
+            </InputBlock>
+            <Button type="submit">Próximo</Button>
+          </form>
+        </Content>
       </FormContent>
+
       <ImageContent>
-        <Title>
-          <h1>Helper</h1>
-        </Title>
-        <Image>
-          <img src={registerImage} alt="Cadastre-se" />
-        </Image>
+        <h3>Helper</h3>
+        <img src={registerImage} alt="Cadastre-se" />
       </ImageContent>
     </Container>
   );
