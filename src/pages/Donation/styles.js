@@ -74,7 +74,7 @@ export const DonationTable = styled.table`
     color: var(--color-white);
 
     th {
-      padding: 2rem;
+      padding: 2rem 1rem;
       text-align: left;
     }
   }
