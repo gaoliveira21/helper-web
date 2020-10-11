@@ -6,14 +6,14 @@ export default function RouteWrapper({
   isPrivate = false,
   ...rest
 }) {
-  const signed = false;
+  const signed = true;
 
   if (!signed && isPrivate) {
     return <Redirect to="/sign-in" />;
   }
 
   if (signed && !isPrivate) {
-    return <Redirect to="dashboard" />;
+    return <Redirect to="/dashboard" />;
   }
 
   return (

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import DefaultLayout from '../../layouts/Default';
 import CaseItem from '../../components/CaseItem';
@@ -42,7 +43,7 @@ function Cases() {
               Concluídos
             </li>
           </ul>
-          <a href="!#">Novo caso</a>
+          <Link to="/cases/new-case">Novo caso</Link>
         </FilterBox>
         <CaseList>
           <CaseItem />
