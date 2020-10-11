@@ -8,13 +8,13 @@ import {
   Content,
   FormContent,
   InputBlock,
-  Button,
+  ButtonContent,
   BackIcon,
 } from './styles';
 
 import registerImage from '../../../assets/images/register.svg';
 
-function SignIn() {
+function Step2() {
   return (
     <Container>
       <FormContent>
@@ -29,6 +29,8 @@ function SignIn() {
             <p>Preencha os campos abaixo para efetuar o cadastro</p>
           </div>
           <form>
+            <strong>Endereço</strong>
+            <span />
             <InputBlock>
               <Input
                 width="60%"
@@ -70,7 +72,20 @@ function SignIn() {
                 placeholder="Nº"
               />
             </InputBlock>
-            <Button type="submit">Próximo</Button>
+            <strong>Contato</strong>
+            <span />
+            <InputBlock>
+              <Input
+                width="100%"
+                type="text"
+                name="whatsapp"
+                label="Whatsapp"
+                placeholder="Digite seu whatsapp"
+              />
+            </InputBlock>
+            <ButtonContent>
+              <button type="submit">Próximo</button>
+            </ButtonContent>
           </form>
         </Content>
       </FormContent>
@@ -83,4 +98,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Step2;

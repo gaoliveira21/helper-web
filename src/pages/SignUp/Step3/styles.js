@@ -86,6 +86,13 @@ export const Content = styled.div`
     p {
       color: var(--color-gray);
     }
+
+    form {
+      strong {
+        font-size: 2rem;
+        color: var(--color-primary);
+      }
+    }
   }
 `;
 
@@ -94,26 +101,40 @@ export const InputBlock = styled.div`
   flex-direction: column;
   gap: 2rem;
   width: 100%;
-  margin: 12px 0;
+  margin: 24px 0;
 
   @media (min-width: 768px) {
     flex-direction: row;
   }
 `;
 
-export const Button = styled.button`
-  width: 100%;
-  margin: 24px 0;
-  padding: 16px 40px;
+export const ButtonContent = styled.div`
+  display: flex;
+  justify-content: center;
 
-  background: var(--color-primary);
-  border: none;
-  border-radius: 4px;
-  color: var(--color-white);
-  font-weight: bold;
-  outline: none;
+  button {
+    width: 100%;
+    margin: 24px 0;
+    padding: 16px 40px;
 
-  &:hover {
-    background: var(--color-primary-dark);
+    background: var(--color-primary);
+    border: none;
+    border-radius: 4px;
+    color: var(--color-white);
+    font-weight: bold;
+    outline: none;
+
+    &:hover {
+      background: var(--color-primary-dark);
+    }
+
+    @media (min-width: 768px) {
+      width: 240px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: flex-end;
   }
 `;

@@ -8,13 +8,13 @@ import {
   Content,
   FormContent,
   InputBlock,
-  Button,
+  ButtonContent,
   BackIcon,
 } from './styles';
 
 import registerImage from '../../../assets/images/register.svg';
 
-function SignIn() {
+function Step1() {
   return (
     <Container>
       <FormContent>
@@ -56,7 +56,9 @@ function SignIn() {
                 placeholder="Digite sua senha"
               />
             </InputBlock>
-            <Button type="submit">Próximo</Button>
+            <ButtonContent>
+              <button type="submit">Próximo</button>
+            </ButtonContent>
           </form>
         </Content>
       </FormContent>
@@ -69,4 +71,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Step1;

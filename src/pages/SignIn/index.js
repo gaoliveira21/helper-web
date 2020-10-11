@@ -5,12 +5,10 @@ import Input from '../../components/Input';
 import {
   Container,
   ImageContent,
-  Title,
-  Image,
   Content,
   FormContent,
   InputBlock,
-  Footer,
+  ButtonContent,
 } from './styles';
 
 import loginImage from '../../assets/images/login.svg';
@@ -19,17 +17,16 @@ function SignIn() {
   return (
     <Container>
       <ImageContent>
-        <Title>
-          <h1>Helper</h1>
-        </Title>
-        <Image>
-          <img src={loginImage} alt="Cadastre-se" />
-        </Image>
+        <h3>Helper</h3>
+        <img src={loginImage} alt="Cadastre-se" />
       </ImageContent>
-      <Content>
-        <FormContent>
-          <h1>Helper</h1>
-          <h2>Acessar o sistema</h2>
+      <FormContent>
+        <h3>Helper</h3>
+        <Content>
+          <div>
+            <h1>Login</h1>
+            <p>Preencha os campos abaixo para efetuar o login</p>
+          </div>
           <form>
             <InputBlock>
               <Input
@@ -49,14 +46,12 @@ function SignIn() {
                 placeholder="Digite sua senha"
               />
             </InputBlock>
-            <button type="submit">Entrar</button>
+            <ButtonContent>
+              <button type="submit">Próximo</button>
+            </ButtonContent>
           </form>
-        </FormContent>
-        <Footer>
-          <p>Não tem conta?</p>
-          <a href="#!">Cadastre-se agora mesmo!</a>
-        </Footer>
-      </Content>
+        </Content>
+      </FormContent>
     </Container>
   );
 }

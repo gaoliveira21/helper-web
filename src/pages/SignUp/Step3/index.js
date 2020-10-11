@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Input from '../../../components/Input';
+import Textarea from '../../../components/Textarea';
 
 import {
   Container,
@@ -8,13 +9,13 @@ import {
   Content,
   FormContent,
   InputBlock,
-  Button,
+  ButtonContent,
   BackIcon,
 } from './styles';
 
 import registerImage from '../../../assets/images/register.svg';
 
-function SignIn() {
+function Step3() {
   return (
     <Container>
       <FormContent>
@@ -31,32 +32,29 @@ function SignIn() {
           <form>
             <InputBlock>
               <Input
-                width="100%"
+                width="70%"
                 type="text"
-                name="name"
-                label="Nome da entidade"
-                placeholder="Digite o nome da entidade"
+                name="cnpj"
+                label="CNPJ"
+                placeholder="Digite seu CNPJ"
+              />
+              <Input
+                width="30%"
+                type="text"
+                name="initials"
+                label="Sigla"
+                placeholder="Digite a sigla da entidade"
               />
             </InputBlock>
             <InputBlock>
-              <Input
-                width="100%"
-                type="text"
-                name="email"
-                label="E-mail"
-                placeholder="Digite seu e-mail"
+              <Textarea
+                name="description"
+                label="Breve descrição da entidade"
               />
             </InputBlock>
-            <InputBlock>
-              <Input
-                width="100%"
-                type="password"
-                name="password"
-                label="Senha"
-                placeholder="Digite sua senha"
-              />
-            </InputBlock>
-            <Button type="submit">Próximo</Button>
+            <ButtonContent>
+              <button type="submit">Próximo</button>
+            </ButtonContent>
           </form>
         </Content>
       </FormContent>
@@ -69,4 +67,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Step3;
