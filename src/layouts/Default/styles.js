@@ -84,6 +84,10 @@ export const SideBar = styled.nav`
       &:hover {
         opacity: 0.8;
       }
+
+      &.active {
+        border-left: 3px solid var(--color-white);
+      }
     }
   }
 `;

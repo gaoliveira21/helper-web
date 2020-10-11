@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import {
   Container,
@@ -10,6 +11,12 @@ import {
 } from './styles';
 
 function CaseItem() {
+  const history = useHistory();
+
+  function handleNavigateToEdit() {
+    history.push('/cases/update-case');
+  }
+
   return (
     <Container>
       <Progress>
@@ -30,8 +37,8 @@ function CaseItem() {
         </p>
       </Body>
       <ActionBox>
-        <a href="#!">Detalhes</a>
-        <EditIcon />
+        <Link to="/cases/detail-case">Detalhes</Link>
+        <EditIcon onClick={() => handleNavigateToEdit()} />
       </ActionBox>
     </Container>
   );

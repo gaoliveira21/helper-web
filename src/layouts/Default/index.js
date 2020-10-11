@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 import {
   Container,
@@ -32,32 +32,32 @@ function DefaultLayout({ children, title }) {
           </p>
         </header>
         <ul>
-          <li>
-            <a href="#!">
+          <li className={location.pathname === '/dashboard' && 'active'}>
+            <Link to="/dashboard">
               <PanelIcon />
               Painel
-            </a>
+            </Link>
           </li>
-          <li>
-            <a href="#!">
+          <li className={location.pathname === '/cases' && 'active'}>
+            <Link to="/cases">
               <CasesIcon />
               Casos
-            </a>
+            </Link>
           </li>
-          <li>
-            <a href="#!">
+          <li className={location.donations === '/dashboard' && 'active'}>
+            <Link to="/donations">
               <DonateIcon />
               Doações
-            </a>
+            </Link>
           </li>
         </ul>
         <Divider />
         <ul>
           <li>
-            <a href="#!">
+            <Link to="/profile">
               <ProfileIcon />
               Perfil
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#!">
@@ -77,12 +77,22 @@ function DefaultLayout({ children, title }) {
         {children}
       </Main>
       <BottomTabs>
-        <PanelIcon className={location.pathname === '/dashboard' && 'active'} />
-        <CasesIcon className={location.pathname === '/cases' && 'active'} />
-        <DonateIcon
-          className={location.pathname === '/donations' && 'active'}
-        />
-        <ProfileIcon />
+        <Link to="/dashboard">
+          <PanelIcon
+            className={location.pathname === '/dashboard' && 'active'}
+          />
+        </Link>
+        <Link to="/cases">
+          <CasesIcon className={location.pathname === '/cases' && 'active'} />
+        </Link>
+        <Link to="/donation">
+          <DonateIcon
+            className={location.pathname === '/donations' && 'active'}
+          />
+        </Link>
+        <Link to="/profile">
+          <ProfileIcon />
+        </Link>
         <LogOutIcon />
       </BottomTabs>
     </Container>
