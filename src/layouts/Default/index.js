@@ -32,19 +32,19 @@ function DefaultLayout({ children, title }) {
           </p>
         </header>
         <ul>
-          <li className={location.pathname === '/dashboard' && 'active'}>
+          <li className={location.pathname === '/dashboard' ? 'active' : ''}>
             <Link to="/dashboard">
               <PanelIcon />
               Painel
             </Link>
           </li>
-          <li className={location.pathname === '/cases' && 'active'}>
+          <li className={location.pathname === '/cases' ? 'active' : ''}>
             <Link to="/cases">
               <CasesIcon />
               Casos
             </Link>
           </li>
-          <li className={location.pathname === '/donation' && 'active'}>
+          <li className={location.pathname === '/donation' ? 'active' : ''}>
             <Link to="/donation">
               <DonateIcon />
               Doações
