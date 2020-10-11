@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+
+import AuthContext from '../../contexts/auth';
 
 import Input from '../../components/Input';
 
@@ -14,6 +16,15 @@ import {
 import loginImage from '../../assets/images/login.svg';
 
 function SignIn() {
+  const { signIn } = useContext(AuthContext);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    await signIn({ email, password });
+  }
+
   return (
     <Container>
       <ImageContent>
@@ -27,7 +38,7 @@ function SignIn() {
             <h1>Login</h1>
             <p>Preencha os campos abaixo para efetuar o login</p>
           </div>
-          <form>
+          <form onSubmit={handleSubmit}>
             <InputBlock>
               <Input
                 width="100%"
@@ -35,6 +46,8 @@ function SignIn() {
                 name="email"
                 label="E-mail"
                 placeholder="Digite seu e-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </InputBlock>
             <InputBlock>
@@ -44,6 +57,8 @@ function SignIn() {
                 name="password"
                 label="Senha"
                 placeholder="Digite sua senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </InputBlock>
             <ButtonContent>
