@@ -23,13 +23,15 @@ export const Container = styled.header`
     justify-content: space-between;
     color: var(--color-white);
 
-    a {
+    button {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
       color: var(--color-white);
       text-decoration: none;
+      background: none;
+      border: none;
     }
   }
 

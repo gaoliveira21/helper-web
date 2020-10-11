@@ -27,8 +27,6 @@ export default function Routes() {
         <Route exact path="/dashboard" component={Dashboard} isPrivate />
         <Route exact path="/cases" component={Cases} isPrivate />
         <Route exact path="/cases/new-case" component={NewCase} isPrivate />
-        <Route exact path="/profile" component={Profile} isPrivate />
-        <Route exact path="/cases/new-case" component={NewCase} isPrivate />
         <Route
           exact
           path="/cases/detail-case"
@@ -41,6 +39,7 @@ export default function Routes() {
           component={UpdateCase}
           isPrivate
         />
+        <Route exact path="/profile" component={Profile} isPrivate />
       </Switch>
     </BrowserRouter>
   );
