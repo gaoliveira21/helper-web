@@ -1,6 +1,7 @@
 /* eslint-disable react/forbid-prop-types */
 import React, { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 import api from '../services/api';
 
@@ -30,7 +31,7 @@ export function AuthProvider({ children }) {
 
       setUser(entity);
     } catch (error) {
-      alert('Falha na autenticação');
+      toast.error('Falha na autenticação');
     }
   }
 
