@@ -20,6 +20,7 @@ export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route exact path="/" component={SignIn} />
         <Route exact path="/sign-in" component={SignIn} />
         <Route exact path="/sign-up/step1" component={Step1} />
         <Route exact path="/sign-up/step2" component={Step2} />
@@ -42,6 +43,8 @@ export default function Routes() {
         />
         <Route exact path="/profile" component={Profile} isPrivate />
         <Route exact path="/donation" component={Donation} isPrivate />
+
+        <Route path="*" exact component={() => <h1>404 Page Not Found</h1>} />
       </Switch>
     </BrowserRouter>
   );
