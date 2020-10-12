@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, Link } from 'react-router-dom';
 
+import { useAuth } from '../../contexts/auth';
+
 import {
   Container,
   SideBar,
@@ -18,6 +20,7 @@ import {
 
 function DefaultLayout({ children, title }) {
   const location = useLocation();
+  const { signOut } = useAuth();
 
   return (
     <Container>
@@ -32,19 +35,19 @@ function DefaultLayout({ children, title }) {
           </p>
         </header>
         <ul>
-          <li className={location.pathname === '/dashboard' && 'active'}>
+          <li className={location.pathname === '/dashboard' ? 'active' : ''}>
             <Link to="/dashboard">
               <PanelIcon />
               Painel
             </Link>
           </li>
-          <li className={location.pathname === '/cases' && 'active'}>
+          <li className={location.pathname === '/cases' ? 'active' : ''}>
             <Link to="/cases">
               <CasesIcon />
               Casos
             </Link>
           </li>
-          <li className={location.pathname === '/donation' && 'active'}>
+          <li className={location.pathname === '/donation' ? 'active' : ''}>
             <Link to="/donation">
               <DonateIcon />
               Doações
@@ -60,10 +63,10 @@ function DefaultLayout({ children, title }) {
             </Link>
           </li>
           <li>
-            <a href="#!">
+            <button type="button" onClick={signOut}>
               <LogOutIcon />
               Sair
-            </a>
+            </button>
           </li>
         </ul>
       </SideBar>
@@ -93,7 +96,7 @@ function DefaultLayout({ children, title }) {
         <Link to="/profile">
           <ProfileIcon />
         </Link>
-        <LogOutIcon />
+        <LogOutIcon onClick={signOut} />
       </BottomTabs>
     </Container>
   );

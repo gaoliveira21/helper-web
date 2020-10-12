@@ -76,12 +76,12 @@ export const Content = styled.div`
     p {
       color: var(--color-gray);
     }
+  }
 
-    form {
-      strong {
-        font-size: 2rem;
-        color: var(--color-primary);
-      }
+  form {
+    small {
+      color: var(--color-primary);
+      font-weight: bold;
     }
   }
 `;
@@ -91,7 +91,7 @@ export const InputBlock = styled.div`
   flex-direction: column;
   gap: 2rem;
   width: 100%;
-  margin: 24px 0;
+  margin: 24px 0 0 0;
 
   @media (min-width: 768px) {
     flex-direction: row;
