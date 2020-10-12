@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, Link } from 'react-router-dom';
 
-import AuthContext from '../../contexts/auth';
+import { useAuth } from '../../contexts/auth';
 
 import {
   Container,
@@ -20,7 +20,7 @@ import {
 
 function DefaultLayout({ children, title }) {
   const location = useLocation();
-  const { signOut } = useContext(AuthContext);
+  const { signOut } = useAuth();
 
   return (
     <Container>

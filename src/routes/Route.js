@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-import AuthContext from '../contexts/auth';
+import { useAuth } from '../contexts/auth';
 
 export default function RouteWrapper({
   component: Component,
   isPrivate = false,
   ...rest
 }) {
-  const signed = useContext(AuthContext).signed;
+  const signed = useAuth().signed;
 
   if (!signed && isPrivate) {
     return <Redirect to="/sign-in" />;

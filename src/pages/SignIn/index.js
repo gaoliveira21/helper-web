@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 
-import AuthContext from '../../contexts/auth';
+import { useAuth } from '../../contexts/auth';
 
 import Input from '../../components/Input';
 
@@ -16,7 +16,7 @@ import {
 import loginImage from '../../assets/images/login.svg';
 
 function SignIn() {
-  const { signIn } = useContext(AuthContext);
+  const { signIn } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

@@ -1,5 +1,5 @@
 /* eslint-disable react/forbid-prop-types */
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 
@@ -57,5 +57,11 @@ export function AuthProvider({ children }) {
 AuthProvider.propTypes = {
   children: PropTypes.array.isRequired,
 };
+
+export function useAuth() {
+  const auth = useContext(AuthContext);
+
+  return auth;
+}
 
 export default AuthContext;
