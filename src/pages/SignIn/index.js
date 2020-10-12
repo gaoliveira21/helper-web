@@ -1,5 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 import { useAuth } from '../../contexts/auth';
 
@@ -16,6 +17,15 @@ import {
 
 import loginImage from '../../assets/images/login.svg';
 
+const schema = Yup.object().shape({
+  email: Yup.string()
+    .email('Email inválido')
+    .required('O campo email é obrigatório'),
+  password: Yup.string()
+    .min(6, 'O campo senha precisa ter no mínimo 6 caracteres')
+    .required('O campo senha é obrigatório'),
+});
+
 function SignIn() {
   const { signIn } = useAuth();
 
@@ -24,6 +34,7 @@ function SignIn() {
       email: '',
       password: '',
     },
+    validationSchema: schema,
     onSubmit: (values) => {
       signIn(values);
     },
@@ -54,6 +65,9 @@ function SignIn() {
                 onChange={formik.handleChange}
               />
             </InputBlock>
+            {formik.touched.email && formik.errors.email ? (
+              <small>{formik.errors.email}</small>
+            ) : null}
             <InputBlock>
               <Input
                 width="100%"
@@ -65,6 +79,9 @@ function SignIn() {
                 onChange={formik.handleChange}
               />
             </InputBlock>
+            {formik.touched.password && formik.errors.password ? (
+              <small>{formik.errors.password}</small>
+            ) : null}
             <ButtonContent>
               <button type="submit">Próximo</button>
             </ButtonContent>
