@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useFormik } from 'formik';
 
 import { useAuth } from '../../contexts/auth';
 
@@ -17,13 +18,16 @@ import loginImage from '../../assets/images/login.svg';
 
 function SignIn() {
   const { signIn } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    await signIn({ email, password });
-  }
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: (values) => {
+      signIn(values);
+    },
+  });
 
   return (
     <Container>
@@ -38,7 +42,7 @@ function SignIn() {
             <h1>Login</h1>
             <p>Preencha os campos abaixo para efetuar o login</p>
           </div>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={formik.handleSubmit}>
             <InputBlock>
               <Input
                 width="100%"
@@ -46,8 +50,8 @@ function SignIn() {
                 name="email"
                 label="E-mail"
                 placeholder="Digite seu e-mail"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={formik.values.email}
+                onChange={formik.handleChange}
               />
             </InputBlock>
             <InputBlock>
@@ -57,8 +61,8 @@ function SignIn() {
                 name="password"
                 label="Senha"
                 placeholder="Digite sua senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={formik.values.password}
+                onChange={formik.handleChange}
               />
             </InputBlock>
             <ButtonContent>
