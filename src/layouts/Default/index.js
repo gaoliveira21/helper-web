@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, Link } from 'react-router-dom';
+
+import AuthContext from '../../contexts/auth';
 
 import {
   Container,
@@ -18,6 +20,7 @@ import {
 
 function DefaultLayout({ children, title }) {
   const location = useLocation();
+  const { signOut } = useContext(AuthContext);
 
   return (
     <Container>
@@ -60,10 +63,10 @@ function DefaultLayout({ children, title }) {
             </Link>
           </li>
           <li>
-            <a href="#!">
+            <button type="button" onClick={signOut}>
               <LogOutIcon />
               Sair
-            </a>
+            </button>
           </li>
         </ul>
       </SideBar>
@@ -93,7 +96,7 @@ function DefaultLayout({ children, title }) {
         <Link to="/profile">
           <ProfileIcon />
         </Link>
-        <LogOutIcon />
+        <LogOutIcon onClick={signOut} />
       </BottomTabs>
     </Container>
   );

@@ -82,6 +82,18 @@ export const SideBar = styled.nav`
         }
       }
 
+      button {
+        background: none;
+        border: none;
+        margin-left: 10px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        color: var(--color-white);
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+
       &:hover {
         opacity: 0.8;
       }
