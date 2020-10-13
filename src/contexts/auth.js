@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
 
       setUser(entity);
     } catch (error) {
-      toast.error('Falha na autenticação');
+      toast.error('Email ou senha incorretos');
     }
   }
 
