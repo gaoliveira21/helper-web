@@ -20,18 +20,21 @@ import {
 
 function DefaultLayout({ children, title }) {
   const location = useLocation();
-  const { signOut } = useAuth();
+  const { signOut, user } = useAuth();
 
   return (
     <Container>
       <SideBar>
         <header>
           <img
-            src="https://api.adorable.io/avatars/285/abott@adorable.png"
+            src={
+              user.profile.avatar.url ||
+              'https://api.adorable.io/avatars/285/abott@adorable.png'
+            }
             alt="Entidade"
           />
           <p>
-            Olá, <strong>entidade</strong>
+            Olá, <strong>{user.name}</strong>
           </p>
         </header>
         <ul>
