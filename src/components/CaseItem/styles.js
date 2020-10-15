@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { darken } from 'polished';
 import { Edit } from '@styled-icons/boxicons-regular';
 
 export const Container = styled.div`
@@ -18,14 +19,33 @@ export const Progress = styled.div`
   div {
     width: ${(props) => (props.percent < 20 ? '20%' : `${props.percent}%`)};
     height: 100%;
-    background: ${(props) =>
-      props.percent >= 100 ? 'var(--color-green)' : 'var(--color-secondary)'};
     display: flex;
     padding: 0 0.4rem;
     align-items: center;
     justify-content: flex-end;
     border-top-left-radius: 0.4rem;
     border-top-right-radius: 0.4rem;
+
+    ${(props) =>
+      props.percent >= 100
+        ? css`
+            background: repeating-linear-gradient(
+              -55deg,
+              ${darken(0.08, '#6FCF97')},
+              ${darken(0.08, '#6FCF97')} 10px,
+              var(--color-green) 10px,
+              var(--color-green) 20px
+            );
+          `
+        : css`
+            background: repeating-linear-gradient(
+              -55deg,
+              ${darken(0.07, '#5B5F97')},
+              ${darken(0.07, '#5B5F97')} 10px,
+              var(--color-secondary) 10px,
+              var(--color-secondary) 20px
+            );
+          `}
 
     strong {
       color: var(--color-white);
