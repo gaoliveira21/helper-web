@@ -16,9 +16,10 @@ export const Progress = styled.div`
   border-top-right-radius: 0.4rem;
 
   div {
-    width: 20%;
+    width: ${(props) => (props.percent < 20 ? '20%' : `${props.percent}%`)};
     height: 100%;
-    background: var(--color-secondary);
+    background: ${(props) =>
+      props.percent >= 100 ? 'var(--color-green)' : 'var(--color-secondary)'};
     display: flex;
     padding: 0 0.4rem;
     align-items: center;

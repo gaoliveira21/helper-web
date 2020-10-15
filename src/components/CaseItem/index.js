@@ -20,7 +20,7 @@ function CaseItem({ data }) {
 
   return (
     <Container>
-      <Progress>
+      <Progress percent={Math.ceil((data.value_collected / data.value) * 100)}>
         <div>
           <strong>{data.formattedValueCollected}</strong>
         </div>
