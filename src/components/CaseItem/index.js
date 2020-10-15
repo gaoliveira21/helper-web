@@ -28,7 +28,7 @@ function CaseItem({ data }) {
         </div>
       </Progress>
       <Header>
-        <span>07/09/2020</span>
+        <span>{data.formattedDate}</span>
         <strong>{data.formattedValue}</strong>
       </Header>
       <Body>
@@ -53,6 +53,7 @@ CaseItem.propTypes = {
     formattedValue: PropTypes.string.isRequired,
     value_collected: PropTypes.number.isRequired,
     formattedValueCollected: PropTypes.string.isRequired,
+    formattedDate: PropTypes.string.isRequired,
   }).isRequired,
 };
 

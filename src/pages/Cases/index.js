@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { formatPrice } from '../../util/format';
+import { formatPrice, formatDate } from '../../util/format';
 import api from '../../services/api';
 
 import DefaultLayout from '../../layouts/Default';
@@ -40,6 +40,7 @@ function Cases() {
               : caseItem.description,
           formattedValue: formatPrice(caseItem.value),
           formattedValueCollected: formatPrice(caseItem.value_collected),
+          formattedDate: formatDate(caseItem.createdAt),
         };
       });
 
