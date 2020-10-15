@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
 
+import CaseStatusBadge from '../CaseStatusBadge';
+
 import {
   Container,
   EditIcon,
@@ -31,7 +33,7 @@ function CaseItem({ data }) {
       </Header>
       <Body>
         <h3>{data.title}</h3>
-        <span>{data.opened ? 'Aberto' : 'Concluído'}</span>
+        <CaseStatusBadge opened={data.opened} />
         <p>{data.description}</p>
       </Body>
       <ActionBox>

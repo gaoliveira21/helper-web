@@ -73,14 +73,6 @@ export const Body = styled.div`
     font-size: 2.5rem;
   }
 
-  span {
-    padding: 0.2rem 1rem;
-    background: var(--color-green);
-    border-radius: 0.8rem;
-    color: var(--color-white);
-    font-size: 1.2rem;
-  }
-
   p {
     margin-top: 18px;
     text-align: justify;
