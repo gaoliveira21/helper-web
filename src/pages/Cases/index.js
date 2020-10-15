@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import { formatPrice } from '../../util/format';
 import api from '../../services/api';
 
 import DefaultLayout from '../../layouts/Default';
@@ -30,7 +31,19 @@ function Cases() {
         },
       });
 
-      setCases(response.data.cases);
+      const formattedCases = response.data.cases.map((caseItem) => {
+        return {
+          ...caseItem,
+          description:
+            caseItem.description.length > 100
+              ? `${caseItem.description.match(/^.{1,97}/)[0]}...`
+              : caseItem.description,
+          formattedValue: formatPrice(caseItem.value),
+          formattedValueCollected: formatPrice(caseItem.value_collected),
+        };
+      });
+
+      setCases(formattedCases);
     }
 
     loadCases();
@@ -71,7 +84,7 @@ function Cases() {
         </FilterBox>
         <CaseList>
           {cases.map((caseItem) => (
-            <CaseItem key={caseItem.id} />
+            <CaseItem key={caseItem.id} data={caseItem} />
           ))}
         </CaseList>
       </Container>

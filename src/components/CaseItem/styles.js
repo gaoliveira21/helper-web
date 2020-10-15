@@ -64,7 +64,7 @@ export const Body = styled.div`
     margin-top: 18px;
     text-align: justify;
     line-height: 24px;
-    min-height: 6rem;
+    min-height: 7rem;
   }
 `;
 
