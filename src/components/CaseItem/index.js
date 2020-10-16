@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
+
+import CaseStatusBadge from '../CaseStatusBadge';
 
 import {
   Container,
@@ -10,7 +13,7 @@ import {
   ActionBox,
 } from './styles';
 
-function CaseItem() {
+function CaseItem({ data }) {
   const history = useHistory();
 
   function handleNavigateToEdit() {
@@ -19,22 +22,19 @@ function CaseItem() {
 
   return (
     <Container>
-      <Progress>
+      <Progress percent={Math.ceil((data.value_collected / data.value) * 100)}>
         <div>
-          <strong>R$ 0,00</strong>
+          <strong>{data.formattedValueCollected}</strong>
         </div>
       </Progress>
       <Header>
-        <span>07/09/2020</span>
-        <strong>R$ 200,00</strong>
+        <span>{data.formattedDate}</span>
+        <strong>{data.formattedValue}</strong>
       </Header>
       <Body>
-        <h3>Título</h3>
-        <span>Aberto</span>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempus
-          felis non commodo ullamcorper.
-        </p>
+        <h3>{data.title}</h3>
+        <CaseStatusBadge opened={data.opened} />
+        <p>{data.description}</p>
       </Body>
       <ActionBox>
         <Link to="/cases/detail-case">Detalhes</Link>
@@ -43,5 +43,18 @@ function CaseItem() {
     </Container>
   );
 }
+
+CaseItem.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    opened: PropTypes.bool.isRequired,
+    value: PropTypes.number.isRequired,
+    formattedValue: PropTypes.string.isRequired,
+    value_collected: PropTypes.number.isRequired,
+    formattedValueCollected: PropTypes.string.isRequired,
+    formattedDate: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default CaseItem;
