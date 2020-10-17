@@ -174,6 +174,7 @@ const rotate = keyframes`
 `;
 
 export const Loading = styled(LoaderCircle)`
+  color: var(--color-primary);
   display: flex;
   align-self: center;
   width: 5rem;
