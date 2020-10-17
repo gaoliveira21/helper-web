@@ -1,9 +1,15 @@
 import { parseISO, format } from 'date-fns';
 
-export const { format: formatPrice } = new Intl.NumberFormat('pt-Br', {
-  style: 'currency',
-  currency: 'BRL',
-});
+export const formatPrice = (value) => {
+  if (!value) return null;
 
-export const formatDate = (date, formatString = 'dd/MM/yyyy') =>
-  format(parseISO(date), formatString);
+  return new Intl.NumberFormat('pt-Br', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(value);
+};
+export const formatDate = (date, formatString = 'dd/MM/yyyy') => {
+  if (!date) return null;
+
+  return format(parseISO(date), formatString);
+};

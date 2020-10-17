@@ -32,13 +32,13 @@ export default function Routes() {
         <Route exact path="/cases/new-case" component={NewCase} isPrivate />
         <Route
           exact
-          path="/cases/detail-case"
+          path="/cases/detail-case/:id"
           component={DetailCase}
           isPrivate
         />
         <Route
           exact
-          path="/cases/update-case"
+          path="/cases/update-case/:id"
           component={UpdateCase}
           isPrivate
         />

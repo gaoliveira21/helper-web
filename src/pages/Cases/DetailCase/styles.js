@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { darken } from 'polished';
 
-import { Edit } from '@styled-icons/boxicons-regular';
+import { Edit, LoaderCircle } from '@styled-icons/boxicons-regular';
 
 export const EditIcon = styled(Edit)`
   width: 24px;
@@ -20,7 +20,7 @@ export const Content = styled.div`
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
-  padding: 4rem 6rem;
+  padding: 4rem 3rem;
   background: var(--color-white);
   border-radius: 0.8rem;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
@@ -31,6 +31,7 @@ export const TextContent = styled.div`
   flex-direction: column;
   gap: 2rem;
   align-items: center;
+  text-align: justify;
 
   width: 100%;
   margin: 24px 0;
@@ -62,6 +63,7 @@ export const Title = styled.div`
   span {
     color: var(--color-gray);
     font-weight: bold;
+    text-align: right;
   }
 `;
 
@@ -76,7 +78,7 @@ export const Progress = styled.div`
     justify-content: flex-end;
     align-items: center;
 
-    width: 86%;
+    width: ${(props) => (props.percent < 45 ? '45%' : `${props.percent}%`)};
     height: 100%;
     padding: 0 2rem;
 
@@ -160,4 +162,25 @@ export const ButtonContent = styled.div`
       background: var(--color-primary-dark);
     }
   }
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Loading = styled(LoaderCircle)`
+  color: var(--color-primary);
+  display: flex;
+  align-self: center;
+  width: 5rem;
+  animation: ${rotate} 2s linear infinite;
+`;
+
+export const Scroll = styled.div`
+  overflow-x: auto;
 `;
