@@ -15,6 +15,7 @@ import UpdateCase from '../pages/Cases/UpdateCase';
 import DetailCase from '../pages/Cases/DetailCase';
 import Profile from '../pages/Profile';
 import Donation from '../pages/Donation';
+import Page404 from '../pages/Page404';
 
 export default function Routes() {
   return (
@@ -44,7 +45,7 @@ export default function Routes() {
         <Route exact path="/profile" component={Profile} isPrivate />
         <Route exact path="/donation" component={Donation} isPrivate />
 
-        <Route path="*" exact component={() => <h1>404 Page Not Found</h1>} />
+        <Route path="*" exact component={Page404} />
       </Switch>
     </BrowserRouter>
   );
