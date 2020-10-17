@@ -15,7 +15,7 @@ import {
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 
-function NewCase() {
+function DetailCase() {
   return (
     <>
       <Header
@@ -99,4 +99,4 @@ function NewCase() {
   );
 }
 
-export default NewCase;
+export default DetailCase;

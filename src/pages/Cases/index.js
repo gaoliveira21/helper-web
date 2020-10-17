@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DebounceInput } from 'react-debounce-input';
 
-import { formatPrice, formatDate } from '../../util/format';
 import api from '../../services/api';
 
 import DefaultLayout from '../../layouts/Default';
@@ -48,20 +47,7 @@ function Cases() {
         },
       });
 
-      const formattedCases = response.data.cases.map((caseItem) => {
-        return {
-          ...caseItem,
-          description:
-            caseItem.description.length > 100
-              ? `${caseItem.description.match(/^.{1,97}/)[0]}...`
-              : caseItem.description,
-          formattedValue: formatPrice(caseItem.value),
-          formattedValueCollected: formatPrice(caseItem.value_collected),
-          formattedDate: formatDate(caseItem.createdAt),
-        };
-      });
-
-      setCases(formattedCases);
+      setCases(response.data.cases);
     }
 
     loadCases();
