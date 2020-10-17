@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { DebounceInput } from 'react-debounce-input';
 
 import { formatPrice, formatDate } from '../../util/format';
 import api from '../../services/api';
@@ -19,15 +20,31 @@ import {
 function Cases() {
   const [cases, setCases] = useState([]);
   const [filter, setFilter] = useState('all');
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
+    let opened = null;
+
+    switch (filter) {
+      case 'open':
+        opened = true;
+        break;
+      case 'done':
+        opened = false;
+        break;
+
+      default:
+        opened = null;
+        break;
+    }
+
     async function loadCases() {
       const response = await api.get('/entities/cases', {
         params: {
           page: 1,
           limit: 10,
-          title: '',
-          opened: null,
+          title: search,
+          opened,
         },
       });
 
@@ -48,13 +65,19 @@ function Cases() {
     }
 
     loadCases();
-  }, []);
+  }, [search, filter]);
 
   return (
     <DefaultLayout title="Casos">
       <Container>
         <SearchBox>
-          <input type="text" placeholder="Pesquisar..." />
+          <DebounceInput
+            minLength={2}
+            debounceTimeout={300}
+            onChange={(event) => setSearch(event.target.value)}
+            element="input"
+            placeholder="Pesquisar..."
+          />
           <SearchIcon />
         </SearchBox>
         <FilterBox>
