@@ -28,7 +28,7 @@ function DefaultLayout({ children, title }) {
         <header>
           <img
             src={
-              user.profile.avatar.url ||
+              user.profile?.avatar?.url ||
               'https://api.adorable.io/avatars/285/abott@adorable.png'
             }
             alt="Entidade"

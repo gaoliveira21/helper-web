@@ -57,7 +57,7 @@ function SignIn() {
             <InputBlock>
               <Input
                 width="100%"
-                type="text"
+                type="email"
                 name="email"
                 label="E-mail"
                 placeholder="Digite seu e-mail"
