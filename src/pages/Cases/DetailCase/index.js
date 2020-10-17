@@ -15,6 +15,8 @@ import {
   Progress,
   TableDonators,
   EditIcon,
+  Loading,
+  Scroll,
 } from './styles';
 
 import Header from '../../../components/Header';
@@ -62,71 +64,91 @@ function DetailCase() {
 
       <Container>
         <Content>
-          <ButtonContent>
-            <Link to={`/cases/update-case/${caseDetail.id}`}>
-              <button type="button">
-                <EditIcon />
-                EditLink
-              </button>
-            </Link>
-          </ButtonContent>
+          {Object.keys(caseDetail).length === 0 ? (
+            <Loading />
+          ) : (
+            <>
+              <ButtonContent>
+                <Link to={`/cases/update-case/${caseDetail.id}`}>
+                  <button type="button">
+                    <EditIcon />
+                    Editar caso
+                  </button>
+                </Link>
+              </ButtonContent>
 
-          <TextContent>
-            <Text width="100%" title="Título do caso" text={caseDetail.title} />
-          </TextContent>
+              <TextContent>
+                <Text
+                  width="100%"
+                  title="Título do caso"
+                  text={caseDetail.title}
+                />
+              </TextContent>
 
-          <TextContent>
-            <Text width="100%" title="Valor estimado" text={formattedValue} />
-          </TextContent>
+              <TextContent>
+                <Text
+                  width="100%"
+                  title="Valor estimado"
+                  text={formattedValue}
+                />
+              </TextContent>
 
-          <TextContent>
-            <Text width="100%" title="Data de Criação" text={formattedDate} />
-          </TextContent>
+              <TextContent>
+                <Text
+                  width="100%"
+                  title="Data de Criação"
+                  text={formattedDate}
+                />
+              </TextContent>
 
-          <TextContent>
-            <Text
-              width="100%"
-              title="Título do caso"
-              text={caseDetail.description}
-            />
-          </TextContent>
+              <TextContent>
+                <Text
+                  width="100%"
+                  title="Título do caso"
+                  text={caseDetail.description}
+                />
+              </TextContent>
 
-          <ValueCollected>
-            <Title>
-              <strong>Total Arrecadado</strong>
-              <span>{`${formattedValueCollected} / ${formattedValue}`}</span>
-            </Title>
-            <Progress
-              percent={Math.ceil(
-                (caseDetail.value_collected / caseDetail.value) * 100
-              )}
-            >
-              <div>
-                <strong>{formattedValueCollected}</strong>
-              </div>
-            </Progress>
-          </ValueCollected>
+              <ValueCollected>
+                <Title>
+                  <strong>Total Arrecadado</strong>
+                  <span>{`${formattedValueCollected} / ${formattedValue}`}</span>
+                </Title>
+                <Progress
+                  percent={Math.ceil(
+                    (caseDetail.value_collected / caseDetail.value) * 100
+                  )}
+                >
+                  <div>
+                    <strong>{formattedValueCollected}</strong>
+                  </div>
+                </Progress>
+              </ValueCollected>
 
-          <TableDonators>
-            <caption>Doadores que ajudaram nesse caso</caption>
-            <thead>
-              <tr>
-                <th>Usuário</th>
-                <th>Doação</th>
-                <th>Data</th>
-              </tr>
-            </thead>
-            <tbody>
-              {caseDetail?.donations &&
-                caseDetail?.donations.map((donation) => (
-                  <tr>
-                    <td>{donation.donator?.full_name || '-'}</td>
-                    <td>{formatPrice(donation.value)}</td>
-                    <td>{formatDate(donation.createdAt)}</td>
-                  </tr>
-                ))}
-            </tbody>
-          </TableDonators>
+              <Scroll>
+                <TableDonators>
+                  <caption>Doadores que ajudaram nesse caso</caption>
+                  <thead>
+                    <tr>
+                      <th>Usuário</th>
+                      <th>Doação</th>
+                      <th>Data</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {caseDetail?.donations &&
+                      caseDetail?.donations.map((donation) => (
+                        <tr key={donation.id}>
+                          <td>{donation.donator?.full_name || '-'}</td>
+                          <td>{formatPrice(donation.value)}</td>
+                          <td>{formatDate(donation.createdAt)}</td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </TableDonators>
+              </Scroll>
+            </>
+          )}
         </Content>
       </Container>
     </>
