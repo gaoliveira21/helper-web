@@ -58,7 +58,7 @@ function CaseItem({ data }) {
         <p>{formattedDescription}</p>
       </Body>
       <ActionBox>
-        <Link to="/cases/detail-case">Detalhes</Link>
+        <Link to={`/cases/detail-case/${data.id}`}>Detalhes</Link>
         <EditIcon onClick={() => handleNavigateToEdit()} />
       </ActionBox>
     </Container>
@@ -67,6 +67,7 @@ function CaseItem({ data }) {
 
 CaseItem.propTypes = {
   data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     opened: PropTypes.bool.isRequired,
