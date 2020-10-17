@@ -38,7 +38,7 @@ export default function Routes() {
         />
         <Route
           exact
-          path="/cases/update-case"
+          path="/cases/update-case/:id"
           component={UpdateCase}
           isPrivate
         />

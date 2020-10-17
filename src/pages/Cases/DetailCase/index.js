@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import React, { useEffect, useState, useMemo } from 'react';
+import { useParams, useHistory, Link } from 'react-router-dom';
+
+import { formatDate, formatPrice } from '../../../util/format';
 
 import api from '../../../services/api';
 
@@ -19,16 +21,29 @@ import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 
 function DetailCase() {
-  const [caseDetail, setCaseDetails] = useState({});
+  const [caseDetail, setCaseDetail] = useState({});
   const history = useHistory();
   const { id } = useParams();
+
+  const formattedValueCollected = useMemo(
+    () => formatPrice(caseDetail.value_collected),
+    [caseDetail.value_collected]
+  );
+
+  const formattedValue = useMemo(() => formatPrice(caseDetail.value), [
+    caseDetail.value,
+  ]);
+
+  const formattedDate = useMemo(() => formatDate(caseDetail.createdAt), [
+    caseDetail.createdAt,
+  ]);
 
   useEffect(() => {
     async function loadCase() {
       try {
         const response = await api.get(`/entities/cases/${id}`);
 
-        setCaseDetails(response.data);
+        setCaseDetail(response.data);
       } catch (error) {
         history.push('/404');
       }
@@ -41,53 +56,53 @@ function DetailCase() {
     <>
       <Header
         title={`Detalhes do ${caseDetail.title}`}
-        description={<span>Aberto</span>}
+        description=""
         label="Casos"
       />
 
       <Container>
         <Content>
           <ButtonContent>
-            <a href="#!">
+            <Link to={`/cases/update-case/${caseDetail.id}`}>
               <button type="button">
                 <EditIcon />
-                Editar
+                EditLink
               </button>
-            </a>
+            </Link>
           </ButtonContent>
 
           <TextContent>
-            <Text
-              width="100%"
-              title="Título do caso"
-              text="Cachorrinha atropelada"
-            />
+            <Text width="100%" title="Título do caso" text={caseDetail.title} />
           </TextContent>
 
           <TextContent>
-            <Text width="100%" title="Valor estimado" text="R$ 346,00" />
+            <Text width="100%" title="Valor estimado" text={formattedValue} />
           </TextContent>
 
           <TextContent>
-            <Text width="100%" title="Data de Criação" text="10/10/2020" />
+            <Text width="100%" title="Data de Criação" text={formattedDate} />
           </TextContent>
 
           <TextContent>
             <Text
               width="100%"
               title="Título do caso"
-              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper blandit dolor, a consectetur mi tempus nec. Cras iaculis est sit amet venenatis tempor. Curabitur venenatis metus a elit ultrices bibendum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+              text={caseDetail.description}
             />
           </TextContent>
 
           <ValueCollected>
             <Title>
               <strong>Total Arrecadado</strong>
-              <span>R$ 300,00 / R$ 346,00</span>
+              <span>{`${formattedValueCollected} / ${formattedValue}`}</span>
             </Title>
-            <Progress>
+            <Progress
+              percent={Math.ceil(
+                (caseDetail.value_collected / caseDetail.value) * 100
+              )}
+            >
               <div>
-                <strong>R$ 300,00</strong>
+                <strong>{formattedValueCollected}</strong>
               </div>
             </Progress>
           </ValueCollected>
@@ -96,22 +111,20 @@ function DetailCase() {
             <caption>Doadores que ajudaram nesse caso</caption>
             <thead>
               <tr>
-                <th>User</th>
+                <th>Usuário</th>
                 <th>Doação</th>
                 <th>Data</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Pedro Lucas Bezerra</td>
-                <td>R$ 150,00</td>
-                <td>10/10/2020</td>
-              </tr>
-              <tr>
-                <td>Gabriel José de Oliveira</td>
-                <td>R$ 150,00</td>
-                <td>10/10/2020</td>
-              </tr>
+              {caseDetail?.donations &&
+                caseDetail?.donations.map((donation) => (
+                  <tr>
+                    <td>{donation.donator?.full_name || '-'}</td>
+                    <td>{formatPrice(donation.value)}</td>
+                    <td>{formatDate(donation.createdAt)}</td>
+                  </tr>
+                ))}
             </tbody>
           </TableDonators>
         </Content>

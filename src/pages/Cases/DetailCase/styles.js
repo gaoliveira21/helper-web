@@ -76,7 +76,7 @@ export const Progress = styled.div`
     justify-content: flex-end;
     align-items: center;
 
-    width: 86%;
+    width: ${(props) => (props.percent < 20 ? '20%' : `${props.percent}%`)};
     height: 100%;
     padding: 0 2rem;
 
