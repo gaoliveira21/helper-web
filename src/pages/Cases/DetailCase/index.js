@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+
+import api from '../../../services/api';
 
 import {
   Content,
@@ -16,10 +19,28 @@ import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 
 function DetailCase() {
+  const [caseDetail, setCaseDetails] = useState({});
+  const history = useHistory();
+  const { id } = useParams();
+
+  useEffect(() => {
+    async function loadCase() {
+      try {
+        const response = await api.get(`/entities/cases/${id}`);
+
+        setCaseDetails(response.data);
+      } catch (error) {
+        history.push('/404');
+      }
+    }
+
+    loadCase();
+  }, [id, history]);
+
   return (
     <>
       <Header
-        title="Detalhes do [CASO EXEMPLO]"
+        title={`Detalhes do ${caseDetail.title}`}
         description={<span>Aberto</span>}
         label="Casos"
       />
