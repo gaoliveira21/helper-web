@@ -45,7 +45,7 @@ export default function Routes() {
         <Route exact path="/profile" component={Profile} isPrivate />
         <Route exact path="/donation" component={Donation} isPrivate />
 
-        <Route path="*" exact component={Page404} />
+        <Route path="*" exact component={Page404} is404 />
       </Switch>
     </BrowserRouter>
   );

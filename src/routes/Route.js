@@ -6,6 +6,7 @@ import { useAuth } from '../contexts/auth';
 export default function RouteWrapper({
   component: Component,
   isPrivate = false,
+  is404,
   ...rest
 }) {
   const signed = useAuth().signed;
@@ -14,7 +15,7 @@ export default function RouteWrapper({
     return <Redirect to="/sign-in" />;
   }
 
-  if (signed && !isPrivate) {
+  if (signed && !isPrivate && !is404) {
     return <Redirect to="/dashboard" />;
   }
 
