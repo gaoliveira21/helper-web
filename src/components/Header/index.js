@@ -1,20 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
 
-import { Container, TitleHeader, BackIcon } from './style';
+import { Container, TitleHeader, BackIcon } from './style'
 
-function Header({ title, description, label }) {
-  const history = useHistory();
+function Header ({ title, description, label }) {
+  const history = useHistory()
 
-  function navigateBack() {
-    history.goBack();
+  function navigateBack () {
+    history.goBack()
   }
 
   return (
     <Container>
       <nav>
-        <button type="button" onClick={navigateBack}>
+        <button type='button' onClick={navigateBack}>
           <BackIcon />
           Voltar
         </button>
@@ -30,14 +30,14 @@ function Header({ title, description, label }) {
         </div>
       </TitleHeader>
     </Container>
-  );
+  )
 }
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
     .isRequired,
-  label: PropTypes.string.isRequired,
-};
+  label: PropTypes.string.isRequired
+}
 
-export default Header;
+export default Header

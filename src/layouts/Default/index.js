@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useLocation, Link } from 'react-router-dom';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useLocation, Link } from 'react-router-dom'
 
-import { useAuth } from '../../contexts/auth';
+import { useAuth } from '../../contexts/auth'
 
 import {
   Container,
@@ -15,12 +15,12 @@ import {
   DonateIcon,
   ProfileIcon,
   LogOutIcon,
-  Divider,
-} from './styles';
+  Divider
+} from './styles'
 
-function DefaultLayout({ children, title }) {
-  const location = useLocation();
-  const { signOut, user } = useAuth();
+function DefaultLayout ({ children, title }) {
+  const location = useLocation()
+  const { signOut, user } = useAuth()
 
   return (
     <Container>
@@ -29,9 +29,9 @@ function DefaultLayout({ children, title }) {
           <img
             src={
               user.profile?.avatar?.url ||
-              'https://api.adorable.io/avatars/285/abott@adorable.png'
+            'https://api.adorable.io/avatars/285/abott@adorable.png'
             }
-            alt="Entidade"
+            alt='Entidade'
           />
           <p>
             Olá, <strong>{user.name}</strong>
@@ -39,19 +39,19 @@ function DefaultLayout({ children, title }) {
         </header>
         <ul>
           <li className={location.pathname === '/dashboard' ? 'active' : ''}>
-            <Link to="/dashboard">
+            <Link to='/dashboard'>
               <PanelIcon />
               Painel
             </Link>
           </li>
           <li className={location.pathname === '/cases' ? 'active' : ''}>
-            <Link to="/cases">
+            <Link to='/cases'>
               <CasesIcon />
               Casos
             </Link>
           </li>
           <li className={location.pathname === '/donation' ? 'active' : ''}>
-            <Link to="/donation">
+            <Link to='/donation'>
               <DonateIcon />
               Doações
             </Link>
@@ -60,13 +60,13 @@ function DefaultLayout({ children, title }) {
         <Divider />
         <ul>
           <li>
-            <Link to="/profile">
+            <Link to='/profile'>
               <ProfileIcon />
               Perfil
             </Link>
           </li>
           <li>
-            <button type="button" onClick={signOut}>
+            <button type='button' onClick={signOut}>
               <LogOutIcon />
               Sair
             </button>
@@ -83,31 +83,31 @@ function DefaultLayout({ children, title }) {
         {children}
       </Main>
       <BottomTabs>
-        <Link to="/dashboard">
+        <Link to='/dashboard'>
           <PanelIcon
             className={location.pathname === '/dashboard' && 'active'}
           />
         </Link>
-        <Link to="/cases">
+        <Link to='/cases'>
           <CasesIcon className={location.pathname === '/cases' && 'active'} />
         </Link>
-        <Link to="/donation">
+        <Link to='/donation'>
           <DonateIcon
             className={location.pathname === '/donation' && 'active'}
           />
         </Link>
-        <Link to="/profile">
+        <Link to='/profile'>
           <ProfileIcon />
         </Link>
         <LogOutIcon onClick={signOut} />
       </BottomTabs>
     </Container>
-  );
+  )
 }
 
 DefaultLayout.propTypes = {
   children: PropTypes.element.isRequired,
-  title: PropTypes.string.isRequired,
-};
+  title: PropTypes.string.isRequired
+}
 
-export default DefaultLayout;
+export default DefaultLayout

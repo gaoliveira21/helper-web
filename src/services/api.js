@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
   headers: {
-    Authorization: `Bearer ${localStorage.getItem('@helper:token')}`,
-  },
-});
+    Authorization: `Bearer ${window.localStorage.getItem('@helper:token')}`
+  }
+})
 
-export default api;
+export default api

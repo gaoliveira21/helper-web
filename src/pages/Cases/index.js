@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { DebounceInput } from 'react-debounce-input';
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { DebounceInput } from 'react-debounce-input'
 
-import { formatPrice, formatDate } from '../../util/format';
-import api from '../../services/api';
+import api from '../../services/api'
 
-import DefaultLayout from '../../layouts/Default';
-import CaseItem from '../../components/CaseItem';
+import DefaultLayout from '../../layouts/Default'
+import CaseItem from '../../components/CaseItem'
 
 import {
   Container,
@@ -14,69 +13,56 @@ import {
   SearchIcon,
   AddIcon,
   FilterBox,
-  CaseList,
-} from './styles';
+  CaseList
+} from './styles'
 
-function Cases() {
-  const [cases, setCases] = useState([]);
-  const [filter, setFilter] = useState('all');
-  const [search, setSearch] = useState('');
+function Cases () {
+  const [cases, setCases] = useState([])
+  const [filter, setFilter] = useState('all')
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
-    let opened = null;
+    let opened = null
 
     switch (filter) {
       case 'open':
-        opened = true;
-        break;
+        opened = true
+        break
       case 'done':
-        opened = false;
-        break;
+        opened = false
+        break
 
       default:
-        opened = null;
-        break;
+        opened = null
+        break
     }
 
-    async function loadCases() {
+    async function loadCases () {
       const response = await api.get('/entities/cases', {
         params: {
           page: 1,
           limit: 10,
           title: search,
-          opened,
-        },
-      });
+          opened
+        }
+      })
 
-      const formattedCases = response.data.cases.map((caseItem) => {
-        return {
-          ...caseItem,
-          description:
-            caseItem.description.length > 100
-              ? `${caseItem.description.match(/^.{1,97}/)[0]}...`
-              : caseItem.description,
-          formattedValue: formatPrice(caseItem.value),
-          formattedValueCollected: formatPrice(caseItem.value_collected),
-          formattedDate: formatDate(caseItem.createdAt),
-        };
-      });
-
-      setCases(formattedCases);
+      setCases(response.data.cases)
     }
 
-    loadCases();
-  }, [search, filter]);
+    loadCases()
+  }, [search, filter])
 
   return (
-    <DefaultLayout title="Casos">
+    <DefaultLayout title='Casos'>
       <Container>
         <SearchBox>
           <DebounceInput
             minLength={2}
             debounceTimeout={300}
             onChange={(event) => setSearch(event.target.value)}
-            element="input"
-            placeholder="Pesquisar..."
+            element='input'
+            placeholder='Pesquisar...'
           />
           <SearchIcon />
         </SearchBox>
@@ -101,7 +87,7 @@ function Cases() {
               Concluídos
             </li>
           </ul>
-          <Link to="/cases/new-case">
+          <Link to='/cases/new-case'>
             <AddIcon />
             Novo caso
           </Link>
@@ -113,7 +99,7 @@ function Cases() {
         </CaseList>
       </Container>
     </DefaultLayout>
-  );
+  )
 }
 
-export default Cases;
+export default Cases

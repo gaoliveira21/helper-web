@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import Input from '../../../components/Input';
+import Input from '../../../components/Input'
 
 import {
   Container,
@@ -9,18 +9,18 @@ import {
   FormContent,
   InputBlock,
   ButtonContent,
-  BackIcon,
-} from './styles';
+  BackIcon
+} from './styles'
 
-import registerImage from '../../../assets/images/register.svg';
+import registerImage from '../../../assets/images/register.svg'
 
-function Step2() {
+function Step2 () {
   return (
     <Container>
       <FormContent>
         <h3>Helper</h3>
         <Content>
-          <a href="#!">
+          <a href='#!'>
             <BackIcon />
             Voltar
           </a>
@@ -32,57 +32,57 @@ function Step2() {
             <strong>Endereço</strong>
             <InputBlock>
               <Input
-                width="60%"
-                type="text"
-                name="city"
-                label="Cidade"
-                placeholder="Digite a sua cidade"
+                width='60%'
+                type='text'
+                name='city'
+                label='Cidade'
+                placeholder='Digite a sua cidade'
               />
               <Input
-                width="40%"
-                type="text"
-                name="state"
-                label="UF"
-                placeholder="Digite seu estado UF"
-              />
-            </InputBlock>
-            <InputBlock>
-              <Input
-                width="100%"
-                type="text"
-                name="neighborhood"
-                label="Bairro"
-                placeholder="Exemplo: Bairro da sua entidade"
+                width='40%'
+                type='text'
+                name='state'
+                label='UF'
+                placeholder='Digite seu estado UF'
               />
             </InputBlock>
             <InputBlock>
               <Input
-                width="80%"
-                type="text"
-                name="street"
-                label="Rua"
-                placeholder="Exemplo: Rua da sua entidade"
+                width='100%'
+                type='text'
+                name='neighborhood'
+                label='Bairro'
+                placeholder='Exemplo: Bairro da sua entidade'
+              />
+            </InputBlock>
+            <InputBlock>
+              <Input
+                width='80%'
+                type='text'
+                name='street'
+                label='Rua'
+                placeholder='Exemplo: Rua da sua entidade'
               />
               <Input
-                width="20%"
-                type="text"
-                name="number"
-                label="Nº"
-                placeholder="Nº"
+                width='20%'
+                type='text'
+                name='number'
+                label='Nº'
+                placeholder='Nº'
               />
             </InputBlock>
             <strong>Contato</strong>
             <InputBlock>
               <Input
-                width="100%"
-                type="text"
-                name="whatsapp"
-                label="Whatsapp"
-                placeholder="Digite seu whatsapp"
+                width='100%'
+                type='text'
+                name='whatsapp'
+                label='Whatsapp'
+                placeholder='Digite seu whatsapp'
               />
             </InputBlock>
             <ButtonContent>
-              <button type="submit">Próximo</button>
+              <button type='submit'>Próximo</button>
             </ButtonContent>
           </form>
         </Content>
@@ -90,10 +90,10 @@ function Step2() {
 
       <ImageContent>
         <h3>Helper</h3>
-        <img src={registerImage} alt="Cadastre-se" />
+        <img src={registerImage} alt='Cadastre-se' />
       </ImageContent>
     </Container>
-  );
+  )
 }
 
-export default Step2;
+export default Step2

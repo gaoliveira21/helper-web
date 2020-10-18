@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ export const Container = styled.div`
     font-size: 3rem;
     padding: 3rem 3rem 0 0;
   }
-`;
+`
 
 export const Message = styled.div`
   display: flex;
@@ -72,7 +72,7 @@ export const Message = styled.div`
       text-align: start;
     }
   }
-`;
+`
 
 export const Image = styled.div`
   display: none;
@@ -87,4 +87,4 @@ export const Image = styled.div`
       width: 100%;
     }
   }
-`;
+`
