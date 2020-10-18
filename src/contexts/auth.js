@@ -53,7 +53,9 @@ export function AuthProvider ({ children }) {
     window.localStorage.removeItem('@helper:step2:user')
   }
 
-  function successSignUp (entity) {
+  function successSignUp () {
+    const entity = JSON.parse(window.localStorage.getItem('@helper:user'))
+
     setUser(entity)
   }
 
