@@ -63,7 +63,7 @@ export const Content = styled.div`
     text-align: center;
   }
 
-  a {
+  button {
     background: var(--color-primary);
     padding: 16px 40px;
     border: none;

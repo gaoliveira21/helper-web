@@ -21,7 +21,7 @@ function NewCase () {
       <Header
         title='Perfil da Entidade'
         description='Este é o seu perfil, todas as informações aqui ficarão disponíveis para os doadores.'
-        label='Casos'
+        label='Perfil'
       />
 
       <Container>

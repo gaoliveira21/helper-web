@@ -14,13 +14,13 @@ export const InputBlock = styled.div`
     min-height: 240px;
     padding: 16px 24px;
     border-radius: 0.8rem;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     outline: none;
     resize: none;
     background: var(--color-medium-gray);
 
     &:focus {
-      border: 1px solid var(--color-primary);
+      border-bottom: 2px solid var(--color-secondary);
     }
   }
 

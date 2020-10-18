@@ -28,7 +28,7 @@ export const SideBar = styled.nav`
   display: none;
   height: 100%;
   width: 100%;
-  padding: 24px 0;
+  padding: 48px 0;
   background: var(--color-primary);
 
   @media (min-width: 768px) {
@@ -42,12 +42,13 @@ export const SideBar = styled.nav`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 24px;
 
     img {
       width: 100px;
       border-radius: 50%;
       background: #ccc;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
 
     p {
@@ -85,6 +86,7 @@ export const SideBar = styled.nav`
       button {
         background: none;
         border: none;
+        outline: none;
         margin-left: 10px;
         width: 100%;
         display: flex;
