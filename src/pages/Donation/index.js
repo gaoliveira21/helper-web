@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { DebounceInput } from 'react-debounce-input'
 
 import { formatDate, formatPrice } from '../../util/format'
 
@@ -19,10 +20,15 @@ import {
 
 function Donation () {
   const [donations, setDonations] = useState([])
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     async function loadDonations () {
-      const response = await api.get('/donations')
+      const response = await api.get('/donations', {
+        params: {
+          title: search
+        }
+      })
 
       const serializedDonations = response.data.map(({ created_at: createdAt, value, ...rest }) => ({
         formattedDate: formatDate(createdAt),
@@ -34,7 +40,7 @@ function Donation () {
     }
 
     loadDonations()
-  }, [])
+  }, [search])
 
   return (
     <DefaultLayout title='Doações'>
@@ -49,7 +55,13 @@ function Donation () {
           <div>
             <h3>Histórico</h3>
             <SearchBox>
-              <input type='text' placeholder='Pesquisar...' />
+              <DebounceInput
+                minLength={2}
+                debounceTimeout={300}
+                onChange={(event) => setSearch(event.target.value)}
+                element='input'
+                placeholder='Pesquisar...'
+              />
               <SearchIcon />
             </SearchBox>
           </div>
