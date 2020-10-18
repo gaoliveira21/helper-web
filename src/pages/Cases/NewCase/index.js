@@ -23,9 +23,8 @@ const schema = Yup.object().shape({
   title: Yup.string()
     .min(6, 'O título precisa ter no mínimo 3 caracteres')
     .required('Insira o título do caso'),
-  value: Yup.number()
-    .positive()
-    .min(5, 'Valor minímo preciso ser de 5 reais')
+  value: Yup.string()
+    .matches(/\d{1,5}/g, 'O valor deve ser um número')
     .required('Insira o valor do caso'),
   description: Yup.string().required('Insira uma breve descrição')
 })
