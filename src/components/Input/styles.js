@@ -23,10 +23,16 @@ export const InputBlock = styled.div`
     }
   }
 
-  small {
+  div{
+    height: 16px;
+    width: 100%;
+
+    small {
     color: var(--color-primary);
     font-weight: bold;
   }
+  }
+
 
   @media (min-width: 768px) {
     width: ${(props) => props.width};

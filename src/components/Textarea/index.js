@@ -7,9 +7,13 @@ function Input ({ label, name, formik, ...rest }) {
     <InputBlock>
       <label htmlFor={name}>{label}</label>
       <textarea name={name} id={name} {...rest} />
-      {formik?.touched[name] && formik?.errors[name] ? (
-        <small>{formik?.errors[name]}</small>
-      ) : null}
+
+      <div>
+        <small>{formik?.touched[name] && formik?.errors[name]
+          ? formik?.errors[name]
+          : null}
+        </small>
+      </div>
     </InputBlock>
   )
 }

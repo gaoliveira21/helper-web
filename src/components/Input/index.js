@@ -13,9 +13,12 @@ function Input ({ width, label, name, type, placeholder, formik, ...rest }) {
         placeholder={placeholder}
         {...rest}
       />
-      {formik?.touched[name] && formik?.errors[name] ? (
-        <small>{formik?.errors[name]}</small>
-      ) : null}
+      <div>
+        <small>{formik?.touched[name] && formik?.errors[name]
+          ? formik?.errors[name]
+          : null}
+        </small>
+      </div>
     </InputBlock>
   )
 }
