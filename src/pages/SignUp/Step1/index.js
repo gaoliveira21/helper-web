@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
 
 import Input from '../../../components/Input'
 
@@ -14,6 +16,15 @@ import {
 } from './styles'
 
 import registerImage from '../../../assets/images/register.svg'
+
+const schema = Yup.object().shape({
+  name: Yup.string().required('O campo nome é obrigatório'),
+  email: Yup.string().email('Email invalido').required('O campo email é obrigatório'),
+  password: Yup
+    .string()
+    .min(6, 'A senha precisa ser no minimo de 6 caracteres')
+    .required('O campo senha é obrigatorio')
+})
 
 function Step1 () {
   return (
