@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
 import Input from '../../../components/Input'
 
@@ -16,6 +16,16 @@ import {
 import registerImage from '../../../assets/images/register.svg'
 
 function Step2 () {
+  const history = useHistory()
+
+  useEffect(() => {
+    const storagedUserStep1 = window.localStorage.getItem('@helper:step1:user')
+
+    if (!storagedUserStep1) {
+      history.push('/sign-up/step1')
+    }
+  })
+
   return (
     <Container>
       <FormContent>

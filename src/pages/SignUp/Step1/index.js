@@ -36,12 +36,12 @@ function Step1 () {
       password: window.btoa(password)
     }
 
-    window.localStorage.setItem('@helper:pre:user', JSON.stringify(values))
+    window.localStorage.setItem('@helper:step1:user', JSON.stringify(values))
     history.push('/sign-up/step2')
   }
 
   function getInitialValues () {
-    const user = window.localStorage.getItem('@helper:pre:user')
+    const user = window.localStorage.getItem('@helper:step1:user')
 
     if (user) {
       const storageUser = JSON.parse(user)
