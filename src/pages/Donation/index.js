@@ -20,6 +20,7 @@ import {
 
 function Donation () {
   const [donations, setDonations] = useState([])
+  const [totalDonated, setTotalDonated] = useState(0)
   const [search, setSearch] = useState('')
 
   useEffect(() => {
@@ -30,12 +31,13 @@ function Donation () {
         }
       })
 
-      const serializedDonations = response.data.map(({ created_at: createdAt, value, ...rest }) => ({
+      const serializedDonations = response.data.donations.map(({ created_at: createdAt, value, ...rest }) => ({
         formattedDate: formatDate(createdAt),
         formattedValue: formatPrice(value),
         ...rest
       }))
 
+      setTotalDonated(response.data.totalDonated)
       setDonations(serializedDonations)
     }
 
@@ -48,7 +50,7 @@ function Donation () {
         <Header>
           <p>Total arrecadado</p>
           <strong>
-            <DonateIcon /> R$ 10.547,00
+            <DonateIcon /> {formatPrice(totalDonated)}
           </strong>
         </Header>
         <Main>
