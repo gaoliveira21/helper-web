@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
 
 import Input from '../../../components/Input'
 
@@ -15,6 +17,17 @@ import {
 
 import registerImage from '../../../assets/images/register.svg'
 
+const schema = Yup.object().shape({
+  city: Yup.string(),
+  state: Yup.string().length(2, 'O campo UF precisa ter 2 caracteres'),
+  neighborhood: Yup.string(),
+  street: Yup.string(),
+  number: Yup.string(),
+  whatsapp: Yup.string()
+    .matches(/\d{11}/g, 'O campo whatsapp precisa ter 11 números')
+    .required('O campo whatsapp é obrigatório')
+})
+
 function Step2 () {
   const history = useHistory()
 
@@ -23,6 +36,36 @@ function Step2 () {
 
     if (!storagedUserStep1) {
       history.push('/sign-up/step1')
+    }
+  })
+
+  function handleSubmit (values) {
+    window.localStorage.setItem('@helper:step2:user', JSON.stringify(values))
+    history.push('/sign-up/step3')
+  }
+
+  function getInitialValues () {
+    const storagedUser = window.localStorage.getItem('@helper:step2:user')
+
+    if (storagedUser) {
+      return JSON.parse(storagedUser)
+    }
+
+    return {
+      city: '',
+      state: '',
+      neighborhood: '',
+      street: '',
+      number: '',
+      whatsapp: ''
+    }
+  }
+
+  const formik = useFormik({
+    initialValues: getInitialValues(),
+    validationSchema: schema,
+    onSubmit: (values) => {
+      handleSubmit(values)
     }
   })
 
@@ -39,7 +82,7 @@ function Step2 () {
             <h1>Cadastrar-se</h1>
             <p>Preencha os campos abaixo para efetuar o cadastro</p>
           </div>
-          <form>
+          <form onSubmit={formik.handleSubmit}>
             <strong>Endereço</strong>
             <InputBlock>
               <Input
@@ -48,6 +91,9 @@ function Step2 () {
                 name='city'
                 label='Cidade'
                 placeholder='Digite a sua cidade'
+                value={formik.values.city}
+                onChange={formik.handleChange}
+                formik={formik}
               />
               <Input
                 width='40%'
@@ -55,6 +101,9 @@ function Step2 () {
                 name='state'
                 label='UF'
                 placeholder='Digite seu estado UF'
+                value={formik.values.state}
+                onChange={formik.handleChange}
+                formik={formik}
               />
             </InputBlock>
             <InputBlock>
@@ -64,6 +113,9 @@ function Step2 () {
                 name='neighborhood'
                 label='Bairro'
                 placeholder='Exemplo: Bairro da sua entidade'
+                value={formik.values.neighborhood}
+                onChange={formik.handleChange}
+                formik={formik}
               />
             </InputBlock>
             <InputBlock>
@@ -73,6 +125,9 @@ function Step2 () {
                 name='street'
                 label='Rua'
                 placeholder='Exemplo: Rua da sua entidade'
+                value={formik.values.street}
+                onChange={formik.handleChange}
+                formik={formik}
               />
               <Input
                 width='20%'
@@ -80,6 +135,9 @@ function Step2 () {
                 name='number'
                 label='Nº'
                 placeholder='Nº'
+                value={formik.values.number}
+                onChange={formik.handleChange}
+                formik={formik}
               />
             </InputBlock>
             <strong>Contato</strong>
@@ -90,6 +148,9 @@ function Step2 () {
                 name='whatsapp'
                 label='Whatsapp'
                 placeholder='Digite seu whatsapp'
+                value={formik.values.whatsapp}
+                onChange={formik.handleChange}
+                formik={formik}
               />
             </InputBlock>
             <ButtonContent>
