@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -86,6 +87,11 @@ function SignIn() {
               <button type="submit">Próximo</button>
             </ButtonContent>
           </form>
+
+          <footer>
+            <small>Não tem conta?</small>
+            <Link to="/sign-up/step1">Cadastre-se agora mesmo</Link>
+          </footer>
         </Content>
       </FormContent>
     </Container>
