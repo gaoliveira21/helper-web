@@ -7,7 +7,7 @@ import SignIn from '../pages/SignIn'
 import Step1 from '../pages/SignUp/Step1'
 import Step2 from '../pages/SignUp/Step2'
 import Step3 from '../pages/SignUp/Step3'
-import Sucess from '../pages/SignUp/Sucess'
+import Success from '../pages/SignUp/Success'
 import Dashboard from '../pages/Dashboard'
 import NewCase from '../pages/Cases/NewCase'
 import Cases from '../pages/Cases'
@@ -26,7 +26,7 @@ export default function Routes () {
         <Route exact path='/sign-up/step1' component={Step1} />
         <Route exact path='/sign-up/step2' component={Step2} />
         <Route exact path='/sign-up/step3' component={Step3} />
-        <Route exact path='/sign-up/success' component={Sucess} />
+        <Route exact path='/sign-up/success' component={Success} />
         <Route exact path='/dashboard' component={Dashboard} isPrivate />
         <Route exact path='/cases' component={Cases} isPrivate />
         <Route exact path='/cases/new-case' component={NewCase} isPrivate />

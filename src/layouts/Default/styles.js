@@ -85,6 +85,7 @@ export const SideBar = styled.nav`
       button {
         background: none;
         border: none;
+        outline: none;
         margin-left: 10px;
         width: 100%;
         display: flex;
