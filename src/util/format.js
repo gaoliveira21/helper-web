@@ -1,7 +1,7 @@
 import { parseISO, format } from 'date-fns'
 
 export const formatPrice = (value) => {
-  if (!value) return null
+  if (!value) value = 0
 
   return new Intl.NumberFormat('pt-Br', {
     style: 'currency',
