@@ -82,6 +82,11 @@ function SignIn () {
               <button type='submit'>Próximo</button>
             </ButtonContent>
           </form>
+
+          <footer>
+            <small>Não tem conta?</small>
+            <Link to="/sign-up/step1">Cadastre-se agora mesmo</Link>
+          </footer>
         </Content>
       </FormContent>
     </Container>

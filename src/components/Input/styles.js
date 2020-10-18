@@ -6,6 +6,7 @@ export const InputBlock = styled.div`
   label {
     width: 100%;
     font-weight: bold;
+    font-size: 1.8rem;
   }
 
   input {

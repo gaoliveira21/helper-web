@@ -68,7 +68,7 @@ export const Content = styled.div`
   }
 
   > div {
-    margin: 48px 0;
+    margin-bottom: 48px;
     h1 {
       font-size: 4rem;
     }
@@ -77,7 +77,25 @@ export const Content = styled.div`
       color: var(--color-gray);
     }
   }
-`
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 36px;
+
+    small {
+      color: var(--color-gray);
+      font-size: 1.4rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+  }
+`;
 
 export const InputBlock = styled.div`
   display: flex;
