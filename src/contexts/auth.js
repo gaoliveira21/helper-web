@@ -1,4 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
 import React, { createContext, useState, useEffect, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { toast } from 'react-toastify'
@@ -34,6 +33,30 @@ export function AuthProvider ({ children }) {
     }
   }
 
+  async function signUp ({ entity, profile }) {
+    const entityResponse = await api.post('/entities', entity)
+
+    const { token: accessToken, entity: registeredEntity } = entityResponse.data
+
+    api.defaults.headers.Authorization = `Bearer ${accessToken}`
+
+    const profileResponse = await api.post('/entities/profiles', profile)
+
+    const registeredProfile = profileResponse.data
+
+    registeredEntity.profile = registeredProfile
+
+    window.localStorage.setItem('@helper:token', accessToken)
+    window.localStorage.setItem('@helper:user', JSON.stringify(registeredEntity))
+
+    window.localStorage.removeItem('@helper:step1:user')
+    window.localStorage.removeItem('@helper:step2:user')
+  }
+
+  function successSignUp (entity) {
+    setUser(entity)
+  }
+
   function signOut () {
     window.localStorage.clear()
     setUser(null)
@@ -45,6 +68,8 @@ export function AuthProvider ({ children }) {
         signed: !!user,
         user,
         signIn,
+        signUp,
+        successSignUp,
         signOut
       }}
     >
