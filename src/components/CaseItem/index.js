@@ -37,8 +37,8 @@ function CaseItem ({ data }) {
     return data.description
   }, [data.description])
 
-  function handleNavigateToEdit () {
-    history.push('/cases/update-case')
+  function handleNavigateToEdit (id) {
+    history.push(`/cases/update-case/${id}`)
   }
 
   return (
@@ -59,7 +59,7 @@ function CaseItem ({ data }) {
       </Body>
       <ActionBox>
         <Link to={`/cases/detail-case/${data.id}`}>Detalhes</Link>
-        <EditIcon onClick={() => handleNavigateToEdit()} />
+        <EditIcon onClick={() => handleNavigateToEdit(data.id)} />
       </ActionBox>
     </Container>
   )
