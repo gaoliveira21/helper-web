@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Input from '../../../components/Input'
 import Textarea from '../../../components/Textarea'
@@ -21,10 +22,10 @@ function Step3 () {
       <FormContent>
         <h3>Helper</h3>
         <Content>
-          <a href='#!'>
+          <Link to='/sign-up/step2'>
             <BackIcon />
             Voltar
-          </a>
+          </Link>
           <div>
             <h1>Cadastrar-se</h1>
             <p>Preencha os campos abaixo para efetuar o cadastro</p>

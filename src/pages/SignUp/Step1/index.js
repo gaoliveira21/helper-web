@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Input from '../../../components/Input'
 
@@ -20,10 +21,10 @@ function Step1 () {
       <FormContent>
         <h3>Helper</h3>
         <Content>
-          <a href='#!'>
+          <Link to='/sign-in'>
             <BackIcon />
             Voltar
-          </a>
+          </Link>
           <div>
             <h1>Cadastrar-se</h1>
             <p>Preencha os campos abaixo para efetuar o cadastro</p>
