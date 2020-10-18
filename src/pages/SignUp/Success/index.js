@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useAuth } from '../../../contexts/auth'
 
 import { Container, ImageContent, Content, CheckIcon } from './styles'
@@ -7,6 +8,13 @@ import finishRegister from '../../../assets/images/finishRegister.svg'
 
 function Success () {
   const { successSignUp } = useAuth()
+  const history = useHistory()
+
+  useEffect(() => {
+    const user = JSON.parse(window.localStorage.getItem('@helper:user'))
+
+    if (!user) history.push('/sign-up/step1')
+  }, [])
 
   return (
     <Container>
