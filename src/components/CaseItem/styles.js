@@ -1,13 +1,13 @@
-import styled, { css } from 'styled-components';
-import { darken } from 'polished';
-import { Edit } from '@styled-icons/boxicons-regular';
+import styled, { css } from 'styled-components'
+import { darken } from 'polished'
+import { Edit } from '@styled-icons/boxicons-regular'
 
 export const Container = styled.div`
   background: var(--color-white);
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.15);
   border-radius: 0.4rem;
   margin-bottom: 48px;
-`;
+`
 
 export const Progress = styled.div`
   width: 100%;
@@ -52,7 +52,7 @@ export const Progress = styled.div`
       font-size: 1.1rem;
     }
   }
-`;
+`
 
 export const Header = styled.header`
   display: flex;
@@ -64,7 +64,7 @@ export const Header = styled.header`
     color: var(--color-gray);
     font-size: 1.4rem;
   }
-`;
+`
 
 export const Body = styled.div`
   padding: 1rem 2rem;
@@ -79,7 +79,7 @@ export const Body = styled.div`
     line-height: 24px;
     min-height: 7rem;
   }
-`;
+`
 
 export const ActionBox = styled.footer`
   padding: 1rem 1.5rem;
@@ -99,7 +99,7 @@ export const ActionBox = styled.footer`
       background: var(--color-primary-dark);
     }
   }
-`;
+`
 
 export const EditIcon = styled(Edit)`
   width: 28px;
@@ -110,4 +110,4 @@ export const EditIcon = styled(Edit)`
   &:hover {
     color: var(--color-primary);
   }
-`;
+`

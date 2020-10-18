@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import { Search, Plus } from '@styled-icons/boxicons-regular';
+import styled from 'styled-components'
+import { Search, Plus } from '@styled-icons/boxicons-regular'
 
 export const Container = styled.div`
   padding: 4rem 4rem;
-`;
+`
 
 export const SearchBox = styled.div`
   width: 100%;
@@ -20,18 +20,18 @@ export const SearchBox = styled.div`
     outline: none;
     padding: 12px 8px;
   }
-`;
+`
 
 export const AddIcon = styled(Plus)`
   width: 24px;
   margin-right: 4px;
-`;
+`
 
 export const SearchIcon = styled(Search)`
   color: var(--color-gray);
   width: 24px;
   cursor: pointer;
-`;
+`
 
 export const FilterBox = styled.div`
   margin: 2rem 0;
@@ -86,7 +86,7 @@ export const FilterBox = styled.div`
       padding: 1rem 2rem;
     }
   }
-`;
+`
 
 export const CaseList = styled.div`
   display: grid;
@@ -96,4 +96,4 @@ export const CaseList = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 2rem;
   }
-`;
+`

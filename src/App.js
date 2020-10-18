@@ -1,20 +1,20 @@
-import React from 'react';
-import { ToastContainer } from 'react-toastify';
+import React from 'react'
+import { ToastContainer } from 'react-toastify'
 
-import { AuthProvider } from './contexts/auth';
+import { AuthProvider } from './contexts/auth'
 
-import GlobalStyles from './styles/global';
+import GlobalStyles from './styles/global'
 
-import Routes from './routes';
+import Routes from './routes'
 
-function App() {
+function App () {
   return (
     <AuthProvider>
       <GlobalStyles />
       <Routes />
       <ToastContainer autoClose={3000} />
     </AuthProvider>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,20 +1,20 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 
-import { useAuth } from '../../contexts/auth';
+import { useAuth } from '../../contexts/auth'
 
-import page404 from '../../assets/images/page404.svg';
+import page404 from '../../assets/images/page404.svg'
 
-import { Container, Message, Image } from './styles';
+import { Container, Message, Image } from './styles'
 
-function Page404() {
-  const { signed } = useAuth();
-  const history = useHistory();
+function Page404 () {
+  const { signed } = useAuth()
+  const history = useHistory()
 
-  function handleNavigate() {
-    if (signed) return history.push('/dashboard');
+  function handleNavigate () {
+    if (signed) return history.push('/dashboard')
 
-    return history.push('/sign-in');
+    return history.push('/sign-in')
   }
 
   return (
@@ -26,16 +26,16 @@ function Page404() {
         <p>
           Essa não é a página que <br /> você está procurando.
         </p>
-        <button type="button" onClick={handleNavigate}>
+        <button type='button' onClick={handleNavigate}>
           Ir para página principal
         </button>
       </Message>
 
       <Image>
-        <img src={page404} alt="Figura da página 404" />
+        <img src={page404} alt='Figura da página 404' />
       </Image>
     </Container>
-  );
+  )
 }
 
-export default Page404;
+export default Page404

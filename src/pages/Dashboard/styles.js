@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 import {
   FolderOpen,
   DonateHeart,
-  CoinStack,
-} from '@styled-icons/boxicons-solid';
+  CoinStack
+} from '@styled-icons/boxicons-solid'
 
 export const Container = styled.div`
   padding: 4rem 4rem;
@@ -33,7 +33,7 @@ export const Container = styled.div`
       width: 40%;
     }
   }
-`;
+`
 
 export const PanelCard = styled.div`
   width: 100%;
@@ -57,19 +57,19 @@ export const PanelCard = styled.div`
       font-size: 3.5rem;
     }
   }
-`;
+`
 
 export const CasesIcon = styled(FolderOpen)`
   width: 5rem;
   color: var(--color-white);
-`;
+`
 
 export const DonateIcon = styled(DonateHeart)`
   width: 5rem;
   color: var(--color-white);
-`;
+`
 
 export const MoneyIcon = styled(CoinStack)`
   width: 5rem;
   color: var(--color-white);
-`;
+`

@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 import {
   FolderOpen,
   Home,
   DonateHeart,
   LogOut,
-  UserDetail,
-} from '@styled-icons/boxicons-solid';
+  UserDetail
+} from '@styled-icons/boxicons-solid'
 
 export const Container = styled.div`
   overflow: hidden;
@@ -21,7 +21,7 @@ export const Container = styled.div`
     grid-template-columns: 0.2fr 0.8fr;
     grid-template-areas: 'sidenavbar maincontent';
   }
-`;
+`
 
 export const SideBar = styled.nav`
   grid-area: sidenavbar;
@@ -103,7 +103,7 @@ export const SideBar = styled.nav`
       }
     }
   }
-`;
+`
 
 export const BottomTabs = styled.nav`
   grid-area: bottomtabs;
@@ -129,13 +129,13 @@ export const BottomTabs = styled.nav`
   svg.active {
     color: var(--color-primary);
   }
-`;
+`
 
 export const Main = styled.main`
   grid-area: maincontent;
   min-height: 100%;
   overflow-y: auto;
-`;
+`
 
 export const TopBar = styled.header`
   width: 100%;
@@ -156,36 +156,36 @@ export const TopBar = styled.header`
       color: var(--color-primary);
     }
   }
-`;
+`
 
 export const PanelIcon = styled(Home)`
   width: 4.5rem;
   color: var(--color-white);
-`;
+`
 
 export const CasesIcon = styled(FolderOpen)`
   width: 4.5rem;
   color: var(--color-white);
-`;
+`
 
 export const DonateIcon = styled(DonateHeart)`
   width: 4.5rem;
   color: var(--color-white);
-`;
+`
 
 export const ProfileIcon = styled(UserDetail)`
   width: 4.5rem;
   color: var(--color-white);
-`;
+`
 
 export const LogOutIcon = styled(LogOut)`
   width: 4.5rem;
   color: var(--color-white);
-`;
+`
 
 export const Divider = styled.div`
   width: 80%;
   height: 2px;
   background: var(--color-white);
   margin: 40px auto;
-`;
+`

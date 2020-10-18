@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const InputBlock = styled.div`
   width: 100%;
@@ -23,4 +23,9 @@ export const InputBlock = styled.div`
       border: 1px solid var(--color-primary);
     }
   }
-`;
+
+  small {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+`

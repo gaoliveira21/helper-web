@@ -1,17 +1,17 @@
-import styled, { keyframes } from 'styled-components';
-import { darken } from 'polished';
+import styled, { keyframes } from 'styled-components'
+import { darken } from 'polished'
 
-import { Edit, LoaderCircle } from '@styled-icons/boxicons-regular';
+import { Edit, LoaderCircle } from '@styled-icons/boxicons-regular'
 
 export const EditIcon = styled(Edit)`
   width: 24px;
   margin-right: 4px;
-`;
+`
 
 export const Container = styled.div`
   padding: 0 2rem;
   margin: -48px 0 48px 0;
-`;
+`
 
 export const Content = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ export const Content = styled.div`
   background: var(--color-white);
   border-radius: 0.8rem;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
-`;
+`
 
 export const TextContent = styled.div`
   display: flex;
@@ -39,7 +39,7 @@ export const TextContent = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
   }
-`;
+`
 export const ValueCollected = styled.div`
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@ export const ValueCollected = styled.div`
 
   width: 100%;
   margin: 24px 0;
-`;
+`
 
 export const Title = styled.div`
   display: flex;
@@ -65,7 +65,7 @@ export const Title = styled.div`
     font-weight: bold;
     text-align: right;
   }
-`;
+`
 
 export const Progress = styled.div`
   width: 100%;
@@ -86,7 +86,7 @@ export const Progress = styled.div`
     background-color: var(--color-secondary);
     color: var(--color-white);
   }
-`;
+`
 
 export const TableDonators = styled.table`
   width: 100%;
@@ -132,7 +132,7 @@ export const TableDonators = styled.table`
       padding: 2rem 1rem;
     }
   }
-`;
+`
 
 export const ButtonContent = styled.div`
   display: flex;
@@ -162,7 +162,7 @@ export const ButtonContent = styled.div`
       background: var(--color-primary-dark);
     }
   }
-`;
+`
 
 const rotate = keyframes`
   from {
@@ -171,7 +171,7 @@ const rotate = keyframes`
   to {
     transform: rotate(360deg);
   }
-`;
+`
 
 export const Loading = styled(LoaderCircle)`
   color: var(--color-primary);
@@ -179,8 +179,8 @@ export const Loading = styled(LoaderCircle)`
   align-self: center;
   width: 5rem;
   animation: ${rotate} 2s linear infinite;
-`;
+`
 
 export const Scroll = styled.div`
   overflow-x: auto;
-`;
+`

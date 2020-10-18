@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 // import { CheckCircle } from '@styled-icons/boxicons-solid';
-import { CheckCircle } from '@styled-icons/boxicons-regular';
+import { CheckCircle } from '@styled-icons/boxicons-regular'
 
 export const CheckIcon = styled(CheckCircle)`
   color: var(--color-green);
@@ -11,13 +11,13 @@ export const CheckIcon = styled(CheckCircle)`
   @media (min-width: 768px) {
     width: 25%;
   }
-`;
+`
 
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
   height: 100vh;
-`;
+`
 
 // Image Content
 export const ImageContent = styled.div`
@@ -44,7 +44,7 @@ export const ImageContent = styled.div`
     width: 100%;
     background: var(--color-white);
   }
-`;
+`
 
 export const Content = styled.div`
   display: flex;
@@ -78,4 +78,4 @@ export const Content = styled.div`
       background: var(--color-primary-dark);
     }
   }
-`;
+`

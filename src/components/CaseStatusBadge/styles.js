@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Badge = styled.span`
   padding: 0.2rem 1rem;
@@ -7,4 +7,4 @@ export const Badge = styled.span`
   border-radius: 0.8rem;
   color: var(--color-white);
   font-size: 1.2rem;
-`;
+`

@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import { Search } from '@styled-icons/boxicons-regular';
-import { DonateHeart } from '@styled-icons/boxicons-solid';
-import { darken } from 'polished';
+import styled from 'styled-components'
+import { Search } from '@styled-icons/boxicons-regular'
+import { DonateHeart } from '@styled-icons/boxicons-solid'
+import { darken } from 'polished'
 
 export const Container = styled.div`
   padding: 3rem 4rem;
   overflow-x: hidden;
-`;
+`
 
 export const Header = styled.header`
   width: 100%;
@@ -27,13 +27,13 @@ export const Header = styled.header`
     font-size: 3.5rem;
     color: var(--color-green);
   }
-`;
+`
 
 export const DonateIcon = styled(DonateHeart)`
   width: 4rem;
   margin-right: 8px;
   color: var(--color-green);
-`;
+`
 
 export const Main = styled.main`
   margin-top: 35px;
@@ -42,7 +42,7 @@ export const Main = styled.main`
     font-size: 2rem;
     margin-bottom: 15px;
   }
-`;
+`
 
 export const SearchBox = styled.div`
   width: 100%;
@@ -59,13 +59,13 @@ export const SearchBox = styled.div`
     outline: none;
     padding: 12px 8px;
   }
-`;
+`
 
 export const SearchIcon = styled(Search)`
   color: var(--color-gray);
   width: 24px;
   cursor: pointer;
-`;
+`
 
 export const DonationTable = styled.table`
   margin-top: 35px;
@@ -109,8 +109,8 @@ export const DonationTable = styled.table`
       padding: 2rem 1rem;
     }
   }
-`;
+`
 
 export const Scroll = styled.div`
   overflow-x: auto;
-`;
+`

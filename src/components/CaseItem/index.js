@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useMemo } from 'react'
+import PropTypes from 'prop-types'
+import { Link, useHistory } from 'react-router-dom'
 
-import { formatPrice, formatDate } from '../../util/format';
+import { formatPrice, formatDate } from '../../util/format'
 
-import CaseStatusBadge from '../CaseStatusBadge';
+import CaseStatusBadge from '../CaseStatusBadge'
 
 import {
   Container,
@@ -12,33 +12,33 @@ import {
   Progress,
   Header,
   Body,
-  ActionBox,
-} from './styles';
+  ActionBox
+} from './styles'
 
-function CaseItem({ data }) {
-  const history = useHistory();
+function CaseItem ({ data }) {
+  const history = useHistory()
 
   const formattedDate = useMemo(() => formatDate(data.createdAt), [
-    data.createdAt,
-  ]);
+    data.createdAt
+  ])
 
   const formattedValueCollected = useMemo(
     () => formatPrice(data.value_collected),
     [data.value_collected]
-  );
+  )
 
-  const formattedValue = useMemo(() => formatPrice(data.value), [data.value]);
+  const formattedValue = useMemo(() => formatPrice(data.value), [data.value])
 
   const formattedDescription = useMemo(() => {
     if (data.description.length > 100) {
-      return `${data.description.match(/^.{1,97}/)[0]}...`;
+      return `${data.description.match(/^.{1,97}/)[0]}...`
     }
 
-    return data.description;
-  }, [data.description]);
+    return data.description
+  }, [data.description])
 
-  function handleNavigateToEdit() {
-    history.push('/cases/update-case');
+  function handleNavigateToEdit () {
+    history.push('/cases/update-case')
   }
 
   return (
@@ -62,7 +62,7 @@ function CaseItem({ data }) {
         <EditIcon onClick={() => handleNavigateToEdit()} />
       </ActionBox>
     </Container>
-  );
+  )
 }
 
 CaseItem.propTypes = {
@@ -73,8 +73,8 @@ CaseItem.propTypes = {
     opened: PropTypes.bool.isRequired,
     value: PropTypes.number.isRequired,
     value_collected: PropTypes.number.isRequired,
-    createdAt: PropTypes.string.isRequired,
-  }).isRequired,
-};
+    createdAt: PropTypes.string.isRequired
+  }).isRequired
+}
 
-export default CaseItem;
+export default CaseItem

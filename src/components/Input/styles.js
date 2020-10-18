@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const InputBlock = styled.div`
   width: 100%;
@@ -22,7 +22,12 @@ export const InputBlock = styled.div`
     }
   }
 
+  small {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
   @media (min-width: 768px) {
     width: ${(props) => props.width};
   }
-`;
+`

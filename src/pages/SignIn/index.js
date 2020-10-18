@@ -1,10 +1,10 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+import React from 'react'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
 
-import { useAuth } from '../../contexts/auth';
+import { useAuth } from '../../contexts/auth'
 
-import Input from '../../components/Input';
+import Input from '../../components/Input'
 
 import {
   Container,
@@ -12,10 +12,10 @@ import {
   Content,
   FormContent,
   InputBlock,
-  ButtonContent,
-} from './styles';
+  ButtonContent
+} from './styles'
 
-import loginImage from '../../assets/images/login.svg';
+import loginImage from '../../assets/images/login.svg'
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -23,28 +23,28 @@ const schema = Yup.object().shape({
     .required('O campo email é obrigatório'),
   password: Yup.string()
     .min(6, 'O campo senha precisa ter no mínimo 6 caracteres')
-    .required('O campo senha é obrigatório'),
-});
+    .required('O campo senha é obrigatório')
+})
 
-function SignIn() {
-  const { signIn } = useAuth();
+function SignIn () {
+  const { signIn } = useAuth()
 
   const formik = useFormik({
     initialValues: {
       email: '',
-      password: '',
+      password: ''
     },
     validationSchema: schema,
     onSubmit: (values) => {
-      signIn(values);
-    },
-  });
+      signIn(values)
+    }
+  })
 
   return (
     <Container>
       <ImageContent>
         <h3>Helper</h3>
-        <img src={loginImage} alt="Cadastre-se" />
+        <img src={loginImage} alt='Cadastre-se' />
       </ImageContent>
       <FormContent>
         <h3>Helper</h3>
@@ -56,40 +56,36 @@ function SignIn() {
           <form onSubmit={formik.handleSubmit}>
             <InputBlock>
               <Input
-                width="100%"
-                type="email"
-                name="email"
-                label="E-mail"
-                placeholder="Digite seu e-mail"
+                width='100%'
+                type='email'
+                name='email'
+                label='E-mail'
+                placeholder='Digite seu e-mail'
                 value={formik.values.email}
                 onChange={formik.handleChange}
+                formik={formik}
               />
             </InputBlock>
-            {formik.touched.email && formik.errors.email ? (
-              <small>{formik.errors.email}</small>
-            ) : null}
             <InputBlock>
               <Input
-                width="100%"
-                type="password"
-                name="password"
-                label="Senha"
-                placeholder="Digite sua senha"
+                width='100%'
+                type='password'
+                name='password'
+                label='Senha'
+                placeholder='Digite sua senha'
                 value={formik.values.password}
                 onChange={formik.handleChange}
+                formik={formik}
               />
             </InputBlock>
-            {formik.touched.password && formik.errors.password ? (
-              <small>{formik.errors.password}</small>
-            ) : null}
             <ButtonContent>
-              <button type="submit">Próximo</button>
+              <button type='submit'>Próximo</button>
             </ButtonContent>
           </form>
         </Content>
       </FormContent>
     </Container>
-  );
+  )
 }
 
-export default SignIn;
+export default SignIn

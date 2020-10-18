@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import { TextBlock } from './styles';
+import { TextBlock } from './styles'
 
-function Text({ width, title, text }) {
+function Text ({ width, title, text }) {
   return (
     <TextBlock width={width}>
       <strong>{title}</strong>
       <p>{text}</p>
     </TextBlock>
-  );
+  )
 }
 
-export default Text;
+export default Text
