@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import DefaultLayout from '../../layouts/Default';
+import DefaultLayout from '../../layouts/Default'
 
 import {
   Container,
@@ -10,12 +10,12 @@ import {
   SearchIcon,
   Main,
   DonationTable,
-  Scroll,
-} from './styles';
+  Scroll
+} from './styles'
 
-function Donation() {
+function Donation () {
   return (
-    <DefaultLayout title="Doações">
+    <DefaultLayout title='Doações'>
       <Container>
         <Header>
           <p>Total arrecadado</p>
@@ -27,7 +27,7 @@ function Donation() {
           <div>
             <h3>Histórico</h3>
             <SearchBox>
-              <input type="text" placeholder="Pesquisar..." />
+              <input type='text' placeholder='Pesquisar...' />
               <SearchIcon />
             </SearchBox>
           </div>
@@ -129,7 +129,7 @@ function Donation() {
         </Main>
       </Container>
     </DefaultLayout>
-  );
+  )
 }
 
-export default Donation;
+export default Donation

@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import React, { useEffect, useState, useMemo } from 'react'
+import { useParams, useHistory, Link } from 'react-router-dom'
 
-import { formatDate, formatPrice } from '../../../util/format';
+import { formatDate, formatPrice } from '../../../util/format'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 import {
   Content,
@@ -16,50 +16,50 @@ import {
   TableDonators,
   EditIcon,
   Loading,
-  Scroll,
-} from './styles';
+  Scroll
+} from './styles'
 
-import Header from '../../../components/Header';
-import Text from '../../../components/Text';
+import Header from '../../../components/Header'
+import Text from '../../../components/Text'
 
-function DetailCase() {
-  const [caseDetail, setCaseDetail] = useState({});
-  const history = useHistory();
-  const { id } = useParams();
+function DetailCase () {
+  const [caseDetail, setCaseDetail] = useState({})
+  const history = useHistory()
+  const { id } = useParams()
 
   const formattedValueCollected = useMemo(
     () => formatPrice(caseDetail.value_collected),
     [caseDetail.value_collected]
-  );
+  )
 
   const formattedValue = useMemo(() => formatPrice(caseDetail.value), [
-    caseDetail.value,
-  ]);
+    caseDetail.value
+  ])
 
   const formattedDate = useMemo(() => formatDate(caseDetail.createdAt), [
-    caseDetail.createdAt,
-  ]);
+    caseDetail.createdAt
+  ])
 
   useEffect(() => {
-    async function loadCase() {
+    async function loadCase () {
       try {
-        const response = await api.get(`/entities/cases/${id}`);
+        const response = await api.get(`/entities/cases/${id}`)
 
-        setCaseDetail(response.data);
+        setCaseDetail(response.data)
       } catch (error) {
-        history.push('/404');
+        history.push('/404')
       }
     }
 
-    loadCase();
-  }, [id, history]);
+    loadCase()
+  }, [id, history])
 
   return (
     <>
       <Header
         title={`Detalhes do ${caseDetail.title}`}
-        description=""
-        label="Casos"
+        description=''
+        label='Casos'
       />
 
       <Container>
@@ -70,7 +70,7 @@ function DetailCase() {
             <>
               <ButtonContent>
                 <Link to={`/cases/update-case/${caseDetail.id}`}>
-                  <button type="button">
+                  <button type='button'>
                     <EditIcon />
                     Editar caso
                   </button>
@@ -79,32 +79,32 @@ function DetailCase() {
 
               <TextContent>
                 <Text
-                  width="100%"
-                  title="Título do caso"
+                  width='100%'
+                  title='Título do caso'
                   text={caseDetail.title}
                 />
               </TextContent>
 
               <TextContent>
                 <Text
-                  width="100%"
-                  title="Valor estimado"
+                  width='100%'
+                  title='Valor estimado'
                   text={formattedValue}
                 />
               </TextContent>
 
               <TextContent>
                 <Text
-                  width="100%"
-                  title="Data de Criação"
+                  width='100%'
+                  title='Data de Criação'
                   text={formattedDate}
                 />
               </TextContent>
 
               <TextContent>
                 <Text
-                  width="100%"
-                  title="Título do caso"
+                  width='100%'
+                  title='Título do caso'
                   text={caseDetail.description}
                 />
               </TextContent>
@@ -152,7 +152,7 @@ function DetailCase() {
         </Content>
       </Container>
     </>
-  );
+  )
 }
 
-export default DetailCase;
+export default DetailCase

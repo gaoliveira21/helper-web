@@ -1,43 +1,42 @@
 /* eslint-disable react/forbid-prop-types */
-import React, { createContext, useState, useEffect, useContext } from 'react';
-import PropTypes from 'prop-types';
-import { toast } from 'react-toastify';
+import React, { createContext, useState, useEffect, useContext } from 'react'
+import PropTypes from 'prop-types'
+import { toast } from 'react-toastify'
 
-import api from '../services/api';
+import api from '../services/api'
 
-const AuthContext = createContext({});
+const AuthContext = createContext({})
 
-export function AuthProvider({ children }) {
+export function AuthProvider ({ children }) {
   const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem('@helper:user'))
-  );
+    JSON.parse(window.localStorage.getItem('@helper:user'))
+  )
 
   useEffect(() => {
-    const storagedToken = localStorage.getItem('@helper:token');
-    if (storagedToken)
-      api.defaults.headers.Authorization = `Bearer ${storagedToken}`;
-  }, []);
+    const storagedToken = window.localStorage.getItem('@helper:token')
+    if (storagedToken) { api.defaults.headers.Authorization = `Bearer ${storagedToken}` }
+  }, [])
 
-  async function signIn({ email, password }) {
+  async function signIn ({ email, password }) {
     try {
-      const response = await api.post('/entities/auth', { email, password });
+      const response = await api.post('/entities/auth', { email, password })
 
-      const { token: access_token, entity } = response.data;
+      const { token: accessToken, entity } = response.data
 
-      api.defaults.headers.Authorization = `Bearer ${access_token}`;
+      api.defaults.headers.Authorization = `Bearer ${accessToken}`
 
-      localStorage.setItem('@helper:token', access_token);
-      localStorage.setItem('@helper:user', JSON.stringify(entity));
+      window.localStorage.setItem('@helper:token', accessToken)
+      window.localStorage.setItem('@helper:user', JSON.stringify(entity))
 
-      setUser(entity);
+      setUser(entity)
     } catch (error) {
-      toast.error('Email ou senha incorretos');
+      toast.error('Email ou senha incorretos')
     }
   }
 
-  function signOut() {
-    localStorage.clear();
-    setUser(null);
+  function signOut () {
+    window.localStorage.clear()
+    setUser(null)
   }
 
   return (
@@ -46,22 +45,22 @@ export function AuthProvider({ children }) {
         signed: !!user,
         user,
         signIn,
-        signOut,
+        signOut
       }}
     >
       {children}
     </AuthContext.Provider>
-  );
+  )
 }
 
 AuthProvider.propTypes = {
-  children: PropTypes.array.isRequired,
-};
-
-export function useAuth() {
-  const auth = useContext(AuthContext);
-
-  return auth;
+  children: PropTypes.array.isRequired
 }
 
-export default AuthContext;
+export function useAuth () {
+  const auth = useContext(AuthContext)
+
+  return auth
+}
+
+export default AuthContext

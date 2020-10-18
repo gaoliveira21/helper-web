@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const TextBlock = styled.div`
   width: 100%;
@@ -16,4 +16,4 @@ export const TextBlock = styled.div`
   @media (min-width: 768px) {
     width: ${(props) => props.width};
   }
-`;
+`

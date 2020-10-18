@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
   min-height: 100vh;
-`;
+`
 
 export const ImageContent = styled.div`
   display: none;
@@ -30,7 +30,7 @@ export const ImageContent = styled.div`
     width: 100%;
     background: var(--color-primary);
   }
-`;
+`
 
 // Form content
 export const FormContent = styled.div`
@@ -54,7 +54,7 @@ export const FormContent = styled.div`
       display: none;
     }
   }
-`;
+`
 
 export const Content = styled.div`
   width: 100%;
@@ -77,7 +77,7 @@ export const Content = styled.div`
       color: var(--color-gray);
     }
   }
-`;
+`
 
 export const InputBlock = styled.div`
   display: flex;
@@ -89,7 +89,7 @@ export const InputBlock = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
   }
-`;
+`
 
 export const ButtonContent = styled.div`
   display: flex;
@@ -120,4 +120,4 @@ export const ButtonContent = styled.div`
     display: flex;
     justify-content: flex-end;
   }
-`;
+`

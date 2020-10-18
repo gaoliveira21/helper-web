@@ -44,7 +44,7 @@ function SignIn () {
     <Container>
       <ImageContent>
         <h3>Helper</h3>
-        <img src={loginImage} alt="Cadastre-se" />
+        <img src={loginImage} alt='Cadastre-se' />
       </ImageContent>
       <FormContent>
         <h3>Helper</h3>
@@ -56,11 +56,11 @@ function SignIn () {
           <form onSubmit={formik.handleSubmit}>
             <InputBlock>
               <Input
-                width="100%"
-                type="email"
-                name="email"
-                label="E-mail"
-                placeholder="Digite seu e-mail"
+                width='100%'
+                type='email'
+                name='email'
+                label='E-mail'
+                placeholder='Digite seu e-mail'
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 formik={formik}
@@ -68,18 +68,18 @@ function SignIn () {
             </InputBlock>
             <InputBlock>
               <Input
-                width="100%"
-                type="password"
-                name="password"
-                label="Senha"
-                placeholder="Digite sua senha"
+                width='100%'
+                type='password'
+                name='password'
+                label='Senha'
+                placeholder='Digite sua senha'
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 formik={formik}
               />
             </InputBlock>
             <ButtonContent>
-              <button type="submit">Próximo</button>
+              <button type='submit'>Próximo</button>
             </ButtonContent>
           </form>
         </Content>

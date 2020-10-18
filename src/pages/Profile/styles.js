@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
   padding: 0 2rem;
   margin: -48px 0 48px 0;
-`;
+`
 
 export const Form = styled.form`
   display: flex;
@@ -16,7 +16,7 @@ export const Form = styled.form`
   background: var(--color-white);
   border-radius: 0.8rem;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
-`;
+`
 
 export const Profile = styled.div`
   display: flex;
@@ -42,7 +42,7 @@ export const Profile = styled.div`
       text-align: justify;
     }
   }
-`;
+`
 
 export const Fieldset = styled.fieldset`
   margin: 24px 0;
@@ -63,7 +63,7 @@ export const Fieldset = styled.fieldset`
     display: block;
     margin-bottom: 12px;
   }
-`;
+`
 
 export const InputContent = styled.div`
   display: flex;
@@ -77,7 +77,7 @@ export const InputContent = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
   }
-`;
+`
 
 export const ButtonContent = styled.div`
   display: flex;
@@ -113,4 +113,4 @@ export const ButtonContent = styled.div`
   @media (min-width: 768px) {
     justify-content: flex-end;
   }
-`;
+`

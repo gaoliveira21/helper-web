@@ -1,13 +1,13 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { LeftArrowAlt } from '@styled-icons/boxicons-regular';
+import { LeftArrowAlt } from '@styled-icons/boxicons-regular'
 
 export const BackIcon = styled(LeftArrowAlt)`
   color: var(--color-white);
   margin-right: 4px;
   width: 2.4rem;
   height: auto;
-`;
+`
 
 export const Container = styled.header`
   display: flex;
@@ -36,7 +36,7 @@ export const Container = styled.header`
       border: none;
     }
   }
-`;
+`
 
 export const TitleHeader = styled.div`
   display: flex;
@@ -70,4 +70,4 @@ export const TitleHeader = styled.div`
       }
     }
   }
-`;
+`

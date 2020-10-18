@@ -1,23 +1,23 @@
-import React from 'react';
+import React from 'react'
 
 import {
   Container,
   PanelCard,
   DonateIcon,
   MoneyIcon,
-  CasesIcon,
-} from './styles';
+  CasesIcon
+} from './styles'
 
-import dashboardImage from '../../assets/images/dashboard.svg';
+import dashboardImage from '../../assets/images/dashboard.svg'
 
-import DefaultLayout from '../../layouts/Default';
+import DefaultLayout from '../../layouts/Default'
 
-function Dashboard() {
+function Dashboard () {
   return (
-    <DefaultLayout title="Painel">
+    <DefaultLayout title='Painel'>
       <Container>
         <div>
-          <PanelCard color="#5B5F97">
+          <PanelCard color='#5B5F97'>
             <p>
               <strong>Casos ativos</strong>
             </p>
@@ -26,7 +26,7 @@ function Dashboard() {
               <strong>100</strong>
             </div>
           </PanelCard>
-          <PanelCard color="#6FCF97">
+          <PanelCard color='#6FCF97'>
             <p>
               <strong>Doações</strong>
             </p>
@@ -35,7 +35,7 @@ function Dashboard() {
               <strong>100</strong>
             </div>
           </PanelCard>
-          <PanelCard color="#F2B279">
+          <PanelCard color='#F2B279'>
             <p>
               <strong>Total arrecadado</strong>
             </p>
@@ -45,10 +45,10 @@ function Dashboard() {
             </div>
           </PanelCard>
         </div>
-        <img src={dashboardImage} alt="Dashboard" />
+        <img src={dashboardImage} alt='Dashboard' />
       </Container>
     </DefaultLayout>
-  );
+  )
 }
 
-export default Dashboard;
+export default Dashboard

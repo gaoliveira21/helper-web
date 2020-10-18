@@ -1,19 +1,19 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { LeftArrowAlt } from '@styled-icons/boxicons-regular';
+import { LeftArrowAlt } from '@styled-icons/boxicons-regular'
 
 export const BackIcon = styled(LeftArrowAlt)`
   color: var(--color-gray);
   margin-right: 4px;
   width: 24px;
   height: auto;
-`;
+`
 
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
   min-height: 100vh;
-`;
+`
 
 // Image Content
 export const ImageContent = styled.div`
@@ -40,7 +40,7 @@ export const ImageContent = styled.div`
     width: 100%;
     background: var(--color-primary);
   }
-`;
+`
 
 // Form content
 export const FormContent = styled.div`
@@ -64,7 +64,7 @@ export const FormContent = styled.div`
       display: none;
     }
   }
-`;
+`
 
 export const Content = styled.div`
   width: 100%;
@@ -94,7 +94,7 @@ export const Content = styled.div`
       }
     }
   }
-`;
+`
 
 export const InputBlock = styled.div`
   display: flex;
@@ -106,7 +106,7 @@ export const InputBlock = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
   }
-`;
+`
 
 export const ButtonContent = styled.div`
   display: flex;
@@ -137,4 +137,4 @@ export const ButtonContent = styled.div`
     display: flex;
     justify-content: flex-end;
   }
-`;
+`
