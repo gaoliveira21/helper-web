@@ -77,13 +77,6 @@ export const Content = styled.div`
       color: var(--color-gray);
     }
   }
-
-  form {
-    small {
-      color: var(--color-primary);
-      font-weight: bold;
-    }
-  }
 `;
 
 export const InputBlock = styled.div`
