@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
@@ -27,6 +27,43 @@ const schema = Yup.object().shape({
 })
 
 function Step1 () {
+  const history = useHistory()
+
+  function handleSubmit ({ email, name, password }) {
+    const values = {
+      email,
+      name,
+      password: window.btoa(password)
+    }
+
+    window.localStorage.setItem('@helper:pre:user', JSON.stringify(values))
+    history.push('/sign-up/step2')
+  }
+
+  function getInitialValues () {
+    const user = window.localStorage.getItem('@helper:pre:user')
+
+    if (user) {
+      const storageUser = JSON.parse(user)
+      storageUser.password = window.atob(storageUser.password)
+      return storageUser
+    }
+
+    return {
+      name: '',
+      email: '',
+      password: ''
+    }
+  }
+
+  const formik = useFormik({
+    initialValues: getInitialValues(),
+    validationSchema: schema,
+    onSubmit: (values) => {
+      handleSubmit(values)
+    }
+  })
+
   return (
     <Container>
       <FormContent>
@@ -40,7 +77,7 @@ function Step1 () {
             <h1>Cadastrar-se</h1>
             <p>Preencha os campos abaixo para efetuar o cadastro</p>
           </div>
-          <form>
+          <form onSubmit={formik.handleSubmit}>
             <InputBlock>
               <Input
                 width='100%'
@@ -48,6 +85,9 @@ function Step1 () {
                 name='name'
                 label='Nome da entidade'
                 placeholder='Digite o nome da entidade'
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                formik={formik}
               />
             </InputBlock>
             <InputBlock>
@@ -57,6 +97,9 @@ function Step1 () {
                 name='email'
                 label='E-mail'
                 placeholder='Digite seu e-mail'
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                formik={formik}
               />
             </InputBlock>
             <InputBlock>
@@ -66,6 +109,9 @@ function Step1 () {
                 name='password'
                 label='Senha'
                 placeholder='Digite sua senha'
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                formik={formik}
               />
             </InputBlock>
             <ButtonContent>
