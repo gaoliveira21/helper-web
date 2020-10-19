@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+
+import { formatPrice } from '../../util/format'
+import api from '../../services/api'
 
 import {
   Container,
@@ -13,6 +16,18 @@ import dashboardImage from '../../assets/images/dashboard.svg'
 import DefaultLayout from '../../layouts/Default'
 
 function Dashboard () {
+  const [dashboard, setDashboard] = useState({})
+
+  useEffect(() => {
+    async function loadDashboard () {
+      const response = await api.get('/entities/dashboard')
+
+      setDashboard(response.data)
+    }
+
+    loadDashboard()
+  }, [])
+
   return (
     <DefaultLayout title='Painel'>
       <Container>
@@ -23,7 +38,7 @@ function Dashboard () {
             </p>
             <div>
               <CasesIcon />
-              <strong>100</strong>
+              <strong>{dashboard.activeCases}</strong>
             </div>
           </PanelCard>
           <PanelCard color='#6FCF97'>
@@ -32,7 +47,7 @@ function Dashboard () {
             </p>
             <div>
               <DonateIcon />
-              <strong>100</strong>
+              <strong>{dashboard.donationsCount}</strong>
             </div>
           </PanelCard>
           <PanelCard color='#F2B279'>
@@ -41,7 +56,7 @@ function Dashboard () {
             </p>
             <div>
               <MoneyIcon />
-              <strong>R$ 1100,00</strong>
+              <strong>{formatPrice(dashboard.totalAmount)}</strong>
             </div>
           </PanelCard>
         </div>

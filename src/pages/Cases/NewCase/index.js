@@ -40,7 +40,7 @@ function NewCase () {
         description
       })
 
-      history.push('/dashboard')
+      history.push('/cases')
     } catch (error) {
       toast.error('Erro ao cadastrar um novo caso')
     }

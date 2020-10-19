@@ -1,4 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { DebounceInput } from 'react-debounce-input'
+
+import { formatDate, formatPrice } from '../../util/format'
+
+import api from '../../services/api'
 
 import DefaultLayout from '../../layouts/Default'
 
@@ -14,20 +19,51 @@ import {
 } from './styles'
 
 function Donation () {
+  const [donations, setDonations] = useState([])
+  const [totalDonated, setTotalDonated] = useState(0)
+  const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    async function loadDonations () {
+      const response = await api.get('/donations', {
+        params: {
+          title: search
+        }
+      })
+
+      const serializedDonations = response.data.donations.map(({ created_at: createdAt, value, ...rest }) => ({
+        formattedDate: formatDate(createdAt),
+        formattedValue: formatPrice(value),
+        ...rest
+      }))
+
+      setTotalDonated(response.data.totalDonated)
+      setDonations(serializedDonations)
+    }
+
+    loadDonations()
+  }, [search])
+
   return (
     <DefaultLayout title='Doações'>
       <Container>
         <Header>
           <p>Total arrecadado</p>
           <strong>
-            <DonateIcon /> R$ 10.547,00
+            <DonateIcon /> {formatPrice(totalDonated)}
           </strong>
         </Header>
         <Main>
           <div>
             <h3>Histórico</h3>
             <SearchBox>
-              <input type='text' placeholder='Pesquisar...' />
+              <DebounceInput
+                minLength={2}
+                debounceTimeout={300}
+                onChange={(event) => setSearch(event.target.value)}
+                element='input'
+                placeholder='Pesquisar...'
+              />
               <SearchIcon />
             </SearchBox>
           </div>
@@ -43,78 +79,14 @@ function Donation () {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>11/10/2020</td>
-                  <td>Gabriel José de Oliveira</td>
-                  <td>Ração para cachorros</td>
-                  <td>R$ 50,00</td>
-                </tr>
-                <tr>
-                  <td>11/10/2020</td>
-                  <td>Gabriel José de Oliveira</td>
-                  <td>Ração para cachorros</td>
-                  <td>R$ 50,00</td>
-                </tr>
-                <tr>
-                  <td>11/10/2020</td>
-                  <td>Gabriel José de Oliveira</td>
-                  <td>Ração para cachorros</td>
-                  <td>R$ 50,00</td>
-                </tr>
-                <tr>
-                  <td>11/10/2020</td>
-                  <td>Gabriel José de Oliveira</td>
-                  <td>Ração para cachorros</td>
-                  <td>R$ 50,00</td>
-                </tr>
-                <tr>
-                  <td>11/10/2020</td>
-                  <td>Gabriel José de Oliveira</td>
-                  <td>Ração para cachorros</td>
-                  <td>R$ 50,00</td>
-                </tr>
-                <tr>
-                  <td>11/10/2020</td>
-                  <td>Gabriel José de Oliveira</td>
-                  <td>Ração para cachorros</td>
-                  <td>R$ 50,00</td>
-                </tr>
-                <tr>
-                  <td>11/10/2020</td>
-                  <td>Gabriel José de Oliveira</td>
-                  <td>Ração para cachorros</td>
-                  <td>R$ 50,00</td>
-                </tr>
-                <tr>
-                  <td>11/10/2020</td>
-                  <td>Gabriel José de Oliveira</td>
-                  <td>Ração para cachorros</td>
-                  <td>R$ 50,00</td>
-                </tr>
-                <tr>
-                  <td>11/10/2020</td>
-                  <td>Gabriel José de Oliveira</td>
-                  <td>Ração para cachorros</td>
-                  <td>R$ 50,00</td>
-                </tr>
-                <tr>
-                  <td>11/10/2020</td>
-                  <td>Gabriel José de Oliveira</td>
-                  <td>Ração para cachorros</td>
-                  <td>R$ 50,00</td>
-                </tr>
-                <tr>
-                  <td>11/10/2020</td>
-                  <td>Gabriel José de Oliveira</td>
-                  <td>Ração para cachorros</td>
-                  <td>R$ 50,00</td>
-                </tr>
-                <tr>
-                  <td>11/10/2020</td>
-                  <td>Gabriel José de Oliveira</td>
-                  <td>Ração para cachorros</td>
-                  <td>R$ 50,00</td>
-                </tr>
+                {donations.map(donation => (
+                  <tr key={donation.id}>
+                    <td>{donation.formattedDate}</td>
+                    <td>{donation.donator?.full_name || 'Doador anônimo'}</td>
+                    <td>{donation.case?.title}</td>
+                    <td>{donation.formattedValue}</td>
+                  </tr>
+                ))}
               </tbody>
               <tfoot>
                 <tr>
