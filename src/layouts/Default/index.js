@@ -29,7 +29,7 @@ function DefaultLayout ({ children, title }) {
           <img
             src={
               user.profile?.avatar?.url ||
-            'https://api.adorable.io/avatars/285/abott@adorable.png'
+            'https://robohash.org/d102f2ae08f06460349445940f5b62f8?set=set4&bgset=&size=200x200'
             }
             alt='Entidade'
           />

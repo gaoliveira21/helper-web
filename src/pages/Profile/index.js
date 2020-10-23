@@ -9,6 +9,7 @@ import Dog from '../../assets/images/dog.jpg'
 import {
   Form,
   Container,
+  ImageBlock,
   Profile,
   Fieldset,
   InputContent,
@@ -27,10 +28,12 @@ function NewCase () {
       <Container>
         <Form>
           <Profile>
-            <img src={Dog} alt='Profile' />
+            <ImageBlock>
+              <img src={Dog} alt='Profile' />
+            </ImageBlock>
             <div>
-              <h2>Nome da Entidade [EXAMPLE]</h2>
-              <p>SIGLA [EXAMPLE]</p>
+              <h2>Nome da Entidade </h2>
+              <strong>sigla da entidade</strong>
             </div>
           </Profile>
           <Fieldset>

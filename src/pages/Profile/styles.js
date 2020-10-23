@@ -25,23 +25,45 @@ export const Profile = styled.div`
   margin: 24px 0;
   width: 100%;
 
+  h2 {
+    font-size: 3rem;
+  }
+
+  strong{
+    font-size: 2rem;
+    color: var(--color-gray);
+  }
+
   img {
-    width: 240px;
+    position: absolute;
+    width: 300px;
     height: auto;
   }
 
   > div {
     text-align: center;
+    margin-top: 24px;
   }
 
   @media (min-width: 768px) {
     flex-direction: row;
-    gap: 2rem;
+    gap: 4rem;
 
     > div {
       text-align: justify;
     }
   }
+`
+
+export const ImageBlock = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
 `
 
 export const Fieldset = styled.fieldset`
