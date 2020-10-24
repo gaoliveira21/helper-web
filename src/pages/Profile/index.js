@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useFormik } from 'formik'
 
 import { useAuth } from '../../contexts/auth'
 
@@ -20,8 +21,26 @@ import {
 } from './styles'
 
 function NewCase () {
-  const { user, changeAvatar } = useAuth()
+  const { user, changeAvatar, editProfile } = useAuth()
   const [avatar, setAvatar] = useState(user.profile.avatar)
+
+  const profileFormik = useFormik({
+    initialValues: {
+      initials: user.profile.initials || '',
+      cnpj: user.profile.cnpj || '',
+      description: user.profile.description || '',
+      street: user.profile.street || '',
+      number: user.profile.number || '',
+      neighborhood: user.profile.neighborhood || '',
+      city: user.profile.city || '',
+      state: user.profile.state || '',
+      whatsapp: user.profile.whatsapp
+    },
+    // validationSchema: schema,
+    onSubmit: (values) => {
+      editProfile(values)
+    }
+  })
 
   async function handleChangeAvatar (e) {
     const avatar = await changeAvatar(e.target.files[0])
@@ -37,7 +56,7 @@ function NewCase () {
       />
 
       <Container>
-        <Form>
+        <Form onSubmit={profileFormik.handleSubmit}>
           <Profile>
             <ImageBlock htmlFor='avatar'>
               <img
@@ -63,12 +82,34 @@ function NewCase () {
                 name='name'
                 type='text'
               />
-              <Input width='20%' label='Sigla' name='initials' type='text' />
-              <Input width='20%' label='CNPJ' name='cnpj' type='text' />
+              <Input
+                width='20%'
+                label='Sigla'
+                name='initials'
+                type='text'
+                value={profileFormik.values.initials}
+                onChange={profileFormik.handleChange}
+                formik={profileFormik}
+              />
+              <Input
+                width='20%'
+                label='CNPJ'
+                name='cnpj'
+                type='text'
+                value={profileFormik.values.cnpj}
+                onChange={profileFormik.handleChange}
+                formik={profileFormik}
+              />
             </InputContent>
 
             <InputContent>
-              <Textarea label='Descreva sua entidade' name='description' />
+              <Textarea
+                label='Descreva sua entidade'
+                name='description'
+                value={profileFormik.values.description}
+                onChange={profileFormik.handleChange}
+                formik={profileFormik}
+              />
             </InputContent>
           </Fieldset>
 
@@ -81,8 +122,19 @@ function NewCase () {
                 label='Rua / Logradouro'
                 name='street'
                 type='text'
+                value={profileFormik.values.street}
+                onChange={profileFormik.handleChange}
+                formik={profileFormik}
               />
-              <Input width='20%' label='Nº' name='number' type='text' />
+              <Input
+                width='20%'
+                label='Nº'
+                name='number'
+                type='text'
+                value={profileFormik.values.number}
+                onChange={profileFormik.handleChange}
+                formik={profileFormik}
+              />
             </InputContent>
 
             <InputContent>
@@ -91,9 +143,28 @@ function NewCase () {
                 label='Bairro'
                 name='neighborhood'
                 type='text'
+                value={profileFormik.values.neighborhood}
+                onChange={profileFormik.handleChange}
+                formik={profileFormik}
               />
-              <Input width='30%' label='Cidade' name='city' type='text' />
-              <Input width='20%' label='UF' name='state' type='text' />
+              <Input
+                width='30%'
+                label='Cidade'
+                name='city'
+                type='text'
+                value={profileFormik.values.city}
+                onChange={profileFormik.handleChange}
+                formik={profileFormik}
+              />
+              <Input
+                width='20%'
+                label='UF'
+                name='state'
+                type='text'
+                value={profileFormik.values.state}
+                onChange={profileFormik.handleChange}
+                formik={profileFormik}
+              />
             </InputContent>
           </Fieldset>
 
@@ -106,6 +177,9 @@ function NewCase () {
                 label='WhatsApp'
                 name='whatsapp'
                 type='text'
+                value={profileFormik.values.whatsapp}
+                onChange={profileFormik.handleChange}
+                formik={profileFormik}
               />
             </InputContent>
           </Fieldset>

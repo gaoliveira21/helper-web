@@ -88,6 +88,15 @@ export function AuthProvider ({ children }) {
     return user.profile.avatar
   }
 
+  async function editProfile (values) {
+    await api.put('/entities/profiles', values)
+
+    user.profile = Object.assign(user.profile, values)
+    setUser(user)
+    window.localStorage.setItem('@helper:user', JSON.stringify(user))
+    toast.success('Avatar alterado com sucesso')
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -97,7 +106,8 @@ export function AuthProvider ({ children }) {
         signUp,
         successSignUp,
         signOut,
-        changeAvatar
+        changeAvatar,
+        editProfile
       }}
     >
       {children}
