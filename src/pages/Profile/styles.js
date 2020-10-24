@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Plus, CheckCircle } from '@styled-icons/boxicons-regular'
+import { Plus, CheckCircle, Edit } from '@styled-icons/boxicons-regular'
 
 export const AddIcon = styled(Plus)`
   width: 24px;
@@ -8,6 +8,10 @@ export const AddIcon = styled(Plus)`
 `
 export const CheckIcon = styled(CheckCircle)`
   width: 24px;
+`
+export const EditIcon = styled(Edit)`
+  width: 24px;
+  margin-left: 8px;
 `
 
 export const Container = styled.div`
@@ -157,6 +161,19 @@ export const InputMedias = styled.div`
     &:hover{
       background-color: var(--color-secondary-dark);
     }
+  }
+`
+
+export const UpdatePassword = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+
+  a {
+    text-decoration: none;
+    color: var(--color-secondary);
+    font-weight: bold;
   }
 `
 

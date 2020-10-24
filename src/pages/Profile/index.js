@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Input from '../../components/Input'
 import Textarea from '../../components/Textarea'
@@ -16,7 +17,9 @@ import {
   InputContent,
   ButtonContent,
   InputMedias,
-  CheckIcon
+  UpdatePassword,
+  CheckIcon,
+  EditIcon
 } from './styles'
 
 function NewCase () {
@@ -43,14 +46,8 @@ function NewCase () {
             <legend>Dados da entidade</legend>
             <span />
             <InputContent>
-              <Input
-                width='60%'
-                label='Nome da entidade'
-                name='name'
-                type='text'
-              />
-              <Input width='20%' label='Sigla' name='initials' type='text' />
-              <Input width='20%' label='CNPJ' name='cnpj' type='text' />
+              <Input width='50%' label='Sigla' name='initials' type='text' />
+              <Input width='50%' label='CNPJ' name='cnpj' type='text' />
             </InputContent>
 
             <InputContent>
@@ -133,8 +130,16 @@ function NewCase () {
 
         <Form>
           <Fieldset>
-            <legend>Dados de autenticação</legend>
+            <legend>Dados da Entidade</legend>
             <span />
+            <InputContent>
+              <Input
+                width='100%'
+                label='Nome da entidade'
+                name='name'
+                type='text'
+              />
+            </InputContent>
             <InputContent>
               <Input
                 width='100%'
@@ -143,6 +148,9 @@ function NewCase () {
                 type='text'
               />
             </InputContent>
+            <UpdatePassword>
+              <Link to='/profile/update-password'>Alterar senha <EditIcon /></Link>
+            </UpdatePassword>
           </Fieldset>
           <ButtonContent>
             <button type='submit'>Atualizar</button>
