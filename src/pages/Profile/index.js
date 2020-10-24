@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-
+import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/auth'
 
 import Input from '../../components/Input'
@@ -18,7 +18,9 @@ import {
   InputContent,
   ButtonContent,
   InputMedias,
-  CheckIcon
+  UpdatePassword,
+  CheckIcon,
+  EditIcon
 } from './styles'
 
 const schema = Yup.object().shape({
@@ -92,13 +94,7 @@ function NewCase () {
             <span />
             <InputContent>
               <Input
-                width='60%'
-                label='Nome da entidade'
-                name='name'
-                type='text'
-              />
-              <Input
-                width='20%'
+                width='50%'
                 label='Sigla'
                 name='initials'
                 type='text'
@@ -107,7 +103,7 @@ function NewCase () {
                 formik={profileFormik}
               />
               <Input
-                width='20%'
+                width='50%'
                 label='CNPJ'
                 name='cnpj'
                 type='text'
@@ -236,8 +232,16 @@ function NewCase () {
 
         <Form>
           <Fieldset>
-            <legend>Dados de autenticação</legend>
+            <legend>Dados da Entidade</legend>
             <span />
+            <InputContent>
+              <Input
+                width='100%'
+                label='Nome da entidade'
+                name='name'
+                type='text'
+              />
+            </InputContent>
             <InputContent>
               <Input
                 width='100%'
@@ -246,6 +250,9 @@ function NewCase () {
                 type='text'
               />
             </InputContent>
+            <UpdatePassword>
+              <Link to='/profile/update-password'>Alterar senha <EditIcon /></Link>
+            </UpdatePassword>
           </Fieldset>
           <ButtonContent>
             <button type='submit'>Atualizar</button>

@@ -14,6 +14,7 @@ import Cases from '../pages/Cases'
 import UpdateCase from '../pages/Cases/UpdateCase'
 import DetailCase from '../pages/Cases/DetailCase'
 import Profile from '../pages/Profile'
+import UpdatePassword from '../pages/Profile/UpdatePassword'
 import Donation from '../pages/Donation'
 import Page404 from '../pages/Page404'
 
@@ -43,6 +44,7 @@ export default function Routes () {
           isPrivate
         />
         <Route exact path='/profile' component={Profile} isPrivate />
+        <Route exact path='/profile/update-password' component={UpdatePassword} isPrivate />
         <Route exact path='/donation' component={Donation} isPrivate />
 
         <Route path='*' exact component={Page404} is404 />

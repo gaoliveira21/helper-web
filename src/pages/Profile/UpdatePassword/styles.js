@@ -1,24 +1,11 @@
 import styled from 'styled-components'
 
-import { Plus, CheckCircle, Edit } from '@styled-icons/boxicons-regular'
-
-export const AddIcon = styled(Plus)`
-  width: 24px;
-  margin-left: 4px;
-`
-export const CheckIcon = styled(CheckCircle)`
-  width: 24px;
-`
-export const EditIcon = styled(Edit)`
-  width: 24px;
-  margin-left: 8px;
-`
+import { } from '@styled-icons/boxicons-regular'
 
 export const Container = styled.div`
   padding: 0 2rem;
   margin: -48px 0 48px 0;
 `
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -74,10 +61,6 @@ export const Profile = styled.div`
     margin-top: 24px;
   }
 
-  > input {
-    display: none;
-  }
-
   @media (min-width: 768px) {
     flex-direction: row;
     gap: 4rem;
@@ -85,24 +68,6 @@ export const Profile = styled.div`
     > div {
       text-align: justify;
     }
-  }
-`
-
-export const ImageBlock = styled.label`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-
-  img {
-    position: absolute;
-    width: 300px;
-    height: auto;
   }
 `
 
@@ -166,19 +131,6 @@ export const InputMedias = styled.div`
     &:hover{
       background-color: var(--color-secondary-dark);
     }
-  }
-`
-
-export const UpdatePassword = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-
-  a {
-    text-decoration: none;
-    color: var(--color-secondary);
-    font-weight: bold;
   }
 `
 
