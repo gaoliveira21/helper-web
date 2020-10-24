@@ -19,6 +19,7 @@ export default createGlobalStyle`
   --color-yellow: #F2B279;
 
   --color-primary-dark: #f26869;
+  --color-secondary-dark: #4b4f82;
 
   font-size: 60%;
 }

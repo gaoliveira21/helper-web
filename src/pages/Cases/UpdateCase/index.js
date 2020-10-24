@@ -19,7 +19,7 @@ function NewCase () {
       <Header
         title='NOME DO CASO [EXEMPLO]'
         description='Aqui você pode editar o seu caso, fazendo todas alterações necessárias.'
-        label='Casos'
+        label='Editar caso'
       />
 
       <Container>

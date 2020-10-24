@@ -8,12 +8,15 @@ import Dog from '../../assets/images/dog.jpg'
 
 import {
   Form,
+  SocialMedias,
   Container,
   ImageBlock,
   Profile,
   Fieldset,
   InputContent,
-  ButtonContent
+  ButtonContent,
+  InputMedias,
+  CheckIcon
 } from './styles'
 
 function NewCase () {
@@ -92,22 +95,57 @@ function NewCase () {
               />
             </InputContent>
           </Fieldset>
+          <ButtonContent>
+            <button type='submit'>Atualizar Perfil</button>
+          </ButtonContent>
+        </Form>
 
+        <SocialMedias>
           <Fieldset>
             <legend>Redes Sociais</legend>
             <span />
             <InputContent>
+              <InputMedias>
+                <Input
+                  width='100%'
+                  label='Facebook'
+                  name='socialmedia'
+                  type='text'
+                />
+                <button>
+                  <CheckIcon />
+                </button>
+              </InputMedias>
+              <InputMedias>
+                <Input
+                  width='100%'
+                  label='Instagram'
+                  name='socialmedia'
+                  type='text'
+                />
+                <button>
+                  <CheckIcon />
+                </button>
+              </InputMedias>
+            </InputContent>
+          </Fieldset>
+        </SocialMedias>
+
+        <Form>
+          <Fieldset>
+            <legend>Dados de autenticação</legend>
+            <span />
+            <InputContent>
               <Input
                 width='100%'
-                label='Facebook'
-                name='socialmedia'
+                label='E-mail'
+                name='email'
                 type='text'
               />
             </InputContent>
           </Fieldset>
-
           <ButtonContent>
-            <button type='submit'>Edição concluída</button>
+            <button type='submit'>Atualizar</button>
           </ButtonContent>
         </Form>
       </Container>

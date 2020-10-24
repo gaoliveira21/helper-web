@@ -61,9 +61,9 @@ function NewCase () {
   return (
     <>
       <Header
-        title='Cadastrar novo caso'
-        description='Crie um novo caso para receber doações!'
-        label='Casos'
+        title='Cadastrar um novo caso'
+        description='Crie um caso da sua entidade e comece a receber doações!'
+        label='Novo caso'
       />
 
       <Container>

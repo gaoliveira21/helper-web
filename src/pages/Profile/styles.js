@@ -1,5 +1,15 @@
 import styled from 'styled-components'
 
+import { Plus, CheckCircle } from '@styled-icons/boxicons-regular'
+
+export const AddIcon = styled(Plus)`
+  width: 24px;
+  margin-left: 4px;
+`
+export const CheckIcon = styled(CheckCircle)`
+  width: 24px;
+`
+
 export const Container = styled.div`
   padding: 0 2rem;
   margin: -48px 0 48px 0;
@@ -15,14 +25,35 @@ export const Form = styled.form`
   padding: 4rem 6rem;
   background: var(--color-white);
   border-radius: 0.8rem;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+
+  & + div {
+    margin-top: 48px;
+  }
+`
+
+export const SocialMedias = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 4rem 6rem;
+  background: var(--color-white);
+  border-radius: 0.8rem;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+
+  & + form {
+    margin-top: 48px;
+  }
 `
 
 export const Profile = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 24px 0;
+  margin: 24px 0 48px 0;
   width: 100%;
 
   h2 {
@@ -67,19 +98,19 @@ export const ImageBlock = styled.div`
 `
 
 export const Fieldset = styled.fieldset`
-  margin: 24px 0;
+  margin: 0 0;
   padding: 0.5rem 0;
   border: none;
 
   legend {
     font-size: 1.8rem;
     font-weight: bold;
+    color: var(--color-primary);
   }
 
   > span {
-    margin: 0 auto;
-    width: 100%;
-    height: 2px;
+    width: 36px;
+    height: 4px;
     background: var(--color-primary);
     border-radius: 0.8rem;
     display: block;
@@ -101,11 +132,38 @@ export const InputContent = styled.div`
   }
 `
 
+export const InputMedias = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+
+  width: 100%;
+
+  button {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 16px;
+    font-weight: bold;
+    border-radius: 0.8rem;
+    border: none;
+    outline: none;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+
+    &:hover{
+      background-color: var(--color-secondary-dark);
+    }
+  }
+`
+
 export const ButtonContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 24px 0;
 
   button {
     display: flex;
