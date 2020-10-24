@@ -92,9 +92,24 @@ export function AuthProvider ({ children }) {
     await api.put('/entities/profiles', values)
 
     user.profile = Object.assign(user.profile, values)
-    setUser(user)
     window.localStorage.setItem('@helper:user', JSON.stringify(user))
     toast.success('Perfil alterado com sucesso')
+    setUser(user)
+  }
+
+  async function editEntity (values) {
+    try {
+      await api.put('/entities', values)
+
+      if (values.email) user.email = values.email
+      if (values.name) user.name = values.name
+
+      window.localStorage.setItem('@helper:user', JSON.stringify(user))
+      toast.success('Dados alterados com sucesso')
+      setUser(user)
+    } catch (error) {
+      toast.error('Falha na alteração, verifique seus dados e tente novamente')
+    }
   }
 
   return (
@@ -107,7 +122,8 @@ export function AuthProvider ({ children }) {
         successSignUp,
         signOut,
         changeAvatar,
-        editProfile
+        editProfile,
+        editEntity
       }}
     >
       {children}
