@@ -1,24 +1,11 @@
 import styled from 'styled-components'
 
-import { Plus, CheckCircle, Edit } from '@styled-icons/boxicons-regular'
-
-export const AddIcon = styled(Plus)`
-  width: 24px;
-  margin-left: 4px;
-`
-export const CheckIcon = styled(CheckCircle)`
-  width: 24px;
-`
-export const EditIcon = styled(Edit)`
-  width: 24px;
-  margin-left: 8px;
-`
+import { } from '@styled-icons/boxicons-regular'
 
 export const Container = styled.div`
   padding: 0 2rem;
   margin: -48px 0 48px 0;
 `
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -84,23 +71,6 @@ export const Profile = styled.div`
   }
 `
 
-export const ImageBlock = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-
-  img {
-    position: absolute;
-    width: 300px;
-    height: auto;
-  }
-`
-
 export const Fieldset = styled.fieldset`
   margin: 0 0;
   padding: 0.5rem 0;
@@ -161,19 +131,6 @@ export const InputMedias = styled.div`
     &:hover{
       background-color: var(--color-secondary-dark);
     }
-  }
-`
-
-export const UpdatePassword = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-
-  a {
-    text-decoration: none;
-    color: var(--color-secondary);
-    font-weight: bold;
   }
 `
 
