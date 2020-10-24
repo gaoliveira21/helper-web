@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useFormik } from 'formik'
+import * as Yup from 'yup'
 
 import { useAuth } from '../../contexts/auth'
 
@@ -20,6 +21,20 @@ import {
   CheckIcon
 } from './styles'
 
+const schema = Yup.object().shape({
+  initials: Yup.string(),
+  cnpj: Yup.string(),
+  description: Yup.string().max(300, 'O campo descrição precisa ter no máximo 300 caracteres'),
+  street: Yup.string(),
+  number: Yup.number('O campo número precisa ser um número válido').positive('O campo número precisa ser um valor positivo'),
+  neighborhood: Yup.string(),
+  city: Yup.string(),
+  state: Yup.string().length(2, 'O campo UF precisa ter 2 caracteres'),
+  whatsapp: Yup
+    .string()
+    .required('O campo whatsapp é obrigatório')
+})
+
 function NewCase () {
   const { user, changeAvatar, editProfile } = useAuth()
   const [avatar, setAvatar] = useState(user.profile.avatar)
@@ -36,7 +51,7 @@ function NewCase () {
       state: user.profile.state || '',
       whatsapp: user.profile.whatsapp
     },
-    // validationSchema: schema,
+    validationSchema: schema,
     onSubmit: (values) => {
       editProfile(values)
     }

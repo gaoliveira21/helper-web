@@ -94,7 +94,7 @@ export function AuthProvider ({ children }) {
     user.profile = Object.assign(user.profile, values)
     setUser(user)
     window.localStorage.setItem('@helper:user', JSON.stringify(user))
-    toast.success('Avatar alterado com sucesso')
+    toast.success('Perfil alterado com sucesso')
   }
 
   return (
