@@ -70,6 +70,10 @@ export const Profile = styled.div`
     margin-top: 24px;
   }
 
+  > input {
+    display: none;
+  }
+
   @media (min-width: 768px) {
     flex-direction: row;
     gap: 4rem;
@@ -80,7 +84,7 @@ export const Profile = styled.div`
   }
 `
 
-export const ImageBlock = styled.div`
+export const ImageBlock = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,6 +93,7 @@ export const ImageBlock = styled.div`
   height: 200px;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 
   img {
     position: absolute;

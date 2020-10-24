@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import { useAuth } from '../../contexts/auth'
 
 import Input from '../../components/Input'
 import Textarea from '../../components/Textarea'
 import Header from '../../components/Header'
-
-import Dog from '../../assets/images/dog.jpg'
 
 import {
   Form,
@@ -20,6 +20,14 @@ import {
 } from './styles'
 
 function NewCase () {
+  const { user, changeAvatar } = useAuth()
+  const [avatar, setAvatar] = useState(user.profile.avatar)
+
+  async function handleChangeAvatar (e) {
+    const avatar = await changeAvatar(e.target.files[0])
+    setAvatar(avatar)
+  }
+
   return (
     <>
       <Header
@@ -31,13 +39,19 @@ function NewCase () {
       <Container>
         <Form>
           <Profile>
-            <ImageBlock>
-              <img src={Dog} alt='Profile' />
+            <ImageBlock htmlFor='avatar'>
+              <img
+                src={
+                  avatar.url ||
+                'https://img.estadao.com.br/fotos/crop/1200x1200/resources/jpg/5/5/1553173579355.jpg'
+                } alt='Profile'
+              />
             </ImageBlock>
             <div>
               <h2>Nome da Entidade </h2>
               <strong>sigla da entidade</strong>
             </div>
+            <input type='file' name='avatar' id='avatar' onChange={handleChangeAvatar} />
           </Profile>
           <Fieldset>
             <legend>Dados da entidade</legend>
