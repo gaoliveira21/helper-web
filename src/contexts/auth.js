@@ -64,6 +64,39 @@ export function AuthProvider ({ children }) {
     setUser(null)
   }
 
+  async function changeAvatar (file) {
+    const formData = new window.FormData()
+
+    formData.append('avatar', file)
+
+    const uploadResponse = await api.post('/avatars', formData)
+
+    const { id, filepath, url } = uploadResponse.data
+
+    await api.put('/entities/profiles', {
+      whatsapp: user.profile.whatsapp,
+      avatar_id: id
+    })
+
+    user.profile.avatar = {
+      id, filepath, url
+    }
+
+    setUser(user)
+    window.localStorage.setItem('@helper:user', JSON.stringify(user))
+    toast.success('Avatar alterado com sucesso')
+    return user.profile.avatar
+  }
+
+  async function editProfile (values) {
+    await api.put('/entities/profiles', values)
+
+    user.profile = Object.assign(user.profile, values)
+    setUser(user)
+    window.localStorage.setItem('@helper:user', JSON.stringify(user))
+    toast.success('Perfil alterado com sucesso')
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -72,7 +105,9 @@ export function AuthProvider ({ children }) {
         signIn,
         signUp,
         successSignUp,
-        signOut
+        signOut,
+        changeAvatar,
+        editProfile
       }}
     >
       {children}
