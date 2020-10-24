@@ -32,9 +32,9 @@ const schema = Yup.object().shape({
 function NewCase () {
   const history = useHistory()
 
-  function handleSubmit ({ title, value, description }) {
+  async function handleSubmit ({ title, value, description }) {
     try {
-      api.post('/cases', {
+      await api.post('/cases', {
         title,
         value,
         description

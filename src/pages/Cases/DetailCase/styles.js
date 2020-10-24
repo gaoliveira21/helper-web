@@ -78,13 +78,17 @@ export const Progress = styled.div`
     justify-content: flex-end;
     align-items: center;
 
-    width: ${(props) => (props.percent < 45 ? '45%' : `${props.percent}%`)};
+    width: ${(props) => (props.percent < 30 ? '30%' : `${props.percent}%`)};
     height: 100%;
     padding: 0 2rem;
 
     border-radius: 0.8rem;
     background-color: var(--color-secondary);
     color: var(--color-white);
+
+    @media (min-width: 768px){
+      width: ${(props) => (props.percent < 10 ? '10%' : `${props.percent}%`)};
+    }
   }
 `
 
@@ -106,7 +110,7 @@ export const TableDonators = styled.table`
     th {
       text-align: start;
       font-weight: bold;
-      padding: 1rem 1rem;
+      padding: 2rem 1rem;
       color: var(--color-white);
     }
   }

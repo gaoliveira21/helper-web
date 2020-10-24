@@ -126,7 +126,7 @@ function DetailCase () {
               </ValueCollected>
 
               <Scroll>
-                <TableDonators>
+                <TableDonators cellSpacing='0'>
                   <caption>Doadores que ajudaram nesse caso</caption>
                   <thead>
                     <tr>

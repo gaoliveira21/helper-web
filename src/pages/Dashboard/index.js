@@ -32,25 +32,25 @@ function Dashboard () {
     <DefaultLayout title='Painel'>
       <Container>
         <div>
-          <PanelCard color='#5B5F97'>
+          <PanelCard color='#F2B279'>
             <p>
-              <strong>Casos ativos</strong>
+              <strong>Casos Abertos</strong>
             </p>
             <div>
               <CasesIcon />
               <strong>{dashboard.activeCases}</strong>
             </div>
           </PanelCard>
-          <PanelCard color='#6FCF97'>
+          <PanelCard color='#5B5F97'>
             <p>
-              <strong>Doações</strong>
+              <strong>Doações Recebidas</strong>
             </p>
             <div>
               <DonateIcon />
               <strong>{dashboard.donationsCount}</strong>
             </div>
           </PanelCard>
-          <PanelCard color='#F2B279'>
+          <PanelCard color='#6FCF97'>
             <p>
               <strong>Total arrecadado</strong>
             </p>
