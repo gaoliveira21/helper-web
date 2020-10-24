@@ -6,7 +6,7 @@ export const Container = styled.div`
   background: var(--color-white);
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.15);
   border-radius: 0.8rem;
-  margin-bottom: 48px;
+  position: relative;
 `
 
 export const Progress = styled.div`
@@ -77,14 +77,14 @@ export const Body = styled.div`
     margin-top: 18px;
     text-align: justify;
     line-height: 24px;
-    min-height: 7rem;
   }
+  min-height: 180px;
+  height: 100%;
 `
 
 export const ActionBox = styled.footer`
-  padding: 1rem 1.5rem;
+  padding: 2rem 2rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 
   a {

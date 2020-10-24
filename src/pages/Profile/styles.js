@@ -65,12 +65,6 @@ export const Profile = styled.div`
     color: var(--color-gray);
   }
 
-  img {
-    position: absolute;
-    width: 300px;
-    height: auto;
-  }
-
   > div {
     text-align: center;
     margin-top: 24px;
@@ -95,6 +89,12 @@ export const ImageBlock = styled.div`
   height: 200px;
   overflow: hidden;
   position: relative;
+
+  img {
+    position: absolute;
+    width: 300px;
+    height: auto;
+  }
 `
 
 export const Fieldset = styled.fieldset`

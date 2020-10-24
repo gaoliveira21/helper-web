@@ -26,13 +26,15 @@ function DefaultLayout ({ children, title }) {
     <Container>
       <SideBar>
         <header>
-          <img
-            src={
+          <div>
+            <img
+              src={
               user.profile?.avatar?.url ||
-            'https://robohash.org/d102f2ae08f06460349445940f5b62f8?set=set4&bgset=&size=200x200'
-            }
-            alt='Entidade'
-          />
+              'https://img.estadao.com.br/fotos/crop/1200x1200/resources/jpg/5/5/1553173579355.jpg'
+              }
+              alt='Entidade'
+            />
+          </div>
           <p>
             Olá, <strong>{user.name}</strong>
           </p>
