@@ -78,8 +78,8 @@ function Step3 () {
             Voltar
           </Link>
           <div>
-            <h1>Cadastrar-se</h1>
-            <p>Preencha os campos abaixo para efetuar o cadastro</p>
+            <h1>Crie seu Perfil</h1>
+            <p>Preencha os campos abaixo para começar a criação do seu perfil.</p>
           </div>
           <form onSubmit={formik.handleSubmit}>
             <strong>Informações sobre a entidade</strong>

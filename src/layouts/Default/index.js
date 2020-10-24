@@ -26,13 +26,15 @@ function DefaultLayout ({ children, title }) {
     <Container>
       <SideBar>
         <header>
-          <img
-            src={
+          <div>
+            <img
+              src={
               user.profile?.avatar?.url ||
-            'https://api.adorable.io/avatars/285/abott@adorable.png'
-            }
-            alt='Entidade'
-          />
+              'https://img.estadao.com.br/fotos/crop/1200x1200/resources/jpg/5/5/1553173579355.jpg'
+              }
+              alt='Entidade'
+            />
+          </div>
           <p>
             Olá, <strong>{user.name}</strong>
           </p>

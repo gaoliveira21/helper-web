@@ -44,14 +44,25 @@ export const SideBar = styled.nav`
     justify-content: center;
     padding: 0 24px;
 
-    img {
-      width: 100px;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
       border-radius: 50%;
-      background: #ccc;
-      margin-bottom: 24px;
+      width: 140px;
+      height: 140px;
+      overflow: hidden;
+      position: relative;
+
+      img {
+        position: absolute;
+        width: 200px;
+        height: auto;
+      }
     }
 
     p {
+      margin-top: 24px;
       color: #fff;
       font-size: 2rem;
       font-family: Montserrat, Arial, sans-serif;

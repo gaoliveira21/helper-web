@@ -56,6 +56,7 @@ function Cases () {
   return (
     <DefaultLayout title='Casos'>
       <Container>
+        <h4>Pesquisar nome do caso</h4>
         <SearchBox>
           <DebounceInput
             minLength={2}

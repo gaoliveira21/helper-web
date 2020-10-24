@@ -39,7 +39,7 @@ export const Main = styled.main`
   margin-top: 35px;
 
   h3 {
-    font-size: 2rem;
+    font-size: 2.4rem;
     margin-bottom: 15px;
   }
 `
@@ -48,7 +48,8 @@ export const SearchBox = styled.div`
   width: 100%;
   border-radius: 0.4rem;
   padding: 0.8rem;
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-medium-gray);
+  // box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
 
   display: flex;
   align-items: center;
@@ -58,13 +59,30 @@ export const SearchBox = styled.div`
     border: none;
     outline: none;
     padding: 12px 8px;
+    background-color: var(--color-medium-gray);;
   }
 `
 
 export const SearchIcon = styled(Search)`
   color: var(--color-gray);
+  margin-right: 8px;
   width: 24px;
   cursor: pointer;
+`
+
+export const WithoutDonations = styled.div`
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 250px;
+  background-color: var(--color-gray);
+
+  h3 {
+    font-size: 2.4rem;
+  }
+
 `
 
 export const DonationTable = styled.table`

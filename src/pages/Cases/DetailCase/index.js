@@ -57,9 +57,9 @@ function DetailCase () {
   return (
     <>
       <Header
-        title={`Detalhes do ${caseDetail.title}`}
+        title={`${caseDetail.title}`}
         description=''
-        label='Casos'
+        label='Detalhes do caso'
       />
 
       <Container>
@@ -104,7 +104,7 @@ function DetailCase () {
               <TextContent>
                 <Text
                   width='100%'
-                  title='Título do caso'
+                  title='Descrição do caso'
                   text={caseDetail.description}
                 />
               </TextContent>
@@ -126,7 +126,7 @@ function DetailCase () {
               </ValueCollected>
 
               <Scroll>
-                <TableDonators>
+                <TableDonators cellSpacing='0'>
                   <caption>Doadores que ajudaram nesse caso</caption>
                   <thead>
                     <tr>

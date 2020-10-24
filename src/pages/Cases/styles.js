@@ -8,8 +8,10 @@ export const Container = styled.div`
 export const SearchBox = styled.div`
   width: 100%;
   border-radius: 0.4rem;
+  margin-top: 8px;
   padding: 0.8rem;
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-medium-gray);
+  //box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
 
   display: flex;
   align-items: center;
@@ -19,6 +21,7 @@ export const SearchBox = styled.div`
     border: none;
     outline: none;
     padding: 12px 8px;
+    background-color: var(--color-medium-gray);
   }
 `
 
@@ -29,12 +32,13 @@ export const AddIcon = styled(Plus)`
 
 export const SearchIcon = styled(Search)`
   color: var(--color-gray);
+  margin-right: 8px;
   width: 24px;
   cursor: pointer;
 `
 
 export const FilterBox = styled.div`
-  margin: 2rem 0;
+  margin: 36px 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -90,10 +94,11 @@ export const FilterBox = styled.div`
 
 export const CaseList = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  //grid-template-columns: 1fr;
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
   }
 `
