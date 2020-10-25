@@ -51,6 +51,8 @@ function NewCase () {
   const { user, changeAvatar, editProfile, editEntity } = useAuth()
   const [avatar, setAvatar] = useState(user.profile.avatar)
 
+  console.log(user)
+
   const profileFormik = useFormik({
     initialValues: {
       initials: user.profile.initials || '',
@@ -64,8 +66,8 @@ function NewCase () {
       whatsapp: user.profile.whatsapp
     },
     validationSchema: profileSchema,
-    onSubmit: (values) => {
-      editProfile(values)
+    onSubmit: async (values) => {
+      await editProfile(values)
     }
   })
 
@@ -75,8 +77,8 @@ function NewCase () {
       name: user.name
     },
     validationSchema: entitySchema,
-    onSubmit: (values) => {
-      editEntity(values)
+    onSubmit: async (values) => {
+      await editEntity(values)
     }
   })
 
