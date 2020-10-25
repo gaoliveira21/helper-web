@@ -11,6 +11,7 @@ import api from '../../../services/api'
 import Input from '../../../components/Input'
 import Textarea from '../../../components/Textarea'
 import Header from '../../../components/Header'
+import FilePreview from '../../../components/FilePreview'
 
 import {
   Form,
@@ -139,22 +140,16 @@ function NewCase () {
               <label htmlFor='images'>Adicionar imagens ao caso</label>
               <div>Dropzone</div>
             </Dropzone> */}
-            <section className='container'>
-              <div {...getRootProps({ className: 'dropzone' })}>
-                <input {...getInputProps()} />
-                <p>Drag 'n' drop some files here, or click to select files</p>
-              </div>
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              <span>Drag 'n' drop some files here, or click to select files</span>
               <aside>
                 {files.map(file => (
-                  <img
-                    key={file.preview}
-                    src={file.preview}
-                    width='100'
-                    onClick={() => handleRemoveFile(file.preview)}
-                  />
+                  <FilePreview key={file.preview} file={file} remove={handleRemoveFile} />
                 ))}
               </aside>
-            </section>
+            </div>
+
           </InputContent>
           <ButtonContent>
             <button type='submit'>Cadastrar</button>
