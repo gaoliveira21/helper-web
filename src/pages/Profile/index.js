@@ -23,12 +23,14 @@ import {
   EditIcon
 } from './styles'
 
-const schema = Yup.object().shape({
+const profileSchema = Yup.object().shape({
   initials: Yup.string(),
   cnpj: Yup.string(),
   description: Yup.string().max(300, 'O campo descrição precisa ter no máximo 300 caracteres'),
   street: Yup.string(),
-  number: Yup.number('O campo número precisa ser um número válido').positive('O campo número precisa ser um valor positivo'),
+  number: Yup
+    .number('O campo número precisa ser um número válido')
+    .positive('O campo número precisa ser um valor positivo'),
   neighborhood: Yup.string(),
   city: Yup.string(),
   state: Yup.string().length(2, 'O campo UF precisa ter 2 caracteres'),
@@ -37,9 +39,19 @@ const schema = Yup.object().shape({
     .required('O campo whatsapp é obrigatório')
 })
 
+const entitySchema = Yup.object().shape({
+  name: Yup.string().required('O campo nome é obrigatório'),
+  email: Yup
+    .string()
+    .email('O campo E-mail precisa receber um e-mail válido')
+    .required('O campo E-mail é obrigatório')
+})
+
 function NewCase () {
-  const { user, changeAvatar, editProfile } = useAuth()
+  const { user, changeAvatar, editProfile, editEntity } = useAuth()
   const [avatar, setAvatar] = useState(user.profile.avatar)
+
+  console.log(user)
 
   const profileFormik = useFormik({
     initialValues: {
@@ -53,9 +65,20 @@ function NewCase () {
       state: user.profile.state || '',
       whatsapp: user.profile.whatsapp
     },
-    validationSchema: schema,
-    onSubmit: (values) => {
-      editProfile(values)
+    validationSchema: profileSchema,
+    onSubmit: async (values) => {
+      await editProfile(values)
+    }
+  })
+
+  const entityFormik = useFormik({
+    initialValues: {
+      email: user.email,
+      name: user.name
+    },
+    validationSchema: entitySchema,
+    onSubmit: async (values) => {
+      await editEntity(values)
     }
   })
 
@@ -84,8 +107,8 @@ function NewCase () {
               />
             </ImageBlock>
             <div>
-              <h2>Nome da Entidade </h2>
-              <strong>sigla da entidade</strong>
+              <h2>{user.name}</h2>
+              <strong>{user.profile?.initials || ''}</strong>
             </div>
             <input type='file' name='avatar' id='avatar' onChange={handleChangeAvatar} />
           </Profile>
@@ -230,7 +253,7 @@ function NewCase () {
           </Fieldset>
         </SocialMedias>
 
-        <Form>
+        <Form onSubmit={entityFormik.handleSubmit}>
           <Fieldset>
             <legend>Dados da Entidade</legend>
             <span />
@@ -240,6 +263,9 @@ function NewCase () {
                 label='Nome da entidade'
                 name='name'
                 type='text'
+                value={entityFormik.values.name}
+                onChange={entityFormik.handleChange}
+                formik={entityFormik}
               />
             </InputContent>
             <InputContent>
@@ -248,6 +274,9 @@ function NewCase () {
                 label='E-mail'
                 name='email'
                 type='text'
+                value={entityFormik.values.email}
+                onChange={entityFormik.handleChange}
+                formik={entityFormik}
               />
             </InputContent>
             <UpdatePassword>
