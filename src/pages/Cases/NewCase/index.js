@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useDropzone } from 'react-dropzone'
 
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -10,12 +11,13 @@ import api from '../../../services/api'
 import Input from '../../../components/Input'
 import Textarea from '../../../components/Textarea'
 import Header from '../../../components/Header'
+import FilePreview from '../../../components/FilePreview'
 
 import {
   Form,
   Container,
   InputContent,
-  Dropzone,
+  // Dropzone,
   ButtonContent
 } from './styles'
 
@@ -32,18 +34,51 @@ const schema = Yup.object().shape({
 function NewCase () {
   const history = useHistory()
 
+  const [files, setFiles] = useState([])
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: 'image/*',
+    maxFiles: 4,
+    onDrop: acceptedFiles => {
+      setFiles([...files, ...acceptedFiles.map(file => Object.assign(file, {
+        preview: URL.createObjectURL(file)
+      }))])
+    }
+  })
+
+  console.log(files)
+
+  useEffect(() => () => {
+    // Make sure to revoke the data uris to avoid memory leaks
+    files.forEach(file => URL.revokeObjectURL(file.preview))
+  }, [files])
+
   async function handleSubmit ({ title, value, description }) {
     try {
-      await api.post('/cases', {
+      const response = await api.post('/cases', {
         title,
         value,
         description
+      })
+
+      const { id } = response.data
+
+      files.forEach(async (file) => {
+        const formData = new window.FormData()
+        formData.append('file', file)
+
+        await api.post(`cases/${id}/files`, formData)
       })
 
       history.push('/cases')
     } catch (error) {
       toast.error('Erro ao cadastrar um novo caso')
     }
+  }
+
+  function handleRemoveFile (preview) {
+    const updatedFilesList = files.filter(file => file.preview !== preview)
+
+    setFiles(updatedFilesList)
   }
 
   const formik = useFormik({
@@ -101,10 +136,20 @@ function NewCase () {
             />
           </InputContent>
           <InputContent>
-            <Dropzone>
+            {/* <Dropzone>
               <label htmlFor='images'>Adicionar imagens ao caso</label>
               <div>Dropzone</div>
-            </Dropzone>
+            </Dropzone> */}
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              <span>Drag 'n' drop some files here, or click to select files</span>
+              <aside>
+                {files.map(file => (
+                  <FilePreview key={file.preview} file={file} remove={handleRemoveFile} />
+                ))}
+              </aside>
+            </div>
+
           </InputContent>
           <ButtonContent>
             <button type='submit'>Cadastrar</button>
