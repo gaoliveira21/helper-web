@@ -101,8 +101,8 @@ export function AuthProvider ({ children }) {
     try {
       await api.put('/entities', values)
 
-      if (values.email) user.email = values.email
-      if (values.name) user.name = values.name
+      user.email = values.email
+      user.name = values.name
 
       window.localStorage.setItem('@helper:user', JSON.stringify(user))
       toast.success('Dados alterados com sucesso')
