@@ -51,8 +51,6 @@ function NewCase () {
   const { user, changeAvatar, editProfile, editEntity } = useAuth()
   const [avatar, setAvatar] = useState(user.profile.avatar)
 
-  console.log(user)
-
   const profileFormik = useFormik({
     initialValues: {
       initials: user.profile.initials || '',
@@ -101,7 +99,7 @@ function NewCase () {
             <ImageBlock htmlFor='avatar'>
               <img
                 src={
-                  avatar.url ||
+                  avatar?.url ||
                 'https://img.estadao.com.br/fotos/crop/1200x1200/resources/jpg/5/5/1553173579355.jpg'
                 } alt='Profile'
               />

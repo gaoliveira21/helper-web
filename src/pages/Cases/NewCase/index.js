@@ -17,8 +17,11 @@ import {
   Form,
   Container,
   InputContent,
-  // Dropzone,
-  ButtonContent
+  Dropzone,
+  ButtonContent,
+  Preview,
+  PreviewContent,
+  AddIcon
 } from './styles'
 
 const schema = Yup.object().shape({
@@ -135,22 +138,19 @@ function NewCase () {
               formik={formik}
             />
           </InputContent>
-          <InputContent>
-            {/* <Dropzone>
-              <label htmlFor='images'>Adicionar imagens ao caso</label>
-              <div>Dropzone</div>
-            </Dropzone> */}
+          <Dropzone>
             <div {...getRootProps()}>
               <input {...getInputProps()} />
-              <span>Drag 'n' drop some files here, or click to select files</span>
-              <aside>
-                {files.map(file => (
-                  <FilePreview key={file.preview} file={file} remove={handleRemoveFile} />
-                ))}
-              </aside>
+              <small>Clique aqui ou arraste para inserir imagens para o seu caso</small>
             </div>
-
-          </InputContent>
+          </Dropzone>
+          <PreviewContent>
+            <Preview>
+              {files.map(file => (
+                <FilePreview key={file.preview} file={file} remove={handleRemoveFile} />
+              ))}
+            </Preview>
+          </PreviewContent>
           <ButtonContent>
             <button type='submit'>Cadastrar</button>
           </ButtonContent>
