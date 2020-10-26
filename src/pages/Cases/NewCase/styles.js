@@ -1,5 +1,12 @@
 import styled from 'styled-components'
 
+import { Plus } from '@styled-icons/boxicons-regular'
+
+export const AddIcon = styled(Plus)`
+  width: 24px;
+  color: var(--color-secondary);
+`
+
 export const Container = styled.div`
   padding: 0 2rem;
   margin: -48px 0 48px 0;
@@ -30,6 +37,52 @@ export const InputContent = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
   }
+`
+
+export const Dropzone = styled.div`
+  width: 100%;
+  cursor: pointer;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 12px;
+    width: 100%;
+    height: 80px;
+    border-radius: 0.8rem;
+    border: 2px dashed var(--color-medium-gray);
+    font-size: 2rem;
+    outline: none;
+  }
+`
+
+export const PreviewContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  margin: 24px 0;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+`
+
+export const Preview = styled.div`
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-row-gap: 1rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-column-gap: 2rem;
+      grid-row-gap: 2rem;
+    }
 `
 
 export const ButtonContent = styled.div`
@@ -65,25 +118,5 @@ export const ButtonContent = styled.div`
 
   @media (min-width: 768px) {
     justify-content: flex-end;
-  }
-`
-
-export const Dropzone = styled.div`
-  width: 100%;
-
-  label {
-    font-weight: bold;
-  }
-
-  > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 4px;
-    width: 100%;
-    height: 360px;
-    border-radius: 0.8rem;
-    border: 4px dashed var(--color-medium-gray);
-    font-size: 2rem;
   }
 `

@@ -1,15 +1,17 @@
 import React from 'react'
 
-// import { Container } from './styles';
+import { ImagePreview } from './styles'
 
 function FilePreview ({ file, remove }) {
   return (
-    <img
-      key={file.preview}
-      src={file.preview}
-      width='100'
-      onClick={() => remove(file.preview)}
-    />
+    <ImagePreview>
+      <img
+        key={file.preview}
+        src={file.preview}
+        width='100'
+      />
+      <button onClick={() => remove(file.preview)}>Excluir</button>
+    </ImagePreview>
   )
 }
 
