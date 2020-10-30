@@ -20,8 +20,7 @@ import {
   Dropzone,
   ButtonContent,
   Preview,
-  PreviewContent,
-  AddIcon
+  PreviewContent
 } from './styles'
 
 const schema = Yup.object().shape({
@@ -47,8 +46,6 @@ function NewCase () {
       }))])
     }
   })
-
-  console.log(files)
 
   useEffect(() => () => {
     // Make sure to revoke the data uris to avoid memory leaks
