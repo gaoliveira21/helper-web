@@ -6,11 +6,11 @@ function FilePreview ({ file, remove }) {
   return (
     <ImagePreview>
       <img
-        key={file.preview}
-        src={file.preview}
+        key={file.preview || file.url}
+        src={file.preview || file.url}
         width='100'
       />
-      <button onClick={() => remove(file.preview)}>Excluir</button>
+      <button type='button' onClick={() => remove(file.preview)}>Excluir</button>
     </ImagePreview>
   )
 }

@@ -7,6 +7,7 @@ import api from '../../../services/api'
 
 import Input from '../../../components/Input'
 import Textarea from '../../../components/Textarea'
+import FilePreview from '../../../components/FilePreview'
 
 import {
   Form,
@@ -22,6 +23,7 @@ function UpdateCase () {
   const [title, setTitle] = useState()
   const [description, setDescription] = useState()
   const [files, setFiles] = useState([])
+  const [removedFiles, setRemovedFiles] = useState([])
 
   const history = useHistory()
   const params = useParams()
@@ -46,6 +48,7 @@ function UpdateCase () {
         setTitle(response.data.title)
         setDescription(response.data.description)
       } catch (error) {
+        console.log(error)
         history.push('/404')
       }
     }
@@ -53,10 +56,37 @@ function UpdateCase () {
     loadCase()
   }, [])
 
+  function handleRemoveFile (id, preview = null) {
+    if (!preview) {
+      const removedFile = files.find(file => file.id === id)
+      setRemovedFiles([...removedFiles, removedFile])
+
+      const newFiles = files.filter(file => file.id !== id)
+      setFiles(newFiles)
+    } else {
+      const newFiles = files.filter(file => file.preview !== preview)
+      setFiles(newFiles)
+    }
+  }
+
   async function handleSubmit (e) {
     try {
       e.preventDefault()
       await api.put(`/entities/cases/${params.id}`, { title, description })
+      removedFiles.forEach(async (file) => {
+        await api.delete(`/cases/${params.id}/files/${file.id}`)
+      })
+
+      const newFiles = files.filter(file => !file.id)
+
+      if (newFiles.length > 0) {
+        newFiles.forEach(async (file) => {
+          const formData = new window.FormData()
+          formData.append('file', file)
+          await api.post(`/cases/${params.id}/files`, formData)
+        })
+      }
+
       toast.success('Caso atualizado com sucesso!')
     } catch (error) {
       toast.error('Falha ao atualizar caso, tente novamente')
@@ -97,6 +127,9 @@ function UpdateCase () {
                 <input {...getInputProps()} />
                 <small>Clique aqui ou arraste para inserir imagens para o seu caso</small>
               </div>
+              {files.map(file => (
+                <FilePreview key={file.id || file.preview} file={file} remove={() => handleRemoveFile(file.id, file.preview || null)} />
+              ))}
             </div>
           </InputContent>
           <ButtonContent>
