@@ -124,7 +124,9 @@ function DetailCase () {
                   </div>
                 </Progress>
               </ValueCollected>
-
+              {caseDetail.files.map((file) => {
+                return <img key={file.id} width='100' src={file.url} />
+              })}
               <Scroll>
                 <TableDonators cellSpacing='0'>
                   <caption>Doadores que ajudaram nesse caso</caption>
@@ -137,13 +139,13 @@ function DetailCase () {
                   </thead>
                   <tbody>
                     {caseDetail?.donations &&
-                      caseDetail?.donations.map((donation) => (
-                        <tr key={donation.id}>
-                          <td>{donation.donator?.full_name || '-'}</td>
-                          <td>{formatPrice(donation.value)}</td>
-                          <td>{formatDate(donation.createdAt)}</td>
-                        </tr>
-                      ))}
+                        caseDetail?.donations.map((donation) => (
+                          <tr key={donation.id}>
+                            <td>{donation.donator?.full_name || '-'}</td>
+                            <td>{formatPrice(donation.value)}</td>
+                            <td>{formatDate(donation.createdAt)}</td>
+                          </tr>
+                        ))}
                   </tbody>
                 </TableDonators>
               </Scroll>
