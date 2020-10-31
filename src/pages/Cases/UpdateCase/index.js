@@ -13,7 +13,10 @@ import {
   Form,
   Container,
   InputContent,
-  ButtonContent
+  ButtonContent,
+  Dropzone,
+  Preview,
+  PreviewContent
 } from './styles'
 
 import Header from '../../../components/Header'
@@ -121,17 +124,20 @@ function UpdateCase () {
               onChange={(e) => setDescription(e.target.value)}
             />
           </InputContent>
-          <InputContent>
-            <div>
-              <div {...getRootProps()}>
-                <input {...getInputProps()} />
-                <small>Clique aqui ou arraste para inserir imagens para o seu caso</small>
-              </div>
+
+          <Dropzone>
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              <small>Clique aqui ou arraste para inserir ou excluir as imagens para o seu caso</small>
+            </div>
+          </Dropzone>
+          <PreviewContent>
+            <Preview>
               {files.map(file => (
                 <FilePreview key={file.id || file.preview} file={file} remove={() => handleRemoveFile(file.id, file.preview || null)} />
               ))}
-            </div>
-          </InputContent>
+            </Preview>
+          </PreviewContent>
           <ButtonContent>
             <button type='submit'>Editar caso</button>
           </ButtonContent>

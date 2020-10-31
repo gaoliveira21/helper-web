@@ -70,20 +70,46 @@ export const ButtonContent = styled.div`
 
 export const Dropzone = styled.div`
   width: 100%;
+  cursor: pointer;
 
-  label {
-    font-weight: bold;
-  }
-
-  > div {
+  div {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 4px;
+    padding: 12px 12px;
     width: 100%;
-    height: 360px;
+    height: 80px;
     border-radius: 0.8rem;
-    border: 4px dashed var(--color-medium-gray);
+    border: 2px dashed var(--color-medium-gray);
     font-size: 2rem;
+    outline: none;
   }
+`
+
+export const PreviewContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  margin: 24px 0;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+`
+
+export const Preview = styled.div`
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-row-gap: 1rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-column-gap: 2rem;
+      grid-row-gap: 2rem;
+    }
 `

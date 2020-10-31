@@ -77,6 +77,7 @@ export const Body = styled.div`
     text-align: justify;
     line-height: 24px;
   }
+  min-height: 180px;
 `
 
 export const ActionBox = styled.footer`

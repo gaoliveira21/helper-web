@@ -14,6 +14,8 @@ import {
   Title,
   Progress,
   TableDonators,
+  Preview,
+  PreviewContent,
   EditIcon,
   Loading,
   Scroll
@@ -124,9 +126,16 @@ function DetailCase () {
                   </div>
                 </Progress>
               </ValueCollected>
-              {caseDetail.files.map((file) => {
+              {/* {caseDetail.files.map((file) => {
                 return <img key={file.id} width='100' src={file.url} />
-              })}
+              })} */}
+              <PreviewContent>
+                <Preview>
+                  {caseDetail.files.map((file) => {
+                    return <div key={file.id}><img width='100' src={file.url} /></div>
+                  })}
+                </Preview>
+              </PreviewContent>
               <Scroll>
                 <TableDonators cellSpacing='0'>
                   <caption>Doadores que ajudaram nesse caso</caption>

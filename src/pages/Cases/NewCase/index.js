@@ -26,6 +26,7 @@ import {
 const schema = Yup.object().shape({
   title: Yup.string()
     .min(6, 'O título precisa ter no mínimo 3 caracteres')
+    .max(25, 'O título não pode ultrapassar 25 caracteres')
     .required('Insira o título do caso'),
   value: Yup.string()
     .matches(/\d{1,5}/g, 'O valor deve ser um número')
