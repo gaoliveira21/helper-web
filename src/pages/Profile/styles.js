@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 import { Plus, CheckCircle, Edit } from '@styled-icons/boxicons-regular'
 
+import { User } from '@styled-icons/boxicons-solid'
+
 export const AddIcon = styled(Plus)`
   width: 24px;
   margin-left: 4px;
@@ -12,6 +14,10 @@ export const CheckIcon = styled(CheckCircle)`
 export const EditIcon = styled(Edit)`
   width: 24px;
   margin-left: 8px;
+`
+export const UserIcon = styled(User)`
+  width: 72px;
+  color: var(--color-white);
 `
 
 export const Container = styled.div`
@@ -31,9 +37,7 @@ export const Form = styled.form`
   border-radius: 0.8rem;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
 
-  & + div {
-    margin-top: 48px;
-  }
+  margin-bottom: 48px;
 `
 
 export const SocialMedias = styled.div`
@@ -89,21 +93,71 @@ export const Profile = styled.div`
 `
 
 export const ImageBlock = styled.label`
+  position: relative;
+  overflow: hidden;
+
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
   border-radius: 50%;
+  background-color: var(--color-primary);
   width: 200px;
   height: 200px;
-  overflow: hidden;
-  position: relative;
+  color: #fff;
   cursor: pointer;
 
   img {
-    position: absolute;
-    width: 300px;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+    -moz-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+    -ms-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+    -o-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+    transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+    }
+
+  &:hover img {
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
   }
+
+  div {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    text-align: center;
+    padding: 30px;
+
+    -webkit-transition:	all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+    -moz-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+    -ms-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+    -o-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+    transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+
+    p {
+      color: #fff;
+    }
+  }
+
+  &:hover div {
+    opacity: 1;
+    box-shadow: inset 0 0 100px 50px rgba(0,0,0,.5);
+  }
+
 `
 
 export const Fieldset = styled.fieldset`

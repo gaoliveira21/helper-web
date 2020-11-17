@@ -20,7 +20,8 @@ import {
   InputMedias,
   UpdatePassword,
   CheckIcon,
-  EditIcon
+  EditIcon,
+  UserIcon
 } from './styles'
 
 const profileSchema = Yup.object().shape({
@@ -33,7 +34,10 @@ const profileSchema = Yup.object().shape({
     .positive('O campo número precisa ser um valor positivo'),
   neighborhood: Yup.string(),
   city: Yup.string(),
-  state: Yup.string().length(2, 'O campo UF precisa ter 2 caracteres'),
+  state: Yup
+    .string()
+    .length(2, 'UF precisa ter 2 caracteres')
+    .matches(/^[A-Z]{2}$/g, 'UF precisa ser maiúsculo'),
   whatsapp: Yup
     .string()
     .required('O campo whatsapp é obrigatório')
@@ -97,12 +101,19 @@ function NewCase () {
         <Form onSubmit={profileFormik.handleSubmit}>
           <Profile>
             <ImageBlock htmlFor='avatar'>
-              <img
-                src={
-                  avatar?.url ||
-                'https://img.estadao.com.br/fotos/crop/1200x1200/resources/jpg/5/5/1553173579355.jpg'
-                } alt='Profile'
-              />
+              {user.profile?.avatar?.url
+                ? <>
+                  <img
+                    src={user.profile?.avatar?.url}
+                    alt='Entidade'
+                  />
+                  <div>
+                    <UserIcon />
+                    <p>Alterar Avatar</p>
+                  </div>
+                  </>
+                : <><UserIcon /> <p>Alterar Avatar</p></>}
+
             </ImageBlock>
             <div>
               <h2>{user.name}</h2>
@@ -220,7 +231,7 @@ function NewCase () {
           </ButtonContent>
         </Form>
 
-        <SocialMedias>
+        {/* <SocialMedias>
           <Fieldset>
             <legend>Redes Sociais</legend>
             <span />
@@ -249,7 +260,7 @@ function NewCase () {
               </InputMedias>
             </InputContent>
           </Fieldset>
-        </SocialMedias>
+        </SocialMedias> */}
 
         <Form onSubmit={entityFormik.handleSubmit}>
           <Fieldset>
