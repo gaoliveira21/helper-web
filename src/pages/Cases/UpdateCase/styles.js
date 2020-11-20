@@ -71,6 +71,7 @@ export const ButtonContent = styled.div`
 export const Dropzone = styled.div`
   width: 100%;
   cursor: pointer;
+  margin-bottom: 8px;
 
   div {
     display: flex;
@@ -86,6 +87,24 @@ export const Dropzone = styled.div`
   }
 `
 
+export const Title = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+
+  strong {
+    font-size: 1.8rem;
+  }
+
+  span {
+    color: var(--color-gray);
+    font-weight: bold;
+    text-align: right;
+  }
+`
+
 export const PreviewContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -93,7 +112,6 @@ export const PreviewContent = styled.div`
   align-items: center;
 
   width: 100%;
-  margin: 24px 0;
 
   @media (min-width: 768px) {
     flex-direction: row;

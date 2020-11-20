@@ -24,7 +24,7 @@ import {
 const profileSchema = Yup.object().shape({
   initials: Yup.string(),
   cnpj: Yup.string(),
-  description: Yup.string().max(300, 'O campo descrição precisa ter no máximo 300 caracteres'),
+  description: Yup.string().max(500, 'O campo descrição precisa ter no máximo 500 caracteres'),
   street: Yup.string(),
   number: Yup
     .number('O campo número precisa ser um número válido')
@@ -285,7 +285,7 @@ function NewCase () {
             </UpdatePassword>
           </Fieldset>
           <ButtonContent>
-            <button type='submit'>Atualizar</button>
+            <button type='submit'>Atualizar Dados</button>
           </ButtonContent>
         </Form>
       </Container>
