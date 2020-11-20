@@ -58,8 +58,11 @@ function CaseItem ({ data }) {
         <p>{formattedDescription}</p>
       </Body>
       <ActionBox>
-        <Link to={`/cases/detail-case/${data.id}`}>Detalhes</Link>
-        <EditIcon onClick={() => handleNavigateToEdit(data.id)} />
+        <Link to={`/cases/detail-case/${data.id}`}>Mais detalhes</Link>
+        <div onClick={() => handleNavigateToEdit(data.id)}>
+          <EditIcon />
+          <span>Editar</span>
+        </div>
       </ActionBox>
     </Container>
   )

@@ -129,13 +129,22 @@ function DetailCase () {
               {/* {caseDetail.files.map((file) => {
                 return <img key={file.id} width='100' src={file.url} />
               })} */}
-              <PreviewContent>
-                <Preview>
-                  {caseDetail.files.map((file) => {
-                    return <div key={file.id}><img width='100' src={file.url} /></div>
-                  })}
-                </Preview>
-              </PreviewContent>
+              {caseDetail.files.length !== 0 && (
+                // O nome não tem haver
+                <ValueCollected>
+                  <Title>
+                    <strong>Imagens do caso</strong>
+                    <span>{caseDetail.files.length} / 4</span>
+                  </Title>
+                  <PreviewContent>
+                    <Preview>
+                      {caseDetail.files.map((file) => {
+                        return <div key={file.id}><img width='100' src={file.url} alt='Imagens do caso' /></div>
+                      })}
+                    </Preview>
+                  </PreviewContent>
+                </ValueCollected>
+              )}
               <Scroll>
                 <TableDonators cellSpacing='0'>
                   <caption>Doadores que ajudaram nesse caso</caption>
@@ -147,6 +156,18 @@ function DetailCase () {
                     </tr>
                   </thead>
                   <tbody>
+                    {caseDetail?.donations.length === 0 && (
+                      <tr>
+                        <td
+                          colSpan={4} style={{
+                            height: '50px',
+                          }}
+                        >
+                        Você ainda não recebeu doações
+                        </td>
+                      </tr>
+                    )}
+
                     {caseDetail?.donations &&
                         caseDetail?.donations.map((donation) => (
                           <tr key={donation.id}>

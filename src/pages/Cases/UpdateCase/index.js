@@ -57,7 +57,7 @@ function UpdateCase () {
     }
 
     loadCase()
-  }, [])
+  }, [history, params.id])
 
   function handleRemoveFile (id, preview = null) {
     if (!preview) {

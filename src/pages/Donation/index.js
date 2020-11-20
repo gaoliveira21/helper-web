@@ -15,7 +15,6 @@ import {
   SearchIcon,
   Main,
   DonationTable,
-  WithoutDonations,
   Scroll
 } from './styles'
 
@@ -69,42 +68,51 @@ function Donation () {
             </SearchBox>
           </div>
 
-          {donations ? (
-            <Scroll>
-              <DonationTable>
-                <thead>
+          <Scroll>
+            <DonationTable>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Doador</th>
+                  <th>Caso</th>
+                  <th>Valor doado</th>
+                </tr>
+              </thead>
+              <tbody>
+                {donations.length === 0 && (
                   <tr>
-                    <th>Data</th>
-                    <th>Doador</th>
-                    <th>Caso</th>
-                    <th>Valor doado</th>
+                    <td
+                      colSpan={4} style={{
+                        height: '100px',
+                        color: 'var(--color-primary)',
+                        fontSize: '2rem',
+                        fontWeight: 700
+                      }}
+                    >
+                        Você ainda não recebeu doações
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {donations.map(donation => (
-                    <tr key={donation.id}>
-                      <td>{donation.formattedDate}</td>
-                      <td>{donation.donator?.full_name || 'Doador anônimo'}</td>
-                      <td>{donation.case?.title}</td>
-                      <td>{donation.formattedValue}</td>
-                    </tr>
-                  ))}
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <th>Data</th>
-                    <th>Doador</th>
-                    <th>Caso</th>
-                    <th>Valor doado</th>
+                )}
+
+                {donations.map(donation => (
+                  <tr key={donation.id}>
+                    <td>{donation.formattedDate}</td>
+                    <td>{donation.donator?.full_name || 'Doador anônimo'}</td>
+                    <td>{donation.case?.title}</td>
+                    <td>{donation.formattedValue}</td>
                   </tr>
-                </tfoot>
-              </DonationTable>
-            </Scroll>
-          ) : (
-            <WithoutDonations>
-              <h3>Você ainda não recebeu doações</h3>
-            </WithoutDonations>
-          )}
+                ))}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Data</th>
+                  <th>Doador</th>
+                  <th>Caso</th>
+                  <th>Valor doado</th>
+                </tr>
+              </tfoot>
+            </DonationTable>
+          </Scroll>
         </Main>
       </Container>
     </DefaultLayout>

@@ -10,16 +10,13 @@ import Header from '../../components/Header'
 
 import {
   Form,
-  SocialMedias,
   Container,
   ImageBlock,
   Profile,
   Fieldset,
   InputContent,
   ButtonContent,
-  InputMedias,
   UpdatePassword,
-  CheckIcon,
   EditIcon,
   UserIcon
 } from './styles'
@@ -53,7 +50,7 @@ const entitySchema = Yup.object().shape({
 
 function NewCase () {
   const { user, changeAvatar, editProfile, editEntity } = useAuth()
-  const [avatar, setAvatar] = useState(user.profile.avatar)
+  const [, setAvatar] = useState(user.profile.avatar)
 
   const profileFormik = useFormik({
     initialValues: {
@@ -103,15 +100,10 @@ function NewCase () {
             <ImageBlock htmlFor='avatar'>
               {user.profile?.avatar?.url
                 ? <>
-                  <img
-                    src={user.profile?.avatar?.url}
-                    alt='Entidade'
-                  />
-                  <div>
-                    <UserIcon />
-                    <p>Alterar Avatar</p>
+                  <img src={user.profile?.avatar?.url} alt='Entidade' />
+                  <div><UserIcon /><p>Alterar Avatar</p>
                   </div>
-                  </>
+                </>
                 : <><UserIcon /> <p>Alterar Avatar</p></>}
 
             </ImageBlock>

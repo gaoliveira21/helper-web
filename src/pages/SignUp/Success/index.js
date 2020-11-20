@@ -14,7 +14,7 @@ function Success () {
     const user = JSON.parse(window.localStorage.getItem('@helper:user'))
 
     if (!user) history.push('/sign-up/step1')
-  }, [])
+  }, [history])
 
   return (
     <Container>

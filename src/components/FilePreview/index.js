@@ -9,6 +9,7 @@ function FilePreview ({ file, remove }) {
         key={file.preview || file.url}
         src={file.preview || file.url}
         width='100'
+        alt='Preview da imagem do caso'
       />
       <button type='button' onClick={() => remove(file.preview)}>Excluir</button>
     </ImagePreview>
