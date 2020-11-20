@@ -80,7 +80,7 @@ function SignIn () {
               />
             </InputBlock>
             <ButtonContent>
-              <button type='submit'>Próximo</button>
+              <button type='submit'>Entrar</button>
             </ButtonContent>
           </form>
 
