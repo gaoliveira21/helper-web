@@ -18,6 +18,7 @@ export const InputBlock = styled.div`
     outline: none;
     resize: none;
     background: var(--color-medium-gray);
+    line-height: 24px;
 
     &:focus {
       border-bottom: 2px solid var(--color-secondary);

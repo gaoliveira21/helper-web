@@ -2,11 +2,19 @@ import styled from 'styled-components'
 
 import { LeftArrowAlt } from '@styled-icons/boxicons-regular'
 
+import Love from '../../assets/images/love-background-dark.png'
+
 export const BackIcon = styled(LeftArrowAlt)`
   color: var(--color-white);
   margin-right: 4px;
   width: 2.4rem;
   height: auto;
+`
+
+export const Mask = styled.div`
+  background-color: var(--color-black);
+  width: 100%;
+  height: 40vh;
 `
 
 export const Container = styled.header`
@@ -16,6 +24,15 @@ export const Container = styled.header`
   width: 100%;
   padding: 24px 12px 48px 12px;
   background: var(--color-primary);
+
+  @media (min-width: 768px) {
+    background-image: url(${Love});
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: 80%;
+  }
+
 
   nav {
     display: flex;

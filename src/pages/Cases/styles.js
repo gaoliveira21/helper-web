@@ -94,6 +94,7 @@ export const FilterBox = styled.div`
 
 export const CaseList = styled.div`
   display: grid;
+  grid-row-gap: 2rem;
   //grid-template-columns: 1fr;
 
   @media (min-width: 768px) {

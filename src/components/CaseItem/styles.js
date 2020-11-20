@@ -4,8 +4,11 @@ import { Edit } from '@styled-icons/boxicons-regular'
 
 export const Container = styled.div`
   background: var(--color-white);
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.15);
+  //box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 2px 7px 1px rgba(0,0,0,0.13);
   border-radius: 0.8rem;
+
+  width: 100%;
 `
 
 export const Progress = styled.div`
@@ -16,10 +19,10 @@ export const Progress = styled.div`
   border-top-right-radius: 0.8rem;
 
   div {
-    width: ${(props) => (props.percent < 20 ? '20%' : `${props.percent}%`)};
+    width: ${(props) => (props.percent < 25 ? '25%' : `${props.percent}%`)};
     height: 100%;
     display: flex;
-    padding: 0 0.8rem;
+    padding: 0 8px;
     align-items: center;
     justify-content: flex-end;
     border-top-left-radius: 0.8rem;
@@ -57,7 +60,7 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
+  padding: 24px 24px;
 
   span {
     color: var(--color-gray);
@@ -66,7 +69,7 @@ export const Header = styled.header`
 `
 
 export const Body = styled.div`
-  padding: 1rem 2rem;
+  padding: 12px 24px;
 
   h3 {
     font-size: 2.5rem;
@@ -76,14 +79,16 @@ export const Body = styled.div`
     margin-top: 18px;
     text-align: justify;
     line-height: 24px;
+    min-height: 60px;
   }
-  min-height: 180px;
+  width:100%;
 `
 
 export const ActionBox = styled.footer`
-  padding: 2rem 2rem;
+  padding: 24px 24px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   a {
     padding: 1rem 2rem;
@@ -95,6 +100,19 @@ export const ActionBox = styled.footer`
 
     &:hover {
       background: var(--color-primary-dark);
+    }
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      cursor: pointer;
+      color: var(--color-gray);
+      font-weight: bold;
+      margin-left: 4px;
     }
   }
 `

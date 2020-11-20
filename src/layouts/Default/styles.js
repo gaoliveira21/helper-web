@@ -4,7 +4,8 @@ import {
   Home,
   DonateHeart,
   LogOut,
-  UserDetail
+  UserDetail,
+  User
 } from '@styled-icons/boxicons-solid'
 
 export const Container = styled.div`
@@ -47,8 +48,9 @@ export const SideBar = styled.nav`
     div {
       display: flex;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       border-radius: 50%;
+      background-color: #FFF;
       width: 140px;
       height: 140px;
       overflow: hidden;
@@ -194,6 +196,10 @@ export const ProfileIcon = styled(UserDetail)`
 export const LogOutIcon = styled(LogOut)`
   width: 4.5rem;
   color: var(--color-white);
+`
+export const UserIcon = styled(User)`
+  width: 56px;
+  color: var(--color-primary);
 `
 
 export const Divider = styled.div`

@@ -19,7 +19,7 @@ import registerImage from '../../../assets/images/register.svg'
 
 const schema = Yup.object().shape({
   city: Yup.string(),
-  state: Yup.string().length(2, 'O campo UF precisa ter 2 caracteres'),
+  state: Yup.string().length(2, 'O campo UF precisa ter 2 caracteres').matches(/^[A-Z]{2}$/g, 'UF precisa ser maiúsculo'),
   neighborhood: Yup.string(),
   street: Yup.string(),
   number: Yup.string(),

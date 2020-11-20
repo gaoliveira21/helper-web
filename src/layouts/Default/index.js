@@ -15,6 +15,7 @@ import {
   DonateIcon,
   ProfileIcon,
   LogOutIcon,
+  UserIcon,
   Divider
 } from './styles'
 
@@ -27,13 +28,12 @@ function DefaultLayout ({ children, title }) {
       <SideBar>
         <header>
           <div>
-            <img
-              src={
-              user.profile?.avatar?.url ||
-              'https://img.estadao.com.br/fotos/crop/1200x1200/resources/jpg/5/5/1553173579355.jpg'
-              }
-              alt='Entidade'
-            />
+            {user.profile?.avatar?.url
+              ? <img
+                src={user.profile?.avatar?.url}
+                alt='Entidade'
+              />
+              : <UserIcon />}
           </div>
           <p>
             Olá, <strong>{user.name}</strong>
