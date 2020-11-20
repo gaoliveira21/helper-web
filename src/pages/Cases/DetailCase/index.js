@@ -111,24 +111,6 @@ function DetailCase () {
                 />
               </TextContent>
 
-              <ValueCollected>
-                <Title>
-                  <strong>Total Arrecadado</strong>
-                  <span>{`${formattedValueCollected} / ${formattedValue}`}</span>
-                </Title>
-                <Progress
-                  percent={Math.ceil(
-                    (caseDetail.value_collected / caseDetail.value) * 100
-                  )}
-                >
-                  <div>
-                    <strong>{formattedValueCollected}</strong>
-                  </div>
-                </Progress>
-              </ValueCollected>
-              {/* {caseDetail.files.map((file) => {
-                return <img key={file.id} width='100' src={file.url} />
-              })} */}
               {caseDetail.files.length !== 0 && (
                 // O nome não tem haver
                 <ValueCollected>
@@ -145,6 +127,23 @@ function DetailCase () {
                   </PreviewContent>
                 </ValueCollected>
               )}
+
+              <ValueCollected>
+                <Title>
+                  <strong>Total Arrecadado</strong>
+                  <span>{`${formattedValueCollected} / ${formattedValue}`}</span>
+                </Title>
+                <Progress
+                  percent={Math.ceil(
+                    (caseDetail.value_collected / caseDetail.value) * 100
+                  )}
+                >
+                  <div>
+                    <strong>{formattedValueCollected}</strong>
+                  </div>
+                </Progress>
+              </ValueCollected>
+
               <Scroll>
                 <TableDonators cellSpacing='0'>
                   <caption>Doadores que ajudaram nesse caso</caption>
@@ -160,7 +159,7 @@ function DetailCase () {
                       <tr>
                         <td
                           colSpan={4} style={{
-                            height: '50px',
+                            height: '50px'
                           }}
                         >
                         Você ainda não recebeu doações

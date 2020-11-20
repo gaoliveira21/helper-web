@@ -103,7 +103,7 @@ function NewCase () {
                   <img src={user.profile?.avatar?.url} alt='Entidade' />
                   <div><UserIcon /><p>Alterar Avatar</p>
                   </div>
-                  </>
+                </>
                 : <><UserIcon /> <p>Alterar Avatar</p></>}
 
             </ImageBlock>
@@ -285,7 +285,7 @@ function NewCase () {
             </UpdatePassword>
           </Fieldset>
           <ButtonContent>
-            <button type='submit'>Atualizar</button>
+            <button type='submit'>Atualizar Dados</button>
           </ButtonContent>
         </Form>
       </Container>

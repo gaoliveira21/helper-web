@@ -16,7 +16,8 @@ import {
   ButtonContent,
   Dropzone,
   Preview,
-  PreviewContent
+  PreviewContent,
+  Title
 } from './styles'
 
 import Header from '../../../components/Header'
@@ -125,12 +126,17 @@ function UpdateCase () {
             />
           </InputContent>
 
-          <Dropzone>
-            <div {...getRootProps()}>
-              <input {...getInputProps()} />
-              <small>Clique aqui ou arraste para inserir ou excluir as imagens para o seu caso</small>
-            </div>
-          </Dropzone>
+          <Title>
+            <strong>Imagens do caso</strong>
+            <span>{files.length} / 4</span>
+          </Title>
+          {files.length < 4 && (
+            <Dropzone>
+              <div {...getRootProps()}>
+                <input {...getInputProps()} />
+                <small>Clique aqui ou arraste para inserir imagens para o seu caso</small>
+              </div>
+            </Dropzone>)}
           <PreviewContent>
             <Preview>
               {files.map(file => (

@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 import { darken } from 'polished'
 
 import { Edit, LoaderCircle } from '@styled-icons/boxicons-regular'
@@ -80,11 +80,30 @@ export const Progress = styled.div`
 
     width: ${(props) => (props.percent < 30 ? '30%' : `${props.percent}%`)};
     height: 100%;
-    padding: 0 2rem;
-
+    padding: 0 12px;
     border-radius: 0.8rem;
-    background-color: var(--color-secondary);
     color: var(--color-white);
+
+    ${(props) =>
+      props.percent >= 100
+        ? css`
+            background: repeating-linear-gradient(
+              -55deg,
+              ${darken(0.08, '#6FCF97')},
+              ${darken(0.08, '#6FCF97')} 15px,
+              var(--color-green) 10px,
+              var(--color-green) 30px
+            );
+          `
+        : css`
+            background: repeating-linear-gradient(
+              -55deg,
+              ${darken(0.07, '#5B5F97')},
+              ${darken(0.07, '#5B5F97')} 15px,
+              var(--color-secondary) 10px,
+              var(--color-secondary) 30px
+            );
+          `}
 
     @media (min-width: 768px){
       width: ${(props) => (props.percent < 10 ? '10%' : `${props.percent}%`)};

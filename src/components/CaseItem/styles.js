@@ -53,6 +53,7 @@ export const Progress = styled.div`
       color: var(--color-white);
       font-size: 1.6rem;
     }
+
   }
 `
 
