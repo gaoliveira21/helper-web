@@ -24,7 +24,7 @@ import {
 const profileSchema = Yup.object().shape({
   initials: Yup.string(),
   cnpj: Yup.string(),
-  description: Yup.string().max(300, 'O campo descrição precisa ter no máximo 300 caracteres'),
+  description: Yup.string().max(500, 'O campo descrição precisa ter no máximo 500 caracteres'),
   street: Yup.string(),
   number: Yup
     .number('O campo número precisa ser um número válido')
@@ -103,7 +103,7 @@ function NewCase () {
                   <img src={user.profile?.avatar?.url} alt='Entidade' />
                   <div><UserIcon /><p>Alterar Avatar</p>
                   </div>
-                </>
+                  </>
                 : <><UserIcon /> <p>Alterar Avatar</p></>}
 
             </ImageBlock>
