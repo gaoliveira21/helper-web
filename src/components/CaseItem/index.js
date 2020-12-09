@@ -31,7 +31,7 @@ function CaseItem ({ data }) {
 
   const formattedDescription = useMemo(() => {
     if (data.description.length > 100) {
-      return `${data.description.match(/^.{1,97}/)[0]}...`
+      return `${data.description.match(/^.{1,147}/)[0]}...`
     }
 
     return data.description

@@ -62,19 +62,19 @@ function UpdatePassword () {
     <>
       <Header
         title='Alterar Senha'
-        description='Confirme sua senha atual, Crie uma nova, Confirme sua nova senha e Pronto.'
+        description='Confirme sua senha atual, crie uma nova senha, confirme sua nova senha e pronto.'
         label='Alterar senha'
       />
 
       <Container>
         <Form onSubmit={formik.handleSubmit}>
           <Fieldset>
-            <legend>Alteração de senha secreta</legend>
+            <legend>Alteração de senha</legend>
             <span />
             <InputContent>
               <Input
                 width='100%'
-                label='Senha secreta atual'
+                label='Senha atual'
                 name='oldPassword'
                 type='password'
                 value={formik.values.oldPassword}
@@ -85,7 +85,7 @@ function UpdatePassword () {
             <InputContent>
               <Input
                 width='100%'
-                label='Nova senha secreta'
+                label='Nova senha'
                 name='password'
                 type='password'
                 value={formik.values.password}
@@ -96,7 +96,7 @@ function UpdatePassword () {
             <InputContent>
               <Input
                 width='100%'
-                label='Confirme sua nova senha secreta'
+                label='Confirme sua nova senha'
                 name='confirmPassword'
                 type='password'
                 value={formik.values.confirmPassword}

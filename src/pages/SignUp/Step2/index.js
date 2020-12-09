@@ -79,7 +79,7 @@ function Step2 () {
             Voltar
           </Link>
           <div>
-            <h1>Crie seu Perfil</h1>
+            <h1>Perfil da Entidade</h1>
             <p>Preencha os campos abaixo para começar a criação do seu perfil.</p>
           </div>
           <form onSubmit={formik.handleSubmit}>

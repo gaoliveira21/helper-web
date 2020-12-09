@@ -78,7 +78,7 @@ function Step3 () {
             Voltar
           </Link>
           <div>
-            <h1>Crie seu Perfil</h1>
+            <h1>Perfil da Entidade</h1>
             <p>Preencha os campos abaixo para começar a criação do seu perfil.</p>
           </div>
           <form onSubmit={formik.handleSubmit}>
@@ -88,7 +88,7 @@ function Step3 () {
                 width='70%'
                 type='text'
                 name='cnpj'
-                label='CNPJ'
+                label='CNPJ (opcional)'
                 placeholder='Digite seu CNPJ'
                 value={formik.values.cnpj}
                 onChange={formik.handleChange}

@@ -170,7 +170,7 @@ function DetailCase () {
                     {caseDetail?.donations &&
                         caseDetail?.donations.map((donation) => (
                           <tr key={donation.id}>
-                            <td>{donation.donator?.full_name || '-'}</td>
+                            <td>{donation.donator?.full_name || 'Anônimo'}</td>
                             <td>{formatPrice(donation.value)}</td>
                             <td>{formatDate(donation.createdAt)}</td>
                           </tr>
