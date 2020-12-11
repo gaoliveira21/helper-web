@@ -103,14 +103,6 @@ function Donation () {
                   </tr>
                 ))}
               </tbody>
-              <tfoot>
-                <tr>
-                  <th>Data</th>
-                  <th>Doador</th>
-                  <th>Caso</th>
-                  <th>Valor doado</th>
-                </tr>
-              </tfoot>
             </DonationTable>
           </Scroll>
         </Main>
