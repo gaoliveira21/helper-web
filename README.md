@@ -8,19 +8,15 @@
 ## :tv: Algumas telas do sistema
 
 <p>
-  <img src="./.github/login.png">
+  <img height="450px" src="./.github/login.png">
 </p>
 
 <p>
-  <img src="./.github/dashboard.png">
+  <img height="450px" src="./.github/dashboard.png">
 </p>
 
 <p>
-  <img src="./.github/404.png">
-</p>
-
-<p>
-  <img src="./.github/welcome-01.png" width="250" height="400"> <img src="./.github/welcome-02.png" width="250" height="400"> <img src="./.github/welcome-03.png" width="250" height="400">
+  <img height="450px" src="./.github/404.png">
 </p>
 
 ## :construction_worker: Pré-requisitos
